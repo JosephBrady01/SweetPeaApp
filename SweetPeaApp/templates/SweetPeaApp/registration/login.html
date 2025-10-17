@@ -1,0 +1,14 @@
+{% extends "SweetPeaApp/base.html" %}
+{% block content %}
+<div class="form-card-outer">
+  <div class="form-class-inner">
+    <h2 class="card-header">Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="form-button">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+  </div>
+</div>
+{% endblock %}
