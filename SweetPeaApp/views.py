@@ -5,6 +5,8 @@ from .models import Testimonials
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 # Create your views here.
@@ -84,3 +86,135 @@ class TestimonialDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView)
     def test_func(self):
         testimonial = self.get_object()
         return testimonial.author == self.request.user
+    
+# ------------------------------
+# 🔐 CUSTOM ADMIN PORTAL VIEWS
+# ------------------------------
+
+
+# Utility: restrict portal access to staff or superusers
+def staff_check(user):
+    return user.is_staff or user.is_superuser
+
+
+# ------------------------------
+# 🔸 LOGIN / LOGOUT
+# ------------------------------
+
+def portal_login(request):
+    """
+    Custom login page for Sweet Pea Admin Portal.
+    Only staff/superusers can log in.
+    """
+    if request.user.is_authenticated:
+        return redirect('portal_dashboard')
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user and staff_check(user):
+            login(request, user)
+            messages.success(request, f"Welcome back, {user.username}!")
+            return redirect('portal_dashboard')
+        else:
+            messages.error(request, "Invalid credentials or insufficient permissions.")
+
+    return render(request, 'SweetPeaApp/portal/admin_login.html')
+
+
+@login_required
+def portal_logout(request):
+    """
+    Logs out the current user and redirects to the portal login page.
+    """
+    logout(request)
+    messages.info(request, "You have been logged out.")
+    return redirect('portal_login')
+
+
+# ------------------------------
+# 🏠 DASHBOARD
+# ------------------------------
+
+@login_required
+@user_passes_test(staff_check)
+def portal_dashboard(request):
+    """
+    Displays the admin dashboard for staff/superusers.
+    Shows quick stats and navigation cards.
+    """
+    testimonial_count = Testimonials.objects.count()
+    user = request.user
+
+    return render(request, 'SweetPeaApp/portal/dashboard.html', {
+        'testimonial_count': testimonial_count,
+        'user': user,
+    })
+
+
+# ------------------------------
+# 💬 TESTIMONIAL MANAGEMENT (PORTAL)
+# ------------------------------
+
+class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    """
+    Restricts access to logged-in staff or superusers.
+    Used by all portal CRUD views.
+    """
+    def test_func(self):
+        return staff_check(self.request.user)
+
+
+class PortalTestimonialListView(StaffRequiredMixin, ListView):
+    """
+    Displays all testimonials in the admin portal for management.
+    """
+    model = Testimonials
+    template_name = 'SweetPeaApp/portal/admin_testimonial_list.html'
+    context_object_name = 'testimonials'
+    ordering = ['-created_at']
+
+
+class PortalTestimonialCreateView(StaffRequiredMixin, CreateView):
+    """
+    Allows staff/superusers to create a new testimonial via the portal.
+    """
+    model = Testimonials
+    fields = ['body']
+    template_name = 'SweetPeaApp/portal/testimonial_form.html'
+    success_url = reverse_lazy('portal_testimonial_list')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        messages.success(self.request, "✅ Testimonial added successfully.")
+        return super().form_valid(form)
+
+
+class PortalTestimonialUpdateView(StaffRequiredMixin, UpdateView):
+    """
+    Allows editing of existing testimonials via the portal.
+    """
+    model = Testimonials
+    fields = ['body']
+    template_name = 'SweetPeaApp/portal/testimonial_form.html'
+    success_url = reverse_lazy('portal_testimonial_list')
+
+    def form_valid(self, form):
+        messages.success(self.request, "✏️ Testimonial updated successfully.")
+        return super().form_valid(form)
+
+
+class PortalTestimonialDeleteView(StaffRequiredMixin, DeleteView):
+    """
+    Allows deletion of testimonials via the portal.
+    """
+    model = Testimonials
+    template_name = 'SweetPeaApp/portal/testimonial_confirm_delete.html'
+    success_url = reverse_lazy('portal_testimonial_list')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "🗑️ Testimonial deleted successfully.")
+        return super().delete(request, *args, **kwargs)
+

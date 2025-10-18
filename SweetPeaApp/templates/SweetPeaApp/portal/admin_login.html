@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Pea Admin Login</title>
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+</head>
+<body class="portal-body">
+  <div class="portal-card">
+    <h1>Sweet Pea Admin</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    {% for message in messages %}
+      <p class="error">{{ message }}</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

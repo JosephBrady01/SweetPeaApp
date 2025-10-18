@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Testimonials</title>
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+</head>
+<body class="portal-body">
+  <header class="portal-header">
+    <h1>Manage Testimonials</h1>
+    <a href="{% url 'portal_dashboard' %}">Dashboard</a>
+  </header>
+
+  <main class="portal-main">
+    <a href="{% url 'portal_testimonial_create' %}" class="btn">Add Testimonial</a>
+    {% for t in testimonials %}
+      <div class="portal-card">
+        <p>{{ t.body }}</p>
+        <small>by {{ t.author.username }}</small>
+        <div class="portal-actions">
+          <a href="{% url 'portal_testimonial_edit' t.pk %}">Edit</a>
+          <a href="{% url 'portal_testimonial_delete' t.pk %}">Delete</a>
+        </div>
+      </div>
+    {% empty %}
+      <p>No testimonials yet.</p>
+    {% endfor %}
+  </main>
+</body>
+</html>

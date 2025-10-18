@@ -20,9 +20,10 @@ from SweetPeaApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # Homepage
-    path('testimonials/', include('SweetPeaApp.urls')),  # App routes
-    path('accounts/', include('django.contrib.auth.urls')),  # Login/logout
-    path('register/', views.register, name='register'),  # Registration
+    path('', views.home, name='home'),
+
+    # ✅ Include all app URLs (including portal)
+    path('', include('SweetPeaApp.urls')),
 ]
+
 

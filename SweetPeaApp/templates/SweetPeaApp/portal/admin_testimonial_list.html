@@ -1,0 +1,19 @@
+{% extends 'SweetPeaApp/base.html' %}
+{% block title %}Testimonials | Sweet Pea{% endblock %}
+{% block content %}
+
+<section class="cardSection" id="Testimonials">
+  <h1 class="card-header">What Our Clients Say</h1>
+  <section class="three-card">
+    {% for testimonial in testimonials %}
+    <article class="card-one">
+      <p class="card-text">{{ testimonial.body }}</p>
+      <p class="card-text"><em>– {{ testimonial.author.username }}</em></p>
+    </article>
+    {% empty %}
+    <p class="card-text">No testimonials yet — check back soon!</p>
+    {% endfor %}
+  </section>
+</section>
+
+{% endblock %}
