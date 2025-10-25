@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +10,271 @@
   <script src="{% static 'SweetPeaApp/js/index.js' %}" defer></script>
   <title>{% block title %}Sweet Pea Home Services{% endblock %}</title>
 </head>
+
 <body>
-  <body>
-  <h1 style="text-align:center; color:#9E9ECC;">✅ Django is rendering this template</h1>
-  <img src="{% static 'SweetPeaApp/images/Logo-removebg-preview (1).png' %}">
-  <section class="cardSection" id="Testimonials">
-  <h1 class="card-header">What Our Clients Say</h1>
-  {% for testimonial in testimonials %}
-    <article class="card-one">
-      <p class="card-text">{{ testimonial.body }}</p>
-      <small>– {{ testimonial.author.username }}</small>
-    </article>
-  {% empty %}
-    <p>No testimonials yet — check back soon!</p>
-  {% endfor %}
+  <nav class="dropdown-nav">
+    <button class="nav-toggle">☰ Menu</button>
+    <ul class="nav-list">
+      <li><a href="#Landing">Home</a></li>
+      <li><a href="#AboutSweetPea">About Sweet Pea</a></li>
+      <li><a href="#Services">Services</a></li>
+      <li><a href="#AboutUs">About Us</a></li>
+      <li><a href="#Form">Enquiry Form</a></li>
+      <li><a href="#Footer">Contact us</a></li>
+    </ul>
+  </nav>
+  <section class="sweep-section" id="Landing">
+    <section class="left">
+      <article class="left-content">
+        <img src="{% static 'SweetPeaApp/images/Logo.png'  %}" alt="Sweet Pea Home Services Logo" class="logo" />
+        <h1 class="landing-text">Live well, Your way, At Home.</h1>
+        <a href="tel:07767 538280" class="link-item" title="Phone" rel="noopener noreferrer"><button
+            class="contact-button">Call us today! 07767 538280</button></a>
+      </article>
+    </section>
+
+    <section class="right"></section>
+
+    <svg class="curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
+    </svg>
+  </section>
+  <section class="cardSection" id="AboutSweetPea">
+    <h1 class="card-header">
+      Supporting loved ones to live independent lives in their own home
+    </h1>
+    <section class="three-card">
+      <article class="card-one">
+        <h2 class="card-header">A customer led approach</h2>
+        <p class="card-text">
+          Each support package is tailored to the needs of the customer, so
+          you’ll get the practical and physical support you need. Whether you
+          need one hour every week or daily visits, we can tailor our services
+          to meet your needs.
+        </p>
+        <img class="sweet-pea-image" src="{% static 'SweetPeaApp/images/card_sweet_pea.png' %}"
+          alt="Picture of a single Sweet Pea" />
+      </article>
+      <article class="card-two">
+        <h2 class="card-header">Home is where the heart is</h2>
+        <p class="card-text">
+          We understand that your home is your sanctuary, and we want to
+          provide a service that keeps you as independent as possible whilst
+          living in your own home.
+        </p>
+        <img class="sweet-pea-image" src="{% static 'SweetPeaApp/images/heart.png' %}"
+          alt="Picture of a single Sweet Pea" />
+      </article>
+      <article class="card-three">
+        <h2 class="card-header"> Affordable, personalised at home support</h2>
+        <p class="card-text">
+          We offer a personalised approach that ensures you always get the
+          right support for your needs and wishes and at a time that suits
+          you.
+        </p>
+        <img class="sweet-pea-image" src="{% static 'SweetPeaApp/images/Logo.png' %}"
+          alt="Picture of a single Sweet Pea" />
+      </article>
+    </section>
+    <p class="button-text">
+      If this sounds like something you’d be interested in, please fill out
+      the form and we’ll get back to you.
+    </p>
+    <a href="#Form"><button class="form-button">Get in Touch</button></a>
+  </section>
+
+  {% load static %}
+  
+<section class="services-container">
+  <!-- Home Help -->
+  <article class="service-card home-help">
+    <div class="service-bg">
+      <img src="{% static 'SweetPeaApp/images/home_help.jpeg' %}" alt="Home Help">
+    </div>
+
+    <!-- gradient tint, independent from image -->
+    <div class="service-tint"></div>
+
+    <!-- content -->
+    <div class="service-overlay">
+      <h2 class="service-title">Home Help</h2>
+      <p class="service-desc">Personalised household support</p>
+      <p class="service-price">From £20/hour</p>
+      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
+    </div>
 </section>
 
+<section class="services-container">
+  <!-- Companionship -->
+  <article class="service-card home-help">
+    <div class="service-bg">
+      <img src="{% static 'SweetPeaApp/images/companionship.jpeg' %}" alt="Home Help">
+    </div>
 
-  {% block content %}{% endblock %}
+    <!-- gradient tint, independent from image -->
+    <div class="service-tint"></div>
+
+    <!-- content -->
+    <div class="service-overlay">
+      <h2 class="service-title">Companionship</h2>
+      <p class="service-desc">Friendly presence & conversation</p>
+      <p class="service-price">From £20/hour</p>
+      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
+    </div>
+</section>
+
+<section class="services-container">
+  <!-- Home Help -->
+  <article class="service-card home-help">
+    <div class="service-bg">
+      <img src="{% static 'SweetPeaApp/images/respite.jpeg' %}" alt="Home Help">
+    </div>
+
+    <!-- gradient tint, independent from image -->
+    <div class="service-tint"></div>
+
+    <!-- content -->
+    <div class="service-overlay">
+      <h2 class="service-title">Respite Care</h2>
+      <p class="service-desc">Peace of mind for families</p>
+      <p class="service-price">From £20/hour</p>
+      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
+    </div>
+</section>
+
+<section class="services-container">
+  <!-- Home Help -->
+  <article class="service-card home-help">
+    <div class="service-bg">
+      <img src="{% static 'SweetPeaApp/images/home_help.jpeg' %}" alt="Home Help">
+    </div>
+
+    <!-- gradient tint, independent from image -->
+    <div class="service-tint"></div>
+
+    <!-- content -->
+    <div class="service-overlay">
+      <h2 class="service-title">Out & About</h2>
+      <p class="service-desc">Transport and accompaniment</p>
+      <p class="service-price">From £20/hour</p>
+      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
+    </div>
+</section>
+
+  <!-- ---------- MODALS ---------- -->
+  <!-- Home Help Modal -->
+  <div id="homeHelpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('homeHelpModal')">&times;</span>
+      <h2>Home Help</h2>
+      <p>We offer a range of home support options tailored to each individual’s needs.</p>
+      <ul>
+        <li>General cleaning and tidying</li>
+        <li>Meal preparation and kitchen support</li>
+        <li>Laundry and ironing assistance</li>
+        <li>Grocery shopping and errands</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Companionship Modal -->
+  <div id="companionshipModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('companionshipModal')">&times;</span>
+      <h2>Companionship</h2>
+      <p>Our friendly carers are here to keep you company and brighten your day.</p>
+      <ul>
+        <li>Chatting, games, or reading together</li>
+        <li>Short walks and light outings</li>
+        <li>Support with hobbies and activities</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Respite Care Modal -->
+  <div id="respiteModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('respiteModal')">&times;</span>
+      <h2>Respite Care</h2>
+      <p>We provide short-term relief for family carers, ensuring your loved one receives compassionate support.</p>
+      <ul>
+        <li>Short-term or regular respite options</li>
+        <li>Flexible schedules to suit family needs</li>
+        <li>Peace of mind while you recharge</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Out & About Modal -->
+  <div id="outAboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('outAboutModal')">&times;</span>
+      <h2>Out & About</h2>
+      <p>Helping clients stay active and social with safe, friendly transportation and companionship.</p>
+      <ul>
+        <li>Transport to appointments and events</li>
+        <li>Accompaniment for shopping trips</li>
+        <li>Encouragement for independent living</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="about-us" id="AboutUs">
+    <section class="about-us-content">
+      <h1 class="card-header">About Us</h1>
+      <img class="about-us-image" src="{% static 'SweetPeaApp/images/AboutUsPhoto.jpg' %}"
+        alt="A photo of Sarah & Andy" />
+      <pre
+        class="about-us-text">We are Andy and Sarah, a husband and wife team based in the Vale Of Glamorgan, who are dedicated to helping you be as independent as possible. We have three grown up girls, one of whom has a severe learning disability, and we know personally how hard it can be to find someone you trust to look after your loved ones.</pre>
+      <pre
+        class="about-us-text">We made the decision to set up Sweet Pea Home Help as we know first hand how difficult it can be to access the right support. Following the sad loss of Sarah’s mum in 2017 we struggled to obtain the extra support her Dad needed as we could not be there everyday.</pre>
+      <pre
+        class="about-us-text">And if you were wondering why we are called Sweet Pea, it was Sarah’s Mum’s favourite flower.</pre>
+    </section>
+    <section class="about-us-right"></section>
+    <svg class="about-us-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
+    </svg>
+  </section>
+  <section class="contact-form" id="Form">
+    <h1 class="card-header">Enquiry Form - Get in Touch With Us</h1>
+    <h2 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation
+      consultation to help you choose the right support- and we’ll provide a clear quote with no hidden fees.</h2>
+    <section class="form-card-outer">
+      <section class="form-class-inner">
+        <form action="https://api.web3forms.com/submit" method="POST" class="form ">
+          <input type="hidden" name="access_key" value="5ce6e94e-f663-47cd-b000-82c69d23e143">
+          <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+          <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+          <input type="text" name="postcode" placeholder="Your Postcode" class="form-input" required>
+          <input type="number" name="phone" placeholder="Your Phone Number" class="form-input" required>
+          <textarea name="message" placeholder="Please Type Here" class="form-input" required></textarea>
+          <button type="submit"> Submit </button>
+        </form>
+      </section>
+    </section>
+  </section>
+  <footer class="footer-links" id="Footer">
+    <a href="https://bit.ly/sweetpeahelp" class="link-item" title="Facebook" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-facebook-f"></i>
+      <span>Facebook</span>
+    </a>
+    <a href="https://bit.ly/sweetpeahomehelp" class="link-item" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-instagram"></i>
+      <span>Instagram</span>
+    </a>
+    <a href="mailto:sweetpeahomehelp@gmail.com" class="link-item" target="_blank" rel="noopener noreferrer">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Email</span>
+    </a>
+    <a href="tel:07767 538280" class="link-item" title="Phone" rel="noopener noreferrer">
+      <i class="fa-solid fa-phone"></i>
+      <span>Phone</span>
+    </a>
+  </footer>
+  {% block content %} {% endblock %}
 </body>
+
+</html>
+
 </html>

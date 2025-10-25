@@ -8,6 +8,7 @@
     {% for testimonial in testimonials %}
     <article class="card-one">
       <p class="card-text">{{ testimonial.body }}</p>
+      <p class="card-text">{{ testimonial.location }}</p>
       <p class="card-text"><em>– {{ testimonial.author.username }}</em></p>
     </article>
     {% empty %}

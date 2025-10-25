@@ -182,7 +182,7 @@ class PortalTestimonialCreateView(StaffRequiredMixin, CreateView):
     Allows staff/superusers to create a new testimonial via the portal.
     """
     model = Testimonials
-    fields = ['body']
+    fields = ['body', 'location']
     template_name = 'SweetPeaApp/portal/testimonial_form.html'
     success_url = reverse_lazy('portal_testimonial_list')
 
@@ -197,7 +197,7 @@ class PortalTestimonialUpdateView(StaffRequiredMixin, UpdateView):
     Allows editing of existing testimonials via the portal.
     """
     model = Testimonials
-    fields = ['body']
+    fields = ['body', 'location']
     template_name = 'SweetPeaApp/portal/testimonial_form.html'
     success_url = reverse_lazy('portal_testimonial_list')
 

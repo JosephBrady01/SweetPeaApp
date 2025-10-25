@@ -109,7 +109,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/landing_page_hands.jpg');
+  background-image: url('/static/SweetPeaApp/images/landing_page.jpeg');
   background-size: cover; /* <-- Fill the section */
   background-repeat: no-repeat;
   background-position: center;
@@ -171,15 +171,6 @@ html, body {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
-
-.parallax-one {
-  background-image: url(images/sweet_pea_1.jpg);
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .cardSection {
@@ -248,7 +239,7 @@ html, body {
 .card-text {
   font-family: "lato", sans-serif;
   font-size: 24pt;
-  text-align: left;
+  text-align: center;
   margin: 3%;
 }
 
@@ -283,176 +274,180 @@ html, body {
   z-index: 1;
 }
 
-.parallax-two {
-  background-image: url(images/sweet_pea_2.jpg);
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+/* Grid */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.services-section {
-  background-color: #EFE1E1;
-  text-align: center;
-  align-items: center;
-  height: 50vh;
-  padding-bottom: 30%;
-  margin: 0;
-}
-
-.cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2%;
-  padding: 2%;
-}
-
-.booking-card {
-  width: 23%;
-  padding: 2%;
-  border-radius: 10px;
-  background: #fdfdfd;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+/* Card shell */
+.service-card {
   position: relative;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  transition: transform .3s ease;
+}
+.service-card:hover { transform: translateY(-4px); }
+
+/* Layer 0: image */
+.service-bg,
+.service-tint,
+.service-overlay { position: absolute; inset: 0; }
+.service-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* keeps the image position stable */
+  display: block;
 }
 
-.booking-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.4); /* soft white overlay */
-  z-index: 0; /* sits behind the content but above ::before */
+/* Layer 1: gradient tint (independent opacity) */
+.service-tint {
+  z-index: 1;
+  border-radius: 20px;           /* clip to card radius */
   pointer-events: none;
-  border-radius: 10px;
+  /* default, in case a card has no theme set */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 100%);
 }
 
-.booking-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+/* Layer 2: content */
+.service-overlay {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem;
 }
 
-.booking-card button {
-  border: 2px solid #0a4870;
-  background: white;
-  color: #0a4870;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-  border-radius: 5px;
-  margin-top: -3%;
-}
-
-.booking-card button:hover {
-  transform: scale(1.1);
-  background: #e3ebf1;
-}
-
-.title {
+.service-title {
   font-family: "Comfortaa", sans-serif;
-  font-size: 28pt;
-  color: #0a4870;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  background: #9E9ECC;
+  border-radius: 24px;
+  padding: .25rem 1rem;
+  margin-bottom: .5rem;
+}
+.service-desc { font-family: "Lato", sans-serif; color: #2b2b2b; margin-bottom: .25rem; }
+.service-price { font-family: "Lato", sans-serif; color: #433c9d; margin-bottom: .6rem; }
+.service-btn {
+  background: #BFD9E3; color: #2b2b2b; border: 0; border-radius: 20px;
+  padding: .45rem 1rem; cursor: pointer;
+}
+.service-btn:hover { background: #9E9ECC; color: #fff; }
+
+/* ── Per-card tints (your exact palettes) ─────────────────────────── */
+/* Each uses its own linear-gradient on the tint layer */
+.home-help .service-tint {
+  /* F8D8C5 → FFF5EE (peach/cream) with gentle opacity */
+  background: linear-gradient(
+    to bottom,
+    rgba(248,216,197,0.00) 0%,
+    rgba(255,245,238,0.62) 100%
+  );
 }
 
-.sub-title {
-  font-family: "Lato", sans-serif;
-  font-size: 12pt;
-  margin: 0.5em 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+.companionship .service-tint {
+  /* D5A6BD → FBEFF4 (lavender/pink) */
+  background: linear-gradient(
+    to bottom,
+    rgba(213,166,189,0.00) 0%,
+    rgba(251,239,244,0.62) 100%
+  );
 }
 
-.price {
-  font-family: "Lato", sans-serif;
-  font-size: 12pt;
-  color: red;
-  margin-bottom: 1em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+.respite .service-tint {
+  /* CDBEDC → F4EFF9 (blue-lavender) */
+  background: linear-gradient(
+    to bottom,
+    rgba(205,190,220,0.00) 0%,
+    rgba(244,239,249,0.62) 100%
+  );
 }
 
+.out-about .service-tint {
+  /* A3B49B → EEF2EA (soft mint/grey) */
+  background: linear-gradient(
+    to bottom,
+    rgba(163,180,155,0.00) 0%,
+    rgba(238,242,234,0.62) 100%
+  );
+}
+
+/* Optional: slightly strengthen tint on hover without moving the image */
+.service-card:hover .service-tint {
+  filter: brightness(1.02);
+}
+
+
+/* --- Modal Styling --- */
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.6);
-  z-index: 999;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease;
-  text-align: center;
-}
-
-.card-description {
-  font-family: "lato", sans-serif;
-  word-break: break-all;
-  margin-bottom: 5%;
-  font-size: 17pt;
-}
-
-.card-list {
-  font-family: "Lato", sans-serif;
-  font-size: 16pt;
-  margin: 0.5em 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content {
-  background: white;
+  background-color: #fff;
   border-radius: 20px;
-  padding: 2em;
-  max-width: 90%;
-  max-height: 80%;
-  overflow-y: auto;
-  position: relative;
-  animation: slideUp 0.3s ease;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  animation: modalSlide 0.3s ease;
 }
 
-.modal-list li {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1%;
-  gap: 0.3em; /* this replaces margin */
+@keyframes modalSlide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.modal-text {
-  font-family: "Lato", sans-serif;
-  font-size: 16pt;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  word-break: break-all;
+.modal-content h2 {
+  font-family: 'Comfortaa', sans-serif;
+  color: #2b2b2b;
+  margin-bottom: 1rem;
 }
 
-.close-modal {
+.modal-content p,
+.modal-content ul {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+}
+
+.modal-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.close {
   position: absolute;
-  top: 1em; right: 1em;
-  font-size: 1.5em;
-  background: none;
-  border: none;
+  top: 15px;
+  right: 25px;
+  color: #999;
+  font-size: 1.8rem;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.close:hover {
+  color: #333;
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-.parallax-three {
-  background-image: url(images/sweet_pea_3.jpg);
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .about-us {
   background-color: #EFE1E1;
@@ -508,7 +503,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/about_us_sweet_pea.jpg');
+  background-image: url('/static/SweetPeaApp/images/about_us_sweet_pea.jpg');
   background-size: cover; /* <-- Fill the section */
   background-repeat: no-repeat;
   background-position: center;
@@ -527,14 +522,6 @@ html, body {
   border: black;
 }
 
-.parallax-four {
-  background-image: url(images/sweet_pea_4.jpg);
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 /* Section background and header */
 .contact-form {
@@ -704,9 +691,6 @@ button[type="submit"]:hover {
 
 @media screen and (max-width: 954px), screen and (max-height: 1025px)  {
 
-    .parallax-one, .parallax-two, .parallax-three, .parallax-four  {
-    background-attachment: scroll; /* Disables fixed parallax */
-  }
 
   /* 1. Landing page: hide image and SVG */
   .right,
