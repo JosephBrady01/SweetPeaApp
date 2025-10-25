@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400..900&family=Poppins:wght@700&display=swap');
 
+/* === GLOBAL STYLES === */
 * {
   box-sizing: border-box;
   word-wrap: break-word;
@@ -13,8 +13,10 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-color:#EFE1E1;
 }
 
+/* === DROPDOWN NAV === */
 .dropdown-nav {
   position: fixed;
   top: 1rem;
@@ -41,13 +43,11 @@ html, body {
   background-color: #DDEDE0;
   border-radius: 0.5rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-
   max-height: 0;           /* collapsed by default */
   overflow: hidden;
   opacity: 0;
   transform: translateY(-10px); /* slight slide effect */
   transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, transform 0.3s ease;
-
 }
 
 .dropdown-nav.open .nav-list {
@@ -73,11 +73,9 @@ html, body {
   color: white;
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
 }
 
-
-/* Full viewport layout */
+/* === SWEEP SECTIONS (Landing & Why Choose Us) === */
 .sweep-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -87,7 +85,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Left half */
+/* Left Column */
 .left {
   background-color: #EFE1E1;
   position: relative;
@@ -95,11 +93,71 @@ html, body {
   overflow: hidden;
 }
 
+.left-content {
+  position: relative;
+  z-index: 2; /* On top of SVG */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo {
+  margin-top: 5%;
+  width: 150%;
+  max-width: 100%;
+  height: auto;
+}
+
+.landing-text {
+  font-size: 30pt;
+  font-family: "Playfair Display", serif; /* <-- CHANGE THIS */
+  margin-top: 25%;
+  color: #2b2b2b;
+}
+.contact-button {
+  height: 50px;
+  width: 70%;
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive text size */
+  margin-bottom: 2%;
+  background-color: #BFD9E3;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.contact-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Right Column (Landing Image) */
 .right {
   position: relative;
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.why-us-article {
+    text-align: left;
+}
+
+h1.why-us-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 30pt; /* Match .card-header */
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* Add some spacing */
+}
+
+.why-us-content {
+    font-family: "lato", sans-serif;
+    font-size: 24pt; /* Match .card-text */
+    margin-bottom: 1rem; /* Add spacing between paragraphs */
 }
 
 .right::before {
@@ -116,7 +174,29 @@ html, body {
   z-index: 0;
 }
 
-/* SVG curve */
+/* Right Column (Why Choose Us Image) */
+.image-view {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-view::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/SweetPeaApp/images/why_sweetPea.jpeg');
+  background-size: cover; /* <-- Fill the section */
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+
+/* SVG Curve (Shared by Sweep Sections) */
 .curve {
   position: absolute;
   top: 0;
@@ -128,74 +208,168 @@ html, body {
   transform: scaleX(-1);
 }
 
-/* Content (text and logo) */
-.left-content {
-  position: relative;
-  z-index: 2; /* On top of SVG */
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
+/* === SERVICES SECTION === */
+.services-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem 0;
 }
 
-.landing-text {
-  font-size: 30pt;
-  font-family: "Comfortaa", sans-serif;
-  margin-top: 25%;
-  color: #2b2b2b;
+.services-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
 }
 
-.logo {
-  margin-top: 5%;
-  width: 150%;
-  max-width: 100%;
-  height: auto;
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-.contact-button {
-  height: 50px;
-  width: 70%;
-  font-family: "Lato", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive text size */
-  margin-bottom: 2%;
-  background-color: #BFD9E3;
-  border-radius: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+article.service-card {
+    position: relative;
+    border: 2px solid #5d5d5d;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 350px;
+    background-size: cover;
+    display: flex;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-.contact-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+article.service-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end; 
+    text-align: center;
+    align-items: center;
+}
+
+/* Service Card Backgrounds */
+#card-home-help {
+    background-image: url('/static/SweetPeaApp/images/home_help.jpeg');
+    background-position: center bottom;
+}
+#card-companionship {
+    background-image: url('/static/SweetPeaApp/images/companionship.jpeg');
+    background-position: 70% 50%;
+}
+#card-respite {
+    background-image: url('/static/SweetPeaApp/images/respite.jpeg');
+    background-position: center;
+}
+#card-out-about {
+    background-image: url('/static/SweetPeaApp/images/out&about.jpeg');
+    background-position: center top;
+}
+
+/* Service Card Gradients */
+#card-home-help::before {
+    background: linear-gradient(to top, #F8D8C5 20%, rgba(248, 216, 197, 0) 70%);
+}
+#card-companionship::before {
+    background: linear-gradient(to top, #D5A6BD 20%, rgba(213, 166, 189, 0) 70%);
+}
+#card-respite::before {
+    background: linear-gradient(to top, #A3B49B 20%, rgba(163, 180, 155, 0) 70%);
+}
+#card-out-about::before {
+    background: linear-gradient(to top, #CDBEDC 20%, rgba(203, 190, 220, 0) 70%);
+}
+
+/* Service Card Text */
+h3.card-title {
+    display: inline-block;
+    background-color: #dcd6f0;
+    border: 2px solid #4a4a8a;
+    color: #4a4a8a;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.card-description {
+    font-size: 1.4rem;
+    font-weight: 700; 
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.card-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #8c60b9;
+    margin-bottom: 20px;
+}
+
+.see-more-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #b2d8b2;
+    border: 2px solid #6a9a6a;
+    color: #3a5a3a;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.see-more-btn:hover {
+    background-color: #a7d0a7;
+    transform: scale(1.05);
+}
+
+/* === CARD SECTION (About Sweet Pea) === */
 .cardSection {
   background-color: #EFE1E1;
-  height: 108vh;
+  padding: 4rem 0;
   text-align: center;
   font-size: 30pt;
   margin: 0;
   margin-bottom: 0;
 }
 
-.card-container,
+.card-container, /* This class isn't in base.html, but I'll leave it */
 .services-section,
 .about-us,
 .contact-form {
   margin-bottom: 2.5rem;
 }
 
-
 .three-card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: stretch;
 }
-
 
 .card-one, .card-two, .card-three {
   border: black solid;
@@ -230,7 +404,7 @@ html, body {
 }
 
 .card-header {
-  font-family: "Comfortaa", sans-serif;
+  font-family: "Playfair Display", serif; 
   font-size: 30pt;
   margin-bottom: 3%;
   padding-top: 3%;
@@ -274,188 +448,88 @@ html, body {
   z-index: 1;
 }
 
-
-/* Grid */
-.services-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-/* Card shell */
-.service-card {
+/* === QUOTE FULL BLEED SECTION === */
+.quote-full-bleed {
   position: relative;
-  height: 280px;
-  border-radius: 20px;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  box-shadow: 0 6px 10px rgba(0,0,0,.15);
-  transition: transform .3s ease;
-}
-.service-card:hover { transform: translateY(-4px); }
-
-/* Layer 0: image */
-.service-bg,
-.service-tint,
-.service-overlay { position: absolute; inset: 0; }
-.service-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;             /* keeps the image position stable */
-  display: block;
-}
-
-/* Layer 1: gradient tint (independent opacity) */
-.service-tint {
-  z-index: 1;
-  border-radius: 20px;           /* clip to card radius */
-  pointer-events: none;
-  /* default, in case a card has no theme set */
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 100%);
-}
-
-/* Layer 2: content */
-.service-overlay {
-  z-index: 2;
+  background-image: url('/static/SweetPeaApp/images/yellow.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Use flexbox to position the text container */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  padding: 1.2rem;
+  align-items: center; /* Vertically center */
+  justify-content: flex-start; /* Push to the left */
 }
 
-.service-title {
-  font-family: "Comfortaa", sans-serif;
-  color: #fff;
-  background: #9E9ECC;
-  border-radius: 24px;
-  padding: .25rem 1rem;
-  margin-bottom: .5rem;
-}
-.service-desc { font-family: "Lato", sans-serif; color: #2b2b2b; margin-bottom: .25rem; }
-.service-price { font-family: "Lato", sans-serif; color: #433c9d; margin-bottom: .6rem; }
-.service-btn {
-  background: #BFD9E3; color: #2b2b2b; border: 0; border-radius: 20px;
-  padding: .45rem 1rem; cursor: pointer;
-}
-.service-btn:hover { background: #9E9ECC; color: #fff; }
+.quote-text-container {
+  /* This creates the space on the left */
+  padding-left: 8%; 
 
-/* ── Per-card tints (your exact palettes) ─────────────────────────── */
-/* Each uses its own linear-gradient on the tint layer */
-.home-help .service-tint {
-  /* F8D8C5 → FFF5EE (peach/cream) with gentle opacity */
-  background: linear-gradient(
-    to bottom,
-    rgba(248,216,197,0.00) 0%,
-    rgba(255,245,238,0.62) 100%
-  );
+  /* This controls the line length nicely */
+  max-width: 45%; /* <-- CHANGED FROM 40% */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+.quote-text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* <-- CHANGED (Made smaller) */
+  line-height: 1.4;
+  font-weight: 500;
+  color: black; /* Soft white text */
+  /* Add shadow for readability against the image */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
 
-.companionship .service-tint {
-  /* D5A6BD → FBEFF4 (lavender/pink) */
-  background: linear-gradient(
-    to bottom,
-    rgba(213,166,189,0.00) 0%,
-    rgba(251,239,244,0.62) 100%
-  );
-}
-
-.respite .service-tint {
-  /* CDBEDC → F4EFF9 (blue-lavender) */
-  background: linear-gradient(
-    to bottom,
-    rgba(205,190,220,0.00) 0%,
-    rgba(244,239,249,0.62) 100%
-  );
-}
-
-.out-about .service-tint {
-  /* A3B49B → EEF2EA (soft mint/grey) */
-  background: linear-gradient(
-    to bottom,
-    rgba(163,180,155,0.00) 0%,
-    rgba(238,242,234,0.62) 100%
-  );
-}
-
-/* Optional: slightly strengthen tint on hover without moving the image */
-.service-card:hover .service-tint {
-  filter: brightness(1.02);
-}
-
-
-/* --- Modal Styling --- */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  animation: modalSlide 0.3s ease;
-}
-
-@keyframes modalSlide {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 768px) {
+/* 4. Quote section mobile layout */
+  .quote-full-bleed {
+    height: 70vh; /* Shorter on mobile */
+    display: flex;
+    align-items: flex-end; /* Move text container to the BOTTOM */
+    justify-content: center; /* Center it horizontally */
+    position: relative; /* Needed for the opacity overlay */
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+
+  /* This adds the opacity decrease to the image */
+  .quote-full-bleed::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* 10% black overlay */
+    z-index: 1; /* Sit just above the image */
+  }
+
+  .quote-text-container {
+    padding: 0; /* Reset desktop padding */
+    max-width: 90%; /* Allow it to be wide */
+    text-align: center;
+    position: relative; /* Keep it relative */
+    z-index: 2; /* Ensure text is on top of the overlay */
+    
+    /* This positions it over the floral shirt area */
+    margin-bottom: 10%; 
+  }
+  
+  .quote-text {
+    font-size: 1.5rem; /* Smaller, readable mobile font */
+    line-height: 1.3;
+    /* Stronger shadow for mobile readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
 }
 
-.modal-content h2 {
-  font-family: 'Comfortaa', sans-serif;
-  color: #2b2b2b;
-  margin-bottom: 1rem;
-}
-
-.modal-content p,
-.modal-content ul {
-  font-family: 'Lato', sans-serif;
-  color: #333;
-}
-
-.modal-content ul {
-  list-style-type: disc;
-  margin-left: 1.5rem;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: #999;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.close:hover {
-  color: #333;
-}
-
-
+/* === ABOUT US SECTION === */
 .about-us {
   background-color: #EFE1E1;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
-  height: 100vh;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   margin: 0;
@@ -466,10 +540,7 @@ html, body {
   z-index: 2; /* On top of SVG */
   width: 100%;
   max-width: 60%;
-  height: 100vh;
   margin: 0 auto;
-  top: 50%;
-  transform: translateY(-50%);
   word-break: break-all;
 }
 
@@ -484,14 +555,12 @@ html, body {
   font-size: 16pt;
   word-break: break-word;
   white-space: normal;
-; /* wrap lines inside <pre> */
   max-width: 100%;
   text-align: left;
 }
 
 .about-us-right {
   position: relative;
-  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -504,7 +573,7 @@ html, body {
   width: 100%;
   height: 100%;
   background-image: url('/static/SweetPeaApp/images/about_us_sweet_pea.jpg');
-  background-size: cover; /* <-- Fill the section */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -515,15 +584,91 @@ html, body {
   top: 0;
   left: 23%;
   width: 50vw;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   pointer-events: none;
   transform: scaleX(-1);
   border: black;
 }
 
+.testimonial-section {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
 
-/* Section background and header */
+.testimonial-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.testimonial-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/SweetPeaApp/images/testimonials.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 30pt;
+  margin-bottom: 1.5rem;
+  color: #4a4a8a;
+}
+
+.testimonial-item {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 4px solid #9E9ECC;
+}
+
+.testimonial-item p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #555;
+}
+
+.testimonial-curve {
+  position: absolute;
+  top: 0;
+  left: 23%;
+  width: 50vw;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+
+/* === CONTACT FORM SECTION === */
 .contact-form {
   margin: 0;
   background-color: #EFE1E1;
@@ -532,15 +677,6 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-}
-
-.card-header {
-  font-size: 2rem;
-  color: #412b3c;
-  margin-bottom: 1rem;
-  font-family: "Comfortaa", sans-serif;
-  padding-bottom: 3%;
 }
 
 .form-info {
@@ -553,7 +689,6 @@ html, body {
   padding-bottom: 7%;
 }
 
-/* Outer card styling */
 .form-card-outer {
   background-color: #DDEDE0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -564,7 +699,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Inner container, if needed */
 .form-class-inner {
   background-color: #9E9ECC;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -572,7 +706,6 @@ html, body {
   padding: 2rem;
 }
 
-/* Form fields */
 .form {
   display: flex;
   flex-direction: column;
@@ -601,7 +734,6 @@ html, body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Submit button */
 button[type="submit"] {
   background-color: #cb9bbf;
   color: white;
@@ -621,12 +753,7 @@ button[type="submit"]:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-  .form-button {
-    font-size: 16pt;
-    padding: 0.5em 1em; /* shrink padding for small height */
-  }
-
+/* === FOOTER === */
 .footer-links {
   background-color: #DDEDE0;
   display: flex;
@@ -687,10 +814,94 @@ button[type="submit"]:hover {
   opacity: 0;
 }
 
+/* === SERVICE PAGE STYLES (Not in base.html) === */
+nav .back-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4a4a8a;
+    text-decoration: none;
+    margin: 20px 0 0 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
 
+nav .back-link:hover {
+    background-color: #f0ebf8;
+}
 
+main.content-page {
+    background-color: #ffffff;
+    margin: 20px auto 60px auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 900px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.content-page h1 {
+    font-size: 2.5rem;
+    color: #4a4a8a;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.content-tagline {
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.content-page p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.content-subheader {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a4a8a;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.content-list {
+    list-style-type: none;
+    padding-left: 25px;
+    margin: 0;
+}
+
+.content-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.content-list li::before {
+    content: '•';
+    position: absolute;
+    left: -25px;
+    font-weight: bold;
+    color: #8c60b9;
+    font-size: 1.2rem;
+}
+
+/* === MOBILE RESPONSIVE === */
 @media screen and (max-width: 954px), screen and (max-height: 1025px)  {
-
 
   /* 1. Landing page: hide image and SVG */
   .right,
@@ -712,26 +923,25 @@ button[type="submit"]:hover {
   }
 
   /* Let sections grow naturally */
-.cardSection,
-.services-section,
-.about-us,
-.contact-form {
-  height: auto !important;
-  min-height: unset !important;
-}
+  .cardSection,
+  .services-section,
+  .about-us,
+  .contact-form {
+    height: auto !important;
+    min-height: unset !important;
+  }
 
-/* Ensure each section has spacing from others */
-.cardSection,
-.services-section,
-.about-us,
-.contact-form {
-  margin-bottom: 0;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-}
+  /* Ensure each section has spacing from others */
+  .cardSection,
+  .services-section,
+  .about-us,
+  .contact-form {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
 
-
-  /* 2. Cards stacked */
+  /* 2. Cards stacked (cardSection) */
   .three-card {
     grid-template-columns: 1fr;
   }
@@ -752,46 +962,17 @@ button[type="submit"]:hover {
   }
 
   /* 3. Services section stacked */
-  .cards-wrapper {
-    flex-direction: column;
-    gap: 1rem;
+  .services-grid {
+      grid-template-columns: 1fr;
   }
-
-  .booking-card {
-    width: 90% !important;
-    margin: 0 auto;
-    background-size: 60px;
-    background-position: top 1rem center;
-    padding-top: 6rem;
+  
+  /* These are for the separate service pages */
+  .content-page {
+      width: 95%;
+      padding: 25px 20px;
   }
-
-  /* 4. Modal resize */
-  .modal-content {
-    max-width: 90%;
-    max-height: none;
-    overflow-y: visible;
-    font-size: clamp(14px, 3vw, 10px);
-    padding: 1rem;
-  }
-
-  .title {
-    font-size: clamp(18px, 5vw, 26px); /* scales between mobile and tablet sizes */
-    line-height: 1.2; /* keep it compact */
-    word-break: keep-all; /* prevent breaking words mid-way */
-    text-align: center;
-  }
-
-  .modal-text,
-  .card-description,
-  .card-list {
-    font-size: clamp(12px, 2.5vw, 15px);
-    line-height: 1.4; /* better readability */
-    word-break: normal; /* avoid breaking words mid-letter */
-    white-space: normal; /* let text wrap properly */
-  }
-
-  .modal-list .modal-text {
-    font-size: 14pt;
+  .content-page h1 {
+      font-size: 2rem;
   }
 
   /* 5. About Us layout change */
@@ -814,14 +995,14 @@ button[type="submit"]:hover {
   }
 
   .about-us-text {
-    font-size: 70;
+    font-size: 70; /* This seems like a typo, maybe 16pt? */
   }
 
   .about-us-image {
-  border-radius: 30px;
-  margin-bottom: 3%;
-  width: 80%;
-}
+    border-radius: 30px;
+    margin-bottom: 3%;
+    width: 80%;
+  }
 
   /* 6. Contact form fit and resize */
   .contact-form {
@@ -849,23 +1030,7 @@ button[type="submit"]:hover {
     width: 100%;
   }
 
-  .modal {
-    width: 95%;
-  }
-
-  .modal-content {
-    word-wrap: break-word;
-  }
-
-  .modal-text li {
-    font-size: 0.100%;
-  }
-
-  .close-modal {
-    margin-left: 5%;
-  }
-
-    .footer-links {
+  .footer-links {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -885,5 +1050,3 @@ button[type="submit"]:hover {
     font-size: 3.5rem;
   }
 }
-
-

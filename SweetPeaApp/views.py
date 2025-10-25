@@ -52,7 +52,7 @@ class TestimonialCreateView(LoginRequiredMixin, CreateView):
 
     """
     model = Testimonials
-    fields = ['body']
+    fields = ['body', 'location']
     template_name = 'SweetPeaApp/testimonials/testimonial_form.html'
     success_url = reverse_lazy('testimonial_list')
 
@@ -66,7 +66,7 @@ class TestimonialUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
 
     """
     model = Testimonials
-    fields = ['body']
+    fields = ['body', 'location']
     template_name = 'SweetPeaApp/testimonials/testimonial_form.html'
     success_url = reverse_lazy('testimonial_list')
 

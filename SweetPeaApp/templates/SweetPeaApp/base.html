@@ -39,6 +39,65 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
+<section class="sweep-section">
+    <section class="left">
+      <article class="left-content why-us-article">
+        <h1 class="why-us-heading">Why choose our family-run home help service in the Vale of Glamorgan?</h1>
+        <p class="why-us-content">At Sweet Pea Home Help, we provide compassionate, reliable, and professional home support for individuals and families across the Vale of Glamorgan. Whether you need help with daily tasks, companionship, shopping, or light household duties, our friendly local team is here to make life easier and more comfortable in your own home.</p>
+        <p class="why-us-content">We pride ourselves on delivering personalised home help services that promote independence, dignity, and peace of mind.</p>
+        <p class="why-us-content">Choosing Sweet Pea Home Help means choosing a trusted, community-based service that truly cares. We’re here when you need us — from Barry to Cowbridge, Penarth to Llantwit Major — offering flexible support tailored to your individual needs.</p>
+      </article>
+    </section>
+    
+    <section class="image-view"></section>
+    
+    <svg class="curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
+    </svg>
+  </section>
+  {% load static %}
+  <section class="services-section">
+    <h2>Services we Offer</h2>
+    <div class="services-grid">
+
+      <article class="service-card" id="card-home-help">
+        <div class="card-content">
+          <h3 class="card-title">Home Help</h3>
+          <p class="card-description">Personalised household support</p>
+          <p class="card-price">From £20/hour</p>
+          <a href="home-help.html" class="see-more-btn">See More</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="card-companionship">
+        <div class="card-content">
+          <h3 class="card-title">Companionship</h3>
+          <p class="card-description">Friendly presence & conversation</p>
+          <p class="card-price">From £20/hour</p>
+          <a href="companionship.html" class="see-more-btn">See More</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="card-respite">
+        <div class="card-content">
+          <h3 class="card-title">Respite Care</h3>
+          <p class="card-description">Peace of mind for families</p>
+          <p class="card-price">From £20/hour</p>
+          <a href="respite-care.html" class="see-more-btn">See More</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="card-out-about">
+        <div class="card-content">
+          <h3 class="card-title">Out & About</h3>
+          <p class="card-description">Transport and accompaniment</p>
+          <p class="card-price">From £20/hour</p>
+          <a href="out-and-about.html" class="see-more-btn">See More</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
   <section class="cardSection" id="AboutSweetPea">
     <h1 class="card-header">
       Supporting loved ones to live independent lives in their own home
@@ -82,143 +141,11 @@
     </p>
     <a href="#Form"><button class="form-button">Get in Touch</button></a>
   </section>
-
-  {% load static %}
-  
-<section class="services-container">
-  <!-- Home Help -->
-  <article class="service-card home-help">
-    <div class="service-bg">
-      <img src="{% static 'SweetPeaApp/images/home_help.jpeg' %}" alt="Home Help">
+<section class="quote-full-bleed" id="QuoteSection">
+    <div class="quote-text-container">
+      <p class="quote-text">We believe in caring with compassion – bringing comfort, dignity, and joy to everyday life.</p>
     </div>
-
-    <!-- gradient tint, independent from image -->
-    <div class="service-tint"></div>
-
-    <!-- content -->
-    <div class="service-overlay">
-      <h2 class="service-title">Home Help</h2>
-      <p class="service-desc">Personalised household support</p>
-      <p class="service-price">From £20/hour</p>
-      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
-    </div>
-</section>
-
-<section class="services-container">
-  <!-- Companionship -->
-  <article class="service-card home-help">
-    <div class="service-bg">
-      <img src="{% static 'SweetPeaApp/images/companionship.jpeg' %}" alt="Home Help">
-    </div>
-
-    <!-- gradient tint, independent from image -->
-    <div class="service-tint"></div>
-
-    <!-- content -->
-    <div class="service-overlay">
-      <h2 class="service-title">Companionship</h2>
-      <p class="service-desc">Friendly presence & conversation</p>
-      <p class="service-price">From £20/hour</p>
-      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
-    </div>
-</section>
-
-<section class="services-container">
-  <!-- Home Help -->
-  <article class="service-card home-help">
-    <div class="service-bg">
-      <img src="{% static 'SweetPeaApp/images/respite.jpeg' %}" alt="Home Help">
-    </div>
-
-    <!-- gradient tint, independent from image -->
-    <div class="service-tint"></div>
-
-    <!-- content -->
-    <div class="service-overlay">
-      <h2 class="service-title">Respite Care</h2>
-      <p class="service-desc">Peace of mind for families</p>
-      <p class="service-price">From £20/hour</p>
-      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
-    </div>
-</section>
-
-<section class="services-container">
-  <!-- Home Help -->
-  <article class="service-card home-help">
-    <div class="service-bg">
-      <img src="{% static 'SweetPeaApp/images/home_help.jpeg' %}" alt="Home Help">
-    </div>
-
-    <!-- gradient tint, independent from image -->
-    <div class="service-tint"></div>
-
-    <!-- content -->
-    <div class="service-overlay">
-      <h2 class="service-title">Out & About</h2>
-      <p class="service-desc">Transport and accompaniment</p>
-      <p class="service-price">From £20/hour</p>
-      <button class="service-btn" onclick="openModal('homeHelpModal')">See More</button>
-    </div>
-</section>
-
-  <!-- ---------- MODALS ---------- -->
-  <!-- Home Help Modal -->
-  <div id="homeHelpModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('homeHelpModal')">&times;</span>
-      <h2>Home Help</h2>
-      <p>We offer a range of home support options tailored to each individual’s needs.</p>
-      <ul>
-        <li>General cleaning and tidying</li>
-        <li>Meal preparation and kitchen support</li>
-        <li>Laundry and ironing assistance</li>
-        <li>Grocery shopping and errands</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Companionship Modal -->
-  <div id="companionshipModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('companionshipModal')">&times;</span>
-      <h2>Companionship</h2>
-      <p>Our friendly carers are here to keep you company and brighten your day.</p>
-      <ul>
-        <li>Chatting, games, or reading together</li>
-        <li>Short walks and light outings</li>
-        <li>Support with hobbies and activities</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Respite Care Modal -->
-  <div id="respiteModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('respiteModal')">&times;</span>
-      <h2>Respite Care</h2>
-      <p>We provide short-term relief for family carers, ensuring your loved one receives compassionate support.</p>
-      <ul>
-        <li>Short-term or regular respite options</li>
-        <li>Flexible schedules to suit family needs</li>
-        <li>Peace of mind while you recharge</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Out & About Modal -->
-  <div id="outAboutModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('outAboutModal')">&times;</span>
-      <h2>Out & About</h2>
-      <p>Helping clients stay active and social with safe, friendly transportation and companionship.</p>
-      <ul>
-        <li>Transport to appointments and events</li>
-        <li>Accompaniment for shopping trips</li>
-        <li>Encouragement for independent living</li>
-      </ul>
-    </div>
-  </div>
-
+  </section>
   <section class="about-us" id="AboutUs">
     <section class="about-us-content">
       <h1 class="card-header">About Us</h1>
@@ -236,6 +163,28 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
+<section class="testimonial-section" id="Testimonials">
+  <section class="testimonial-image"></section>
+
+  <section class="testimonial-content">
+    <h1 class="card-header">Testimonials</h1>
+
+    <blockquote class="testimonial-item">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
+    </blockquote>
+    <blockquote class="testimonial-item">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
+    </blockquote>
+    <blockquote class="testimonial-item">
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
+    </blockquote>
+  </section>
+
+  <svg class="testimonial-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#ffffff" />
+  </svg>
+</section>
+
   <section class="contact-form" id="Form">
     <h1 class="card-header">Enquiry Form - Get in Touch With Us</h1>
     <h2 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation
