@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Testimonials(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='testimonials')
     location = models.CharField(max_length=100, blank=True)
+    reviewer = models.CharField(max_length=100, blank=True)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

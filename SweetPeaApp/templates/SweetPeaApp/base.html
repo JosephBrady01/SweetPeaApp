@@ -16,9 +16,11 @@
     <button class="nav-toggle">☰ Menu</button>
     <ul class="nav-list">
       <li><a href="#Landing">Home</a></li>
-      <li><a href="#AboutSweetPea">About Sweet Pea</a></li>
+      <li><a href="#WhySweetPea">Why Choose Sweet Pea?</a></li>
       <li><a href="#Services">Services</a></li>
+      <li><a href="#AboutSweetPea">Our Core Values</a></li>
       <li><a href="#AboutUs">About Us</a></li>
+      <li><a href="#Testimonials">Testimonials</a></li>
       <li><a href="#Form">Enquiry Form</a></li>
       <li><a href="#Footer">Contact us</a></li>
     </ul>
@@ -39,7 +41,7 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-<section class="sweep-section">
+<section class="sweep-section" id="WhySweetPea">
     <section class="left">
       <article class="left-content why-us-article">
         <h1 class="why-us-heading">Why choose our family-run home help service in the Vale of Glamorgan?</h1>
@@ -56,7 +58,7 @@
     </svg>
   </section>
   {% load static %}
-  <section class="services-section">
+  <section class="services-section" id="Services">
     <h2>Services we Offer</h2>
     <div class="services-grid">
 
@@ -163,25 +165,26 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-<section class="testimonial-section" id="Testimonials">
-  <section class="testimonial-image"></section>
-
-  <section class="testimonial-content">
-    <h1 class="card-header">Testimonials</h1>
-
-    <blockquote class="testimonial-item">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
-    </blockquote>
-    <blockquote class="testimonial-item">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
-    </blockquote>
-    <blockquote class="testimonial-item">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut laoreet sapien. Cras nec massa quam. Sed sed tortor posuere, ultricies ante eget, placerat quam."</p>
-    </blockquote>
+<section class="sweep-section" id="Testimonials">
+  <section class="left">
+    <h1 class="testimonial-heading">Testimonials</h1>
+    {% for testimonial in testimonials %}
+    <article class="left-content testimonial-article">
+      <blockquote class="testimonial-item">
+        <h2>{{ testimonial.reviewer }}</h2>
+        <p>{{ testimonial.body }}</p>
+        <small>{{ testimonial.author.first_name }} {{ testimonial.author.last_name }}</small>
+      </blockquote>
+    </article>
+    {% endfor %}
   </section>
 
+  <!-- Right side background image -->
+  <section class="testimonial-image-view"></section>
+
+  <!-- SVG curve (mirrored opposite to About Us) -->
   <svg class="testimonial-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#ffffff" />
+    <path d="M100,0 C40,50 40,50 100,100 L0,100 L0,0 Z" fill="#EFE1E1" />
   </svg>
 </section>
 

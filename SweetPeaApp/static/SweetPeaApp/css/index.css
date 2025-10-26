@@ -360,7 +360,6 @@ h3.card-title {
 
 .card-container, /* This class isn't in base.html, but I'll leave it */
 .services-section,
-.about-us,
 .contact-form {
   margin-bottom: 2.5rem;
 }
@@ -529,10 +528,9 @@ h3.card-title {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
-  padding: 4rem 0;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  margin: 0;
 }
 
 .about-us-content {
@@ -579,37 +577,110 @@ h3.card-title {
   z-index: 0;
 }
 
-.about-us-curve {
+.about-us-curve,
+.testimonial-curve {
   position: absolute;
   top: 0;
-  left: 23%;
   width: 50vw;
   height: 100%;
   z-index: 1;
   pointer-events: none;
+}
+
+/* LEFT side (About Us) */
+.about-us-curve {
+  left: 23%;
   transform: scaleX(-1);
-  border: black;
 }
 
-.testimonial-section {
-  background-color: #ffffff;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100vw;
-  padding: 4rem 0;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
+/* RIGHT side (Testimonials) */
+.testimonial-curve {
+  left: 23%;           /* 👈 bring it in to align with About Us */
+  transform: scaleX(1);
 }
 
-.testimonial-image {
+
+.about-us,
+#Testimonials.sweep-section {
+  background-color: #EFE1E1;
+}
+
+
+
+#Testimonials .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers the content block */
+  align-items: center;     /* Horizontally centers the content */
+  padding: 4rem 2rem;      /* Adds breathing room */
+  height: 100%;            /* Ensures it fills the column */
+  position: relative;      /* <-- ADD THIS */
+  z-index: 2;              /* <-- ADD THIS */
+}
+
+
+
+/* This styles the "Testimonials" heading */
+#Testimonials .testimonial-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 3rem; /* Space between title and first quote */
+  text-align: center;
+}
+
+/* This overrides the bad styles from .left-content */
+#Testimonials .testimonial-article {
+  position: static; /* Fixes the overlapping issue */
+  transform: none;
+  top: auto;
+  width: 90%;
+  max-width: 700px; /* Keeps lines readable */
+  margin: 0 0 2rem 0; /* Creates nice spacing between quotes */
+}
+
+/* This styles the quote itself */
+#Testimonials .testimonial-item {
+  border-left: 4px solid #9E9ECC; /* Adds the accent border */
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+#Testimonials .testimonial-item h2 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #000000;
+}
+
+#Testimonials .testimonial-item p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0.5rem 0;
+}
+
+#Testimonials .testimonial-item small {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  color: #000000;
+  font-weight: 700;
+  display: block; /* Ensures it appears on its own line */
+}
+
+/* Right column (image background) */
+.testimonial-image-view {
   position: relative;
-  width: 100%;
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
-.testimonial-image::before {
+.testimonial-image-view::before {
   content: '';
   position: absolute;
   top: 0;
@@ -621,50 +692,6 @@ h3.card-title {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
-}
-
-.testimonial-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 60%;
-  margin: 0 auto;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.testimonial-content h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 30pt;
-  margin-bottom: 1.5rem;
-  color: #4a4a8a;
-}
-
-.testimonial-item {
-  margin-top: 1.5rem;
-  padding-left: 1.5rem;
-  border-left: 4px solid #9E9ECC;
-}
-
-.testimonial-item p {
-  font-family: "Lato", sans-serif;
-  font-size: 1.1rem;
-  font-style: italic;
-  line-height: 1.6;
-  color: #555;
-}
-
-.testimonial-curve {
-  position: absolute;
-  top: 0;
-  left: 23%;
-  width: 50vw;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  transform: scaleX(-1);
 }
 
 
@@ -755,7 +782,10 @@ button[type="submit"]:hover {
 
 /* === FOOTER === */
 .footer-links {
-  background-color: #DDEDE0;
+  background-image: url('/static/SweetPeaApp/images/sweet_pea_4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -768,7 +798,7 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #3d3b4f;
+  color: white;
   font-family: "Lato", sans-serif;
   font-size: 1.4rem;
   text-decoration: none;
