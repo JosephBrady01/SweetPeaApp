@@ -20,10 +20,10 @@ from SweetPeaApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Homepage
     path('', views.home, name='home'),
 
-    # ✅ Include all app URLs (including portal)
     path('', include('SweetPeaApp.urls')),
 ]
-
 

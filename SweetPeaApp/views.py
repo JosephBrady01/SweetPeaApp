@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .models import Testimonials
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, TestimonialForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -177,12 +177,22 @@ class PortalTestimonialListView(StaffRequiredMixin, ListView):
     ordering = ['-created_at']
 
 
+class PortalTestimonialListView(StaffRequiredMixin, ListView):
+    """
+    Displays all testimonials in the admin portal for management.
+    """
+    model = Testimonials
+    template_name = 'SweetPeaApp/portal/admin_testimonial_list.html'
+    context_object_name = 'testimonials'
+    ordering = ['-created_at']
+
+
 class PortalTestimonialCreateView(StaffRequiredMixin, CreateView):
     """
     Allows staff/superusers to create a new testimonial via the portal.
     """
     model = Testimonials
-    fields = ['body', 'location']
+    form_class = TestimonialForm   # 👈 use the form, not fields
     template_name = 'SweetPeaApp/portal/testimonial_form.html'
     success_url = reverse_lazy('portal_testimonial_list')
 
@@ -197,7 +207,7 @@ class PortalTestimonialUpdateView(StaffRequiredMixin, UpdateView):
     Allows editing of existing testimonials via the portal.
     """
     model = Testimonials
-    fields = ['body', 'location', 'reviewer']
+    form_class = TestimonialForm   # 👈 keep form consistent
     template_name = 'SweetPeaApp/portal/testimonial_form.html'
     success_url = reverse_lazy('portal_testimonial_list')
 

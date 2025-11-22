@@ -1,20 +1,23 @@
-{% extends 'SweetPeaApp/base.html' %}
-{% block title %}Testimonials | Sweet Pea{% endblock %}
-{% block content %}
+{% load static %}
 
-<section class="cardSection" id="Testimonials">
-  <h1 class="card-header">What Our Clients Say</h1>
-  <section class="three-card">
-    {% for testimonial in testimonials %}
-    <article class="card-one">
-      <p class="card-text">{{ testimonial.body }}</p>
-      <p class="card-text">{{ testimonial.location }}</p>
-      <p class="card-text"><em>– {{ testimonial.author.username }}</em></p>
-    </article>
-    {% empty %}
-    <p class="card-text">No testimonials yet — check back soon!</p>
-    {% endfor %}
-  </section>
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+
+<section class="portal-wrapper">
+  <h1>Manage Testimonials</h1>
+
+  <a href="{% url 'portal_testimonial_create' %}" class="btn">+ Add new testimonial</a>
+
+  {% for t in testimonials %}
+  <article class="portal-card">
+    <p>{{ t.body }}</p>
+    <small>{{ t.reviewer }} – {{ t.location }}</small>
+    <div class="portal-actions">
+      <a href="{% url 'portal_testimonial_edit' t.pk %}" class="btn btn-action">Edit</a>
+
+      <a href="{% url 'portal_testimonial_delete' t.pk %}" class="btn btn-action btn-danger">Delete</a>
+    </div>
+  </article>
+  {% empty %}
+  <p>No testimonials yet.</p>
+  {% endfor %}
 </section>
-
-{% endblock %}
