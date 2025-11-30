@@ -1,23 +1,72 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Testimonials – Admin Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+</head>
 
-<section class="portal-wrapper">
-  <h1>Manage Testimonials</h1>
+<body class="portal-body">
 
-  <a href="{% url 'portal_testimonial_create' %}" class="btn">+ Add new testimonial</a>
+  <!-- Shared admin header -->
+  <header class="portal-header">
+    <h1>Manage Testimonials</h1>
+    <nav aria-label="Portal navigation">
+      <a href="{% url 'portal_dashboard' %}">Dashboard</a>
+      <span aria-hidden="true"> | </span>
+      <a href="{% url 'portal_logout' %}">Logout</a>
+    </nav>
+  </header>
 
-  {% for t in testimonials %}
-  <article class="portal-card">
-    <p>{{ t.body }}</p>
-    <small>{{ t.reviewer }} – {{ t.location }}</small>
-    <div class="portal-actions">
-      <a href="{% url 'portal_testimonial_edit' t.pk %}" class="btn btn-action">Edit</a>
+  <main class="portal-wrapper" aria-labelledby="testimonial-heading">
+    <header class="portal-heading">
+      <h2 id="testimonial-heading">Testimonials</h2>
+      <p>View, edit, or remove testimonials that appear on the public site.</p>
+      <p>
+        <a href="{% url 'portal_testimonial_create' %}" class="btn">
+          + Add new testimonial
+        </a>
+      </p>
+    </header>
 
-      <a href="{% url 'portal_testimonial_delete' t.pk %}" class="btn btn-action btn-danger">Delete</a>
-    </div>
-  </article>
-  {% empty %}
-  <p>No testimonials yet.</p>
-  {% endfor %}
-</section>
+    {% if testimonials %}
+      <section class="testimonial-list" aria-label="Existing testimonials">
+        {% for t in testimonials %}
+          <article class="portal-card" aria-label="Testimonial">
+            <section class="portal-card-body">
+              <p>{{ t.body }}</p>
+              {% if t.reviewer or t.location %}
+                <p class="portal-card-meta">
+                  <small>
+                    {{ t.reviewer }}{% if t.reviewer and t.location %} – {% endif %}{{ t.location }}
+                  </small>
+                </p>
+              {% endif %}
+            </section>
+
+            <footer class="portal-actions" aria-label="Actions for this testimonial">
+              <a href="{% url 'portal_testimonial_edit' t.pk %}"
+                 class="btn btn-action">
+                Edit
+              </a>
+              <a href="{% url 'portal_testimonial_delete' t.pk %}"
+                 class="btn btn-action btn-danger">
+                Delete
+              </a>
+            </footer>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section>
+        <p>No testimonials have been added yet.</p>
+      </section>
+    {% endif %}
+  </main>
+
+</body>
+</html>

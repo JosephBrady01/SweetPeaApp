@@ -1,0 +1,275 @@
+/* =========================================
+   BASE PAGE STYLING
+   ========================================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5dcd4;
+  color: #2b2b2b;
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.service-respite {
+  padding: 1.5rem 0 4rem;
+}
+
+.service-respite section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.service-hero {
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.hero-figure {
+  position: relative;
+  margin: 0;
+  background-color: #f5dcd4;
+  border-radius: 24px;
+  overflow: hidden;
+  /* let image choose its height (no hard cropping) */
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-title-main {
+  position: absolute;
+  top: 1rem;
+  left: 1.3rem;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 700;
+  color: #1f1b1a;
+  text-shadow: 0 3px 12px rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   INTRO / OUTRO / MIDDLE TEXT
+   ========================================= */
+
+.service-intro,
+.service-outro,
+.service-mid {
+  text-align: center;
+}
+
+.service-intro h1 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.service-intro p,
+.service-outro p,
+.service-mid p {
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* =========================================
+   SHARED PANEL STYLE
+   ========================================= */
+
+.service-panel {
+  margin-top: 2.3rem;
+}
+
+.service-panel .panel-header h2 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2.1vw, 1.8rem);
+  margin-bottom: 1.3rem;
+  text-align: center;
+}
+
+.service-panel .panel-body {
+  border-radius: 24px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   "OUR RESPITE HOME HELP INCLUDES"
+   (same layout as Home Help includes)
+   ========================================= */
+
+/* ====== OUR RESPITE HOME HELP INCLUDES ====== */
+
+.includes-panel .panel-body {
+  background-color: #eef2ea;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* two centred pills, wrapping nicely on smaller screens */
+.includes-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.includes-item {
+  flex: 0 1 320px;          /* max width per pill */
+}
+
+.includes-text {
+  margin: 0;
+  padding: 0.9rem 1.6rem;
+  border-radius: 24px;
+  background-color: #a3b49b;
+  color: #1f2a1f;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   BENEFITS GRID (same layout as Home Help)
+   ========================================= */
+
+/* ====== BENEFITS OF RESPITE SERVICES ====== */
+
+.benefits-panel .panel-body {
+  background-color: #f3eee7;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 3 in a row on desktop, 2 on medium, 1 on small */
+.benefits-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1.4rem 1.6rem;
+  align-items: stretch;
+}
+
+.benefit-card {
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  background-color: #a3b49b;
+  color: #1f2a1f;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* no special full-width card now */
+.benefit-card--full {
+  grid-column: auto;
+}
+
+/* Breakpoints: 2 columns on tablets, 1 on phones */
+@media (max-width: 900px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   SERVICE NAVIGATION (same as other pages)
+   ========================================= */
+
+.service-nav {
+  margin-top: 2.6rem;
+}
+
+.service-nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-nav-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease,
+              box-shadow 0.15s ease,
+              background-color 0.15s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.service-nav-btn--primary {
+  background: linear-gradient(135deg, #bfd9e3, #a7c7d8);
+  color: #28333a;
+}
+
+.service-nav-btn--secondary {
+  background: linear-gradient(135deg, #d5a6bd, #c48dad);
+  color: #2b2b2b;
+}
+
+.service-nav-btn--disabled {
+  background-color: #e0d6d2;
+  color: #8a8683;
+  box-shadow: none;
+  cursor: default;
+}
+
+.service-nav-btn--primary:hover,
+.service-nav-btn--secondary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================
+   RESPONSIVE TWEAKS
+   ========================================= */
+
+@media (max-width: 768px) {
+  .service-panel .panel-body {
+    padding: 1.7rem 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-respite section {
+    padding: 0 1.1rem;
+  }
+}

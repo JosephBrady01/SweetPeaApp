@@ -1,38 +1,73 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {% if object %}Edit testimonial{% else %}Add testimonial{% endif %} – Admin Portal
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="portal-wrapper">
-  <h1>
-    {% if object %}Edit testimonial{% else %}Add testimonial{% endif %}
-  </h1>
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+</head>
 
-  <form method="post" class="portal-form">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
+<body class="portal-body">
 
-    <div class="form-row">
-      <label for="{{ form.body.id_for_label }}">Testimonial</label>
-      {{ form.body }}
-      {{ form.body.errors }}
-    </div>
+  <!-- Shared portal header -->
+  <header class="portal-header">
+    <h1>Testimonials</h1>
+    <nav aria-label="Portal navigation">
+      <a href="{% url 'portal_dashboard' %}">Dashboard</a>
+      <span aria-hidden="true"> | </span>
+      <a href="{% url 'portal_logout' %}">Logout</a>
+    </nav>
+  </header>
 
-    <div class="form-row">
-      <label for="{{ form.reviewer.id_for_label }}">Name (optional)</label>
-      {{ form.reviewer }}
-      {{ form.reviewer.errors }}
-    </div>
+  <main class="portal-wrapper portal-wrapper--form" aria-labelledby="testimonial-form-heading">
 
-    <div class="form-row">
-      <label for="{{ form.location.id_for_label }}">Location (optional)</label>
-      {{ form.location }}
-      {{ form.location.errors }}
-    </div>
+    <header class="portal-heading">
+      <h2 id="testimonial-form-heading">
+        {% if object %}Edit testimonial{% else %}Add testimonial{% endif %}
+      </h2>
+      <p>Update the text, name and location as it will appear on the public site.</p>
+    </header>
 
-    <div class="form-actions">
-      <button type="submit" class="btn">
-        {% if object %}Save changes{% else %}Create testimonial{% endif %}
-      </button>
-      <a href="{% url 'portal_testimonial_list' %}" class="btn btn-secondary">Cancel</a>
-    </div>
-  </form>
-</section>
+    <section class="portal-form-container">
+      <form method="post" class="portal-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <section class="form-row">
+          <label for="{{ form.body.id_for_label }}">Testimonial</label>
+          {{ form.body }}
+          {{ form.body.errors }}
+        </section>
+
+        <section class="form-row">
+          <label for="{{ form.reviewer.id_for_label }}">Name (optional)</label>
+          {{ form.reviewer }}
+          {{ form.reviewer.errors }}
+        </section>
+
+        <section class="form-row">
+          <label for="{{ form.location.id_for_label }}">Location (optional)</label>
+          {{ form.location }}
+          {{ form.location.errors }}
+        </section>
+
+        <footer class="form-actions">
+          <button type="submit" class="btn">
+            {% if object %}Save changes{% else %}Create testimonial{% endif %}
+          </button>
+          <a href="{% url 'portal_testimonial_list' %}" class="btn btn-secondary">
+            Cancel
+          </a>
+        </footer>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>

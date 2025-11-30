@@ -1,0 +1,198 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/services/home_help.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block content %}
+<section class="service-page service-home-help" aria-labelledby="home-help-heading">
+
+
+    <!-- HERO -->
+    <section class="service-hero">
+        <figure class="hero-figure">
+            <img src="{% static 'SweetPeaApp/images/home_help.jpeg' %}"
+                alt="Carer serving breakfast to an older person at home" class="hero-image">
+            <figcaption class="hero-title">
+                Home Help
+            </figcaption>
+        </figure>
+    </section>
+
+    <!-- INTRO COPY -->
+    <section class="service-intro">
+        <h1 id="home-help-heading">
+            Reliable home help to make everyday life easier
+        </h1>
+
+        <p>
+            At Sweet Pea Home Help, we provide friendly, reliable domestic support to help you or your
+            loved one keep your home just the way you like it — clean, comfortable, and well cared for.
+            Our goal is to make daily tasks easier and give you more time to enjoy life, with peace of
+            mind that everything at home is taken care of.
+        </p>
+
+        <p>
+            We offer flexible home help services tailored to your individual needs, whether you need a
+            little extra help from time to time or regular ongoing support.
+        </p>
+    </section>
+
+    <!-- WHAT WE INCLUDE -->
+    <section class="service-panel" aria-labelledby="home-help-includes">
+        <header class="panel-header">
+            <h2 id="home-help-includes">What Our Home Help Includes</h2>
+        </header>
+
+        <section class="panel-body">
+            <ul class="includes-grid">
+                <!-- Column 1, top -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/Meal Prep.png' %}"
+                            alt="Pan, plate and washing up liquid" class="includes-icon-image">
+                        <figcaption>
+                            Meal preparation, cooking and washing up.
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <!-- Column 2, top -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/Laundry.png' %}"
+                            alt="Laundry, ironing and housework icon" class="includes-icon-image">
+                        <figcaption>
+                            Laundry, ironing and general housework.
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <!-- Column 1, middle -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/tidying.png' %}" alt="Tidying and organising icon"
+                            class="includes-icon-image">
+                        <figcaption>
+                            Organising and tidying to keep your space calm and comfortable.
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <!-- Column 2, middle -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/recycling.png' %}"
+                            alt="Recycling and bin collection icon" class="includes-icon-image">
+                        <figcaption>
+                            Recycling and bin collection, so household waste is always managed.
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <!-- Column 1, bottom -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/errands.png' %}"
+                            alt="Shopping and prescriptions errands icon" class="includes-icon-image">
+                        <figcaption>
+                            Running errands such as picking up groceries or prescriptions, or dropping off and
+                            collecting dry cleaning.
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <!-- Column 2, bottom -->
+                <li class="includes-item">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/admin.png' %}"
+                            alt="Paperwork, phone and admin support icon" class="includes-icon-image">
+                        <figcaption>
+                            Light administrative tasks like sorting paperwork, handling post or making phone calls.
+                        </figcaption>
+                    </figure>
+                </li>
+                <!-- Column spanning centre: Pet care -->
+                <li class="includes-item includes-item--full">
+                    <figure class="includes-figure">
+                        <img src="{% static 'SweetPeaApp/images/pet_care.png' %}" alt="Pet care icon"
+                            class="includes-icon-image">
+                        <figcaption>
+                            Pet care support — including feeding, walking and ensuring pets feel loved and included.
+                        </figcaption>
+                    </figure>
+                </li>
+
+            </ul>
+        </section>
+    </section>
+
+
+    <!-- BENEFITS GRID -->
+    <section class="service-panel benefits-panel" aria-labelledby="home-help-benefits">
+        <header class="panel-header">
+            <h2 id="home-help-benefits">The Benefits of Home Help Services</h2>
+        </header>
+
+        <section class="panel-body">
+            <ul class="benefits-grid">
+                <li class="benefit-card benefit-card--green">
+                    Stay independent at home — continue living comfortably in familiar surroundings while
+                    getting the help you need.
+                </li>
+                <li class="benefit-card benefit-card--green">
+                    Less stress, more time — with chores taken care of, you can focus on what matters most:
+                    your wellbeing, hobbies or family.
+                </li>
+                <li class="benefit-card benefit-card--pink">
+                    Improved quality of life — a tidy, well-managed home can boost mood and make daily living
+                    more enjoyable.
+                </li>
+                <li class="benefit-card benefit-card--pink">
+                    Peace of mind for families — loved ones can relax knowing help is at hand whenever needed.
+                </li>
+                <li class="benefit-card benefit-card--neutral benefit-card--full">
+                    Friendly companionship — our caring team adds warmth, conversation and connection to every
+                    visit.
+                </li>
+            </ul>
+
+        </section>
+    </section>
+
+    <!-- CLOSING COPY -->
+    <section class="service-outro">
+        <p>
+            At Sweet Pea Home Help, we believe that a little support can make a big difference.
+            We’re here to help you feel comfortable, cared for and confident at home — every day.
+        </p>
+    </section>
+  <!-- SERVICE NAVIGATION -->
+  <section class="service-nav" aria-label="Service navigation">
+    <div class="service-nav-inner">
+
+      <!-- Previous (disabled on first page) -->
+      <span class="service-nav-btn service-nav-btn--disabled" aria-disabled="true">
+        ← Previous
+      </span>
+
+      <!-- Home -->
+      <a href="{% url 'home' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        Home
+      </a>
+
+      <!-- Next -->
+      <a href="{% url 'service_companionship' %}"
+         class="service-nav-btn service-nav-btn--primary">
+        Next →
+      </a>
+
+    </div>
+  </section>
+
+
+
+</section>
+{% endblock %}

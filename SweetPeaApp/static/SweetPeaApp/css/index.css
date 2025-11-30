@@ -143,22 +143,26 @@ html, body {
   overflow: hidden;
 }
 
+/* WHY SWEET PEA – desktop defaults */
 .why-us-article {
-    text-align: left;
+  text-align: left;
 }
 
 h1.why-us-heading {
   font-family: "Playfair Display", serif;
-  font-size: 30pt; /* Match .card-header */
+  font-size: clamp(2.4rem, 3vw, 2.8rem);  /* bigger, scales with screen */
+  line-height: 1.2;
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Add some spacing */
+  margin-bottom: 1.75rem;
 }
 
 .why-us-content {
-    font-family: "lato", sans-serif;
-    font-size: 24pt; /* Match .card-text */
-    margin-bottom: 1rem; /* Add spacing between paragraphs */
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem); /* comfortable reading size */
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
+
 
 .right::before {
   content: '';
@@ -271,7 +275,7 @@ article.service-card:hover {
 
 /* Service Card Backgrounds */
 #card-home-help {
-    background-image: url('/static/SweetPeaApp/images/home_help.jpeg');
+    background-image: url('/static/SweetPeaApp/images/Home_help.jpeg');
     background-position: center bottom;
 }
 #card-companionship {
@@ -493,13 +497,12 @@ h3.card-title {
     position: relative; /* Needed for the opacity overlay */
   }
 
-  /* This adds the opacity decrease to the image */
   .quote-full-bleed::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1); /* 10% black overlay */
-    z-index: 1; /* Sit just above the image */
+    background-color: rgba(0, 0, 0, 0.4); /* ✅ stronger dark overlay */
+    z-index: 1;
   }
 
   .quote-text-container {
@@ -513,10 +516,10 @@ h3.card-title {
     margin-bottom: 10%; 
   }
   
-  .quote-text {
-    font-size: 1.5rem; /* Smaller, readable mobile font */
+ .quote-text {
+    font-size: 1.5rem;
     line-height: 1.3;
-    /* Stronger shadow for mobile readability */
+    color: #ffffff; /* ✅ white text on darker image */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
 }
@@ -949,8 +952,10 @@ main.content-page {
     margin-top: 3rem;
     transform: none;
     top: auto;
-    height: 100vh;
+    height: auto;         /* ✅ let it grow with content */
+    max-width: 90%;       /* ✅ a bit of breathing room at the sides */
   }
+
 
   /* Let sections grow naturally */
   .cardSection,
@@ -1080,3 +1085,135 @@ main.content-page {
     font-size: 3.5rem;
   }
 }
+
+/* === WHY SWEET PEA – tablet & mobile layout (<= 954px) === */
+@media (max-width: 954px) {
+
+  /* Make it a single-column layout */
+  #WhySweetPea {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  #WhySweetPea .left {
+    width: 100%;
+    padding: 3rem 1.5rem 2.5rem;
+    height: auto;
+  }
+
+  #WhySweetPea .left-content {
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* Hide the image + curve for this section on tablet & mobile */
+  #WhySweetPea .image-view,
+  #WhySweetPea .right,
+  #WhySweetPea .curve {
+    display: none;
+  }
+
+  /* Text sizing for this range */
+  #WhySweetPea h1.why-us-heading {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  #WhySweetPea .why-us-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+
+/* === WHY SWEET PEA – mobile layout === */
+@media (max-width: 768px) {
+
+  /* Make the section a single column and let it grow with content */
+  #WhySweetPea {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  /* Text column padding & alignment */
+  #WhySweetPea .left {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+
+  #WhySweetPea .left-content {
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* Hide the “why us” image and curve on small screens */
+  #WhySweetPea .image-view {
+    display: none;
+  }
+
+  #WhySweetPea .curve {
+    display: none;
+  }
+
+  /* Slightly smaller but still readable text on mobile */
+  #WhySweetPea h1.why-us-heading {
+    font-size: 1.8rem;
+  }
+
+  #WhySweetPea .why-us-content {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   TESTIMONIALS – tablet & mobile layout
+   ========================================= */
+@media screen and (max-width: 954px), screen and (max-height: 1025px) {
+
+  /* Stack Testimonials as a single column and let it grow naturally */
+  #Testimonials {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  #Testimonials .left {
+    padding: 3rem 1.5rem 2.5rem;
+    align-items: flex-start;   /* left-align content */
+  }
+
+  /* Override the global .left-content rule just for testimonials */
+  #Testimonials .left-content {
+    margin-top: 0;
+    top: auto;
+    transform: none;
+    height: auto;              /* 🔑 stop the 100vh nonsense */
+  }
+
+  /* Hide the image + SVG curve on tablet/mobile */
+  #Testimonials .testimonial-image-view,
+  #Testimonials .testimonial-curve {
+    display: none !important;
+  }
+
+  /* Slightly tweak text sizing for this range if needed */
+  #Testimonials .testimonial-heading {
+    font-size: 2rem;
+  }
+
+  #Testimonials .testimonial-item p {
+    font-size: 1rem;
+  }
+}
+
+
+
+  /* Prevent accidental side-scroll */
+  body {
+    overflow-x: hidden;
+  }

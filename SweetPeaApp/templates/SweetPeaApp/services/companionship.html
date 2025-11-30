@@ -1,0 +1,109 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/services/companionship.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block content %}
+<section class="service-page service-companionship" aria-labelledby="companionship-heading">
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <figure class="hero-figure">
+      <img
+        src="{% static 'SweetPeaApp/images/companionship.jpeg' %}"
+        alt="Companion offering a warm drink to an older person"
+        class="hero-image"
+      >
+      <figcaption class="hero-title-main">
+        Companionship
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- INTRO COPY -->
+  <section class="service-intro">
+    <h1 id="companionship-heading">
+      Kind, caring support to brighten every day
+    </h1>
+
+    <p>
+      At Sweet Pea Home Help, we understand that loneliness can have a real impact on wellbeing
+      — especially for older adults living alone. Our companionship service for the elderly is
+      designed to bring warmth, friendship, and reassurance into everyday life.
+    </p>
+
+    <p>
+      We spend quality time with our clients — chatting over a cup of tea, sharing hobbies,
+      enjoying a walk, or simply offering a listening ear. Our friendly companions help reduce
+      loneliness, boost confidence, and encourage a sense of belonging.
+    </p>
+
+    <p>
+      Whether you or a loved one need a regular visitor, help getting out and about, or just
+      someone to talk to, we provide reliable companionship at home that supports emotional and
+      social wellbeing.
+    </p>
+  </section>
+
+  <!-- BENEFITS PANEL -->
+  <section class="service-panel benefits-panel" aria-labelledby="companionship-benefits">
+    <header class="panel-header">
+      <h2 id="companionship-benefits">The Benefits of Companionship Services</h2>
+    </header>
+
+    <section class="panel-body">
+      <ul class="benefits-stack">
+        <li class="benefit-item">
+          Reduced feelings of loneliness and isolation.
+        </li>
+        <li class="benefit-item">
+          Improved mental and emotional wellbeing.
+        </li>
+        <li class="benefit-item">
+          Encouragement to stay socially active and independent.
+        </li>
+        <li class="benefit-item">
+          A trusted, friendly presence that offers comfort and reassurance.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <!-- OUTRO COPY -->
+  <section class="service-outro">
+    <p>
+      We tailor our companionship visits to suit every individual — because everyone deserves to
+      feel valued, heard and cared for.
+    </p>
+  </section>
+
+  <!-- SERVICE NAVIGATION -->
+  <section class="service-nav" aria-label="Service navigation">
+    <div class="service-nav-inner">
+
+      <!-- Previous (back to Home Help) -->
+      <a href="{% url 'service_home_help' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        ← Previous
+      </a>
+
+      <!-- Home -->
+      <a href="{% url 'home' %}"
+         class="service-nav-btn service-nav-btn--secondary service-nav-btn--home">
+        Home
+      </a>
+
+      <!-- Next (to Respite Care) -->
+      <a href="{% url 'service_out_and_about' %}"
+         class="service-nav-btn service-nav-btn--primary">
+        Next →
+      </a>
+
+    </div>
+  </section>
+
+</section>
+</section>
+{% endblock %}

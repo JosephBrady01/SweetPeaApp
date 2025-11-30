@@ -1,11 +1,19 @@
+/* ================================
+   Base page styling
+   ================================ */
+
 body.portal-body {
+  margin: 0;
+  padding: 0;
   background-color: #EFE1E1;
   font-family: "Lato", sans-serif;
   color: #2b2b2b;
-  margin: 0;
-  padding: 0;
-  text-align: center;
 }
+
+
+/* ================================
+   Header
+   ================================ */
 
 .portal-header {
   background: #9E9ECC;
@@ -14,56 +22,229 @@ body.portal-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;          /* simple 100% instead of 100vw + calc */
 }
 
-.portal-card {
-  background: #fff;
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 600px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+.portal-header h1 {
+  margin: 0;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: 1.5rem;
 }
 
-.portal-card input, .portal-card button {
-  width: 80%;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  border: none;
-  border-radius: 10px;
-}
-
-.portal-card button, .btn {
-  background: #BFD9E3;
-  color: #2b2b2b;
-  cursor: pointer;
+.portal-header nav a {
+  color: #fff;
+  text-decoration: none;
   font-weight: 600;
-  transition: transform 0.2s ease;
+  font-size: 0.95rem;
 }
 
-.portal-card button:hover, .btn:hover {
-  transform: scale(1.05);
-  background-color: #9E9ECC;
-  color: white;
+.portal-header nav a + span {
+  margin: 0 0.25rem;
 }
+
+/* ================================
+   Main dashboard layout
+   ================================ */
 
 .portal-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  align-items: center;          /* centre cards horizontally */
+  padding: 2.5rem 1.5rem 3rem;
+  gap: 1.75rem;
 }
 
-.portal-actions a {
-  margin: 0 0.5rem;
+.portal-main > header h2 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+/* ================================
+   Dashboard "cards"
+   ================================ */
+
+.portal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.75rem 2.1rem;
+  width: 90%;
+  max-width: 560px;             /* centred, a bit wider than content */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.portal-card header h3 {
+  margin: 0 0 0.75rem;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: 1.25rem;
+}
+
+.portal-card p {
+  margin: 0.25rem 0 1.1rem;
+  font-size: 1rem;
+}
+
+/* Disabled card (blog coming soon) */
+.portal-card.disabled {
+  opacity: 0.6;
+}
+
+/* ================================
+   Buttons used on dashboard
+   ================================ */
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background-color: #BFD9E3;
+  color: #2b2b2b;
   text-decoration: none;
-  color: #9E9ECC;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.portal-actions a:hover {
-  text-decoration: underline;
+.btn:hover {
+  background-color: #9E9ECC;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-.error {
-  color: red;
+/* ================================
+   MOBILE / TABLET
+   (only page layout, NOT cards/buttons)
+   ================================ */
+
+@media (max-width: 768px) {
+  body.portal-body {
+    /* keep same background, just ensure no side scroll */
+    overflow-x: hidden;
+  }
+
+  .portal-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .portal-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .portal-header nav a {
+    font-size: 0.9rem;
+  }
+
+  .portal-main {
+    padding: 1.8rem 1rem 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .portal-main > header h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
 }
+
+/* Slight tweak for very small phones */
+@media (max-width: 480px) {
+  .portal-main {
+    padding: 1.5rem 0.8rem 2.2rem;
+  }
+}
+
+/* Header layout tweak for tablets / smaller screens */
+@media (max-width: 1024px) {
+  .portal-header {
+    flex-wrap: wrap;              /* allow content to wrap */
+    row-gap: 0.25rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .portal-header h1 {
+    flex: 1 0 100%;               /* take full width on first line */
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .portal-header nav {
+    flex: 0 0 auto;               /* keep nav as its own chunk */
+  }
+
+  .portal-header nav a {
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra tidy-up for narrow phones */
+@media (max-width: 625px) {
+  .portal-header {
+    flex-wrap: nowrap;          /* we'll control layout ourselves */
+    flex-direction: column;     /* stack title + nav vertically */
+    align-items: stretch;
+    padding: 0.8rem 1rem;
+  }
+
+  .portal-header h1 {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 0.3rem;
+    text-align: left;           /* or center, if you prefer */
+    font-size: 1.2rem;
+  }
+
+  .portal-header nav {
+    width: 100%;
+    text-align: right;          /* keep Logout to the right edge */
+  }
+
+  .portal-header nav a {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================================
+   MOBILE / TABLET
+   (only page layout, NOT cards/buttons)
+   ================================ *
+
+/* Extra tidy-up for narrow phones */
+@media (max-width: 625px) {
+  .portal-header {
+    flex-wrap: nowrap;          /* we'll control layout ourselves */
+    flex-direction: column;     /* stack title + nav vertically */
+    align-items: stretch;
+    padding: 0.8rem 1rem;
+  }
+
+  .portal-header h1 {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 0.3rem;
+    text-align: left;           /* or center, if you prefer */
+    font-size: 1.2rem;
+  }
+
+  .portal-header nav {
+    width: 100%;
+    text-align: right;          /* keep Logout to the right edge */
+  }
+
+  .portal-header nav a {
+    font-size: 0.95rem;
+  }
+}
+
+/* Add comfortable side padding on all smaller screens */
+@media (max-width: 900px) {
+  .portal-main,
+  .portal-wrapper {
+    padding: 20px;
+  }
+}
+

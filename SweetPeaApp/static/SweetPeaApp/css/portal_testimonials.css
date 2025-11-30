@@ -1,96 +1,186 @@
-/* ================================
-   Base — Desktop Layout
-   ================================ */
+/* ============================================================
+   GLOBAL LAYOUT FOR TESTIMONIAL MANAGEMENT
+   ============================================================ */
 
 .portal-wrapper {
   width: 100%;
-  max-width: 900px;          /* Desktop center limit */
-  margin: 2.5rem auto;
-  padding: 0 2rem 3rem;
-  font-family: "Lato", system-ui, sans-serif;
+  max-width: 960px;
+  margin: 2rem auto 3rem;
+  padding-left: 2rem;      /* generous horizontal breathing room */
+  padding-right: 2rem;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
   color: #2b2b2b;
 }
 
-.portal-wrapper h1 {
-  font-family: "Comfortaa", system-ui, sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1.8rem;
+.portal-heading h2 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1.8rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.portal-heading p {
+  margin: 0.2rem 0 1rem 0;
+  font-size: 1rem;
 }
 
 
-/* Action buttons inside testimonial cards */
-.btn-action {
-  padding: 0.6rem 1.2rem !important;  /* Same size as full buttons */
-  font-size: 0.9rem !important;
-  border-radius: 999px !important;
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
   display: inline-block;
-  white-space: nowrap;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background-color: #9e9ecc;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Make Delete red but same size */
+.btn:hover {
+  background-color: #bfd9e3;
+  color: #2b2b2b;
+  transform: translateY(-2px);
+}
+
 .btn-danger {
-  background-color: #c44b4b !important;
-  color: #fff !important;
+  background-color: #c44b4b;
 }
 
 .btn-danger:hover {
-  background-color: #9E9ECC !important;
+  background-color: #a53d3d;
 }
 
 
-/* ================================
-   Cards (List Page)
-   ================================ */
+/* ============================================================
+   TESTIMONIAL LIST LAYOUT
+   ============================================================ */
 
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre cards horizontally */
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+
+/* ============================================================
+   CARDS THAT EXPAND BY CONTENT (DESKTOP)
+   ============================================================ */
+
+/* 
+   inline-block lets each card size itself based on text content  
+   max-width keeps them readable  
+*/
 .portal-card {
-  background: white;
-  border-radius: 20px;
-  padding: 1.5rem 1.8rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  max-width: min(70ch, 100%);  /* expands wider if the content is long */
+  width: auto;                 /* allow shrink/grow */
+  box-sizing: border-box;
 }
 
-.portal-card small {
-  display: block;
-  margin: 0.4rem 0 0.7rem;
-  font-size: 0.92rem;
-  color: #666;
+.portal-card-body p {
+  font-size: 1rem;
+  line-height: 1.45;
+  margin: 0 0 0.5rem;
 }
+
+.portal-card-meta small {
+  color: #666;
+  font-size: 0.92rem;
+}
+
+
+/* ============================================================
+   CARD FOOTER (ACTIONS)
+   ============================================================ */
 
 .portal-actions {
   display: flex;
-  gap: 0.6rem;
   justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
 }
 
-.portal-actions .portal-btn {
-    padding: 1rem 2rem !important;           /* Large pill */
-    font-size: 1.25rem !important;           /* Very readable */
-    font-weight: 700 !important;             /* Strong emphasis */
-    border-radius: 50px !important;          /* Wide capsule button */
-    display: inline-block !important;
-    line-height: 1.2 !important;
-}
-
-.portal-actions .portal-btn + .portal-btn {
-    margin-left: 1rem !important;
+.btn-action {
+  padding: 0.5rem 1.3rem;
+  font-size: 0.95rem;
 }
 
 
-/* ================================
-   Form (Create/Edit/Delete)
-   ================================ */
+/* ============================================================
+   MOBILE / TABLET LAYOUT (centre + float)
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  /* Page spacing stays generous on mobile */
+  .portal-wrapper {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  /* Centre the cards & shrink width slightly for floating look */
+  .portal-card {
+    max-width: 92%;      /* slight shrink creates left/right margins */
+    width: 92%;
+    display: block;      /* normal block flow on small screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* Optional micro-tweak for very narrow phones */
+@media (max-width: 450px) {
+  .portal-card {
+    max-width: 94%;
+    width: 94%;
+    padding: 1.3rem 1.2rem;
+  }
+}
+
+/* ============================================================
+   FORM LAYOUT (ADD / EDIT TESTIMONIAL)
+   ============================================================ */
+
+.portal-wrapper--form {
+  width: 100%;
+  max-width: 960px;
+  margin: 2rem auto 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+.portal-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
 
 .portal-form {
   width: 100%;
-  max-width: 900px;
-  padding: 2rem;
-  background: white;
+  max-width: 640px;
+  background-color: #ffffff;
   border-radius: 20px;
-  margin: 0 auto 3rem;
+  padding: 1.8rem 2rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
+/* Each row: label + field */
 .form-row {
   margin-bottom: 1.3rem;
 }
@@ -99,74 +189,98 @@
   display: block;
   font-weight: 600;
   margin-bottom: 0.4rem;
+  font-size: 0.95rem;
 }
 
+/* Inputs + textareas */
 .portal-form textarea,
 .portal-form input[type="text"] {
   width: 100%;
+  font-family: inherit;
+  font-size: 0.98rem;
   padding: 0.7rem 0.9rem;
-  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #d4d4e3;
+  box-sizing: border-box;
+}
+
+.portal-form textarea {
+  min-height: 140px;
+  resize: vertical;
 }
 
 .portal-form textarea:focus,
-.portal-form input:focus {
+.portal-form input[type="text"]:focus {
   border-color: #9e9ecc;
   outline: none;
   box-shadow: 0 0 0 3px rgba(158, 158, 204, 0.2);
 }
 
-.form-actions {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 1.5rem;
+/* Error list under fields */
+.portal-form .errorlist {
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+  list-style: none;
+  color: #c0392b;
+  font-size: 0.85rem;
 }
 
+/* Buttons row */
+.form-actions {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 0.7rem;
+}
 
-/* ===============================
-   Full-Width Mobile Layout
-   =============================== */
+/* ============================================================
+   MOBILE TWEAKS (FORM ONLY)
+   ============================================================ */
 
-@media (max-width: 900px) {
-
-  /* Keep full-width layout, but DO NOT force action buttons to stretch */
-  .portal-wrapper,
-  .portal-form,
-  .portal-card {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+@media (max-width: 700px) {
+  .portal-wrapper--form {
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    margin-top: 1.5rem;
   }
 
-  .portal-wrapper h1 {
-    text-align: center;
+  .portal-form {
+    max-width: 100%;
+    padding: 1.6rem 1.4rem;
+    border-radius: 18px;
   }
 
-  /* Buttons row stays horizontal on mobile */
-  .portal-actions {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 0.6rem;
-  }
-
-  /* Keep desktop-sized buttons */
-  .portal-actions a {
-    width: auto !important;
-    padding: 0.35rem 1.1rem;
-    white-space: nowrap;
-  }
-
-  /* Form buttons can still stack if you prefer */
   .form-actions {
     flex-direction: column;
   }
 
   .form-actions .btn,
-  .form-actions .btn-secondary,
-  .form-actions .btn-danger {
+  .form-actions .btn-secondary {
     width: 100%;
+    text-align: center;
+  }
+}
+
+/* Make form buttons visually consistent */
+.form-actions button.btn,
+.form-actions a.btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Optional: slightly reduce outer width to match padding of card */
+.portal-form .form-actions {
+  width: 100%;
+}
+
+
+@media (max-width: 450px) {
+  .portal-form {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .portal-form textarea {
+    min-height: 130px;
   }
 }

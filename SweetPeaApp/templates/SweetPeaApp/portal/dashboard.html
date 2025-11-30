@@ -1,28 +1,60 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – Sweet Pea</title>
+
+  <!-- Portal styling -->
   <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
 </head>
+
 <body class="portal-body">
+
+  <!-- Top navigation header -->
   <header class="portal-header">
-    <h1>Welcome, {{ request.user.username }}</h1>
-    <a href="{% url 'portal_logout' %}">Logout</a>
+    <h1>Welcome, {{ user.first_name|default:'Admin' }}</h1>
+
+    <nav aria-label="Portal navigation">
+      <a href="{% url 'portal_logout' %}">Logout</a>
+    </nav>
   </header>
 
-  <main class="portal-main">
-    <section class="portal-card">
-      <h2>Manage Testimonials</h2>
-      <p>{{ testimonial_count }} total testimonials</p>
-      <a href="{% url 'portal_testimonial_list' %}" class="btn">Open</a>
+  <!-- Main dashboard content -->
+  <main class="portal-main" aria-labelledby="dashboard-heading">
+
+    <header>
+      <h2 id="dashboard-heading">Admin Dashboard</h2>
+    </header>
+
+    <!-- Testimonials card -->
+    <section class="portal-card" aria-labelledby="manage-testimonials-heading">
+      <header>
+        <h3 id="manage-testimonials-heading">Manage Testimonials</h3>
+      </header>
+
+      <p>{{ testimonial_count }} testimonials stored.</p>
+
+      <p>
+        <a href="{% url 'portal_testimonial_list' %}" class="btn">
+          Open
+        </a>
+      </p>
     </section>
 
-    <section class="portal-card disabled">
-      <h2>Manage Blog Posts</h2>
+    <!-- Blog card -->
+    <section class="portal-card disabled" aria-labelledby="manage-blog-heading">
+      <header>
+        <h3 id="manage-blog-heading">Manage Blog Posts</h3>
+      </header>
+
       <p>Coming soon</p>
     </section>
+
   </main>
+
 </body>
+
 </html>

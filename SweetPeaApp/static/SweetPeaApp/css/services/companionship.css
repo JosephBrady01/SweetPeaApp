@@ -1,0 +1,239 @@
+/* =========================================
+   BASE PAGE STYLING
+   ========================================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5dcd4;
+  color: #2b2b2b;
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.service-companionship {
+  padding: 1.5rem 0 4rem;
+}
+
+.service-companionship section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.service-hero {
+  max-width: 960px;
+  margin: 0 auto 2.2rem;
+  padding: 0 1.5rem;
+}
+
+.hero-figure {
+  position: relative;
+  margin: 0;
+  background-color: #f5dcd4;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;          /* nice tall image */
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title-main {
+  position: absolute;
+  top: 1rem;
+  left: 1.3rem;
+  right: auto;
+  bottom: auto;
+
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 700;
+  color: #1f1b1a;
+  text-shadow: 0 3px 12px rgba(255, 255, 255, 0.9);
+}
+
+
+/* Tagline across the lower part of the image */
+.hero-tagline {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+
+  font-family: "Lora", "Times New Roman", serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  color: #2b2b2b;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   INTRO & OUTRO
+   ========================================= */
+
+.service-intro,
+.service-outro {
+  text-align: center;
+}
+
+.service-intro h1 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  margin-bottom: 1rem;
+}
+
+.service-intro p,
+.service-outro p {
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* =========================================
+   BENEFITS PANEL
+   ========================================= */
+
+.service-panel {
+  margin-top: 2.3rem;
+}
+
+.benefits-panel .panel-header h2 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2.1vw, 1.8rem);
+  margin-bottom: 1.3rem;
+  text-align: center;
+}
+
+.benefits-panel .panel-body {
+  background-color: #f3dde9;
+  border-radius: 24px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.benefits-stack {
+  list-style: none;
+  margin: 0 auto;                /* centers the whole list */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 480px;              /* keeps the column a nice readable width */
+  text-align: center;            /* centers the text inside each benefit */
+}
+
+
+.benefit-item {
+  background-color: #e2c0d4;
+  border-radius: 18px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   SERVICE NAVIGATION (Prev / Home / Next)
+   ========================================= */
+
+.service-nav {
+  margin-top: 2.6rem;
+}
+
+.service-nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;    /* wrap to two lines if needed */
+}
+
+.service-nav-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Primary = Next */
+.service-nav-btn--primary {
+  background: linear-gradient(135deg, #bfd9e3, #a7c7d8);
+  color: #28333a;
+}
+
+/* Secondary = Previous + Home */
+.service-nav-btn--secondary {
+  background: linear-gradient(135deg, #d5a6bd, #c48dad);
+  color: #2b2b2b;
+}
+
+/* Hover effects for active buttons */
+.service-nav-btn--primary:hover,
+.service-nav-btn--secondary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+/* Focus outline for keyboard navigation */
+.service-nav-btn:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVE TWEAKS
+   ========================================= */
+
+@media (max-width: 768px) {
+  .benefits-panel .panel-body {
+    padding: 1.7rem 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-companionship section {
+    padding: 0 1.1rem;
+  }
+
+  .hero-title-main {
+    text-align: left;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .hero-tagline {
+    width: 94%;
+    font-size: 1rem;
+  }
+
+  .benefits-panel .panel-body {
+    padding: 1.6rem 1.3rem;
+  }
+}

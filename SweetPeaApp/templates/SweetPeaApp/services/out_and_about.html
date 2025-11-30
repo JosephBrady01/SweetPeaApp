@@ -1,0 +1,109 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/services/out_and_about.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block content %}
+<section class="service-page service-out-about" aria-labelledby="out-about-heading">
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <figure class="hero-figure">
+      <img
+        src="{% static 'SweetPeaApp/images/out&about.jpeg' %}"
+        alt="Older person outdoors smiling in wheelchair"
+        class="hero-image"
+      >
+      <figcaption class="hero-title-main">
+        Out & About
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- INTRO COPY -->
+  <section class="service-intro">
+    <h1 id="out-about-heading">
+      Supportive transport and companionship for everyday independence
+    </h1>
+
+    <p>
+      At Sweet Pea Home Help, we believe that staying active and connected to your community is
+      essential for happiness and wellbeing — no matter your age. Our Out & About service helps
+      older adults and those needing a little extra support to get where they want to go, safely
+      and confidently.
+    </p>
+
+    <p>
+      Whether it’s a trip to the shops, a doctor’s or hospital appointment, a visit to friends,
+      or simply a walk and a coffee, our friendly companions are here to make every outing
+      enjoyable and stress-free.
+    </p>
+
+    <p>
+      We offer door-to-door transport and accompaniment, ensuring you have someone reliable by
+      your side the whole time. You’ll have the freedom to stay social, attend your favourite
+      activities, and keep your independence — without worrying about getting there and back.
+    </p>
+  </section>
+
+  <!-- BENEFITS PANEL -->
+  <section class="service-panel benefits-panel" aria-labelledby="out-about-benefits">
+    <header class="panel-header">
+      <h2 id="out-about-benefits">The Benefits of our Out & About Services</h2>
+    </header>
+
+    <section class="panel-body">
+      <ul class="benefits-stack">
+        <li class="benefit-item">
+          Safe, reliable transport for appointments, errands, and social outings.
+        </li>
+        <li class="benefit-item">
+          Friendly companionship for confidence and reassurance.
+        </li>
+        <li class="benefit-item">
+          Encouragement to stay active and connected within your community.
+        </li>
+        <li class="benefit-item">
+          Tailored support to suit your personal routine and needs.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <!-- OUTRO COPY -->
+  <section class="service-outro">
+    <p>
+      At Sweet Pea Home Help, it’s your time to enjoy — and we’re here to make every journey a
+      little brighter.
+    </p>
+  </section>
+
+  <!-- SERVICE NAVIGATION -->
+  <section class="service-nav" aria-label="Service navigation">
+    <div class="service-nav-inner">
+
+      <!-- Previous -->
+      <a href="{% url 'service_companionship' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        ← Previous
+      </a>
+
+      <!-- Home -->
+      <a href="{% url 'home' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        Home
+      </a>
+
+      <!-- Next -->
+      <a href="{% url 'service_respite_care' %}"
+         class="service-nav-btn service-nav-btn--primary">
+        Next →
+      </a>
+
+    </div>
+  </section>
+
+</section>
+{% endblock %}

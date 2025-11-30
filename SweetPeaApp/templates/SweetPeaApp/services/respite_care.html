@@ -1,0 +1,132 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/services/respite_care.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block content %}
+<section class="service-page service-respite" aria-labelledby="respite-heading">
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <figure class="hero-figure">
+      <img
+        src="{% static 'SweetPeaApp/images/respite.jpeg' %}"
+        alt="Hands held for comfort and reassurance"
+        class="hero-image"
+      >
+      <figcaption class="hero-title-main">
+        Respite
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- INTRO COPY -->
+  <section class="service-intro">
+    <h1 id="respite-heading">
+      Caring relief for family carers and peace of mind for loved ones
+    </h1>
+
+    <p>
+      At Sweet Pea Home Help, we understand how rewarding — and how demanding — it can be
+      to care for a loved one. Everyone deserves time to rest, recharge, or take care of
+      other responsibilities without worrying. Our Respite Support service provides trusted,
+      compassionate home help that gives carers the break they need while ensuring their loved
+      one continues to receive high-quality, friendly care at home.
+    </p>
+
+    <p>
+      Whether you need a few hours a week to run errands, attend appointments, or simply take
+      some time for yourself, our reliable team is here to help. We step in with warmth,
+      patience and professionalism — so you can relax knowing your loved one is safe, supported,
+      and comfortable.
+    </p>
+  </section>
+
+  <!-- OUR RESPITE HOME HELP INCLUDES (LIKE HOME HELP "INCLUDES") -->
+  <section class="service-panel includes-panel" aria-labelledby="respite-includes">
+    <header class="panel-header">
+      <h2 id="respite-includes">Our respite home help includes</h2>
+    </header>
+
+    <section class="panel-body">
+      <ul class="includes-grid">
+        <li class="includes-item">
+          <p class="includes-text">
+            Friendly companionship and conversation.
+          </p>
+        </li>
+        <li class="includes-item">
+          <p class="includes-text">
+            A calm, caring presence to ensure continuity and comfort.
+          </p>
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <!-- MIDDLE LINE OF TEXT -->
+  <section class="service-mid">
+    <p>
+      We tailor our respite care at home to each family’s needs — short-term,
+      regular, or occasional visits. Offering flexible support designed to fit
+      around your life.
+    </p>
+  </section>
+
+  <!-- BENEFITS PANEL (LIKE HOME HELP "BENEFITS") -->
+  <section class="service-panel benefits-panel" aria-labelledby="respite-benefits">
+    <header class="panel-header">
+      <h2 id="respite-benefits">The Benefits of Respite Services</h2>
+    </header>
+
+    <section class="panel-body">
+      <ul class="benefits-grid">
+        <li class="benefit-card">
+          Time to rest and recharge for family carers.
+        </li>
+        <li class="benefit-card">
+          Continued care and companionship for loved ones.
+        </li>
+        <li class="benefit-card benefit-card--full">
+          Confidence knowing help is provided by a kind, consistent team.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <!-- OUTRO COPY -->
+  <section class="service-outro">
+    <p>
+      At Sweet Pea Home Help, we’re here to care for the people who care for others.
+      Because taking a break shouldn’t mean worrying — it should mean peace of mind.
+    </p>
+  </section>
+
+  <!-- SERVICE NAVIGATION -->
+  <section class="service-nav" aria-label="Service navigation">
+    <div class="service-nav-inner">
+
+      <!-- Previous: Out & About -->
+      <a href="{% url 'service_out_and_about' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        ← Previous
+      </a>
+
+      <!-- Home -->
+      <a href="{% url 'home' %}"
+         class="service-nav-btn service-nav-btn--secondary">
+        Home
+      </a>
+
+      <!-- Next (none – last page) -->
+      <span class="service-nav-btn service-nav-btn--disabled" aria-disabled="true">
+        Next →
+      </span>
+
+    </div>
+  </section>
+
+</section>
+{% endblock %}

@@ -87,6 +87,18 @@ class TestimonialDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView)
         testimonial = self.get_object()
         return testimonial.author == self.request.user
     
+def home_help_view(request):
+    return render(request, "SweetPeaApp/services/home_help.html")
+
+def companionship_view(request):
+    return render(request, "SweetPeaApp/services/companionship.html")
+
+def out_and_about_view(request):
+    return render(request, "SweetPeaApp/services/out_and_about.html")
+
+def respite_care_view(request):
+    return render(request, "SweetPeaApp/services/respite_care.html")
+    
 # ------------------------------
 # 🔐 CUSTOM ADMIN PORTAL VIEWS
 # ------------------------------

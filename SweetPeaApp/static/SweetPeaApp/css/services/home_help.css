@@ -1,0 +1,364 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+/* ================================
+   HOME HELP SERVICE PAGE
+   ================================ */
+
+.service-home-help {
+  background-color: #f5dcd4;
+  padding: 1.5rem 0 4rem;   /* 1.5rem at top, 4rem at bottom */
+}
+
+
+/* Constrain content nicely */
+.service-home-help main,
+.service-home-help {
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.service-home-help .service-intro,
+.service-home-help .service-panel,
+.service-home-help .service-outro {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+   
+.service-hero {
+  max-width: 1040px;      /* was 900px */
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+  background-color: #f5dcd4;
+}
+
+
+
+.hero-figure {
+  position: relative;
+  margin: 0;
+  background-color: #f5dcd4;
+  border-radius: 24px;
+  overflow: hidden;         /* keep the image inside the rounded corners */
+  aspect-ratio: 4 / 3;     /* nice wide crop; adjust if you want it taller */
+}
+
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;             /* fill the figure */
+  object-fit: cover;        /* crop instead of letterbox */
+}
+
+
+
+/* Caption in TOP-LEFT instead of bottom-right */
+.hero-title {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.6rem;
+  right: auto;
+  bottom: auto;
+
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 700;
+  color: #2b2b2b;
+
+  text-shadow: 0 3px 10px rgba(255, 255, 255, 0.85);
+}
+
+
+/* ================================
+   INTRO COPY
+   ================================ */
+
+.service-intro h1 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  margin-bottom: 1rem;
+}
+
+.service-intro p {
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ================================
+   SHARED PANEL STYLES
+   ================================ */
+
+.service-panel {
+  margin-top: 2.5rem;
+}
+
+.service-panel .panel-header h2 {
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2.1vw, 1.8rem);
+  margin-bottom: 1.4rem;
+}
+
+.service-panel .panel-body {
+  background-color: #f8efe6;   /* inner card colour */
+  border-radius: 26px;
+  padding: 2.2rem 2.4rem 2.4rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ================================
+   INCLUDES GRID (ICON GROUPING)
+   ================================ */
+
+/* ================================
+   INCLUDES GRID (ICON GROUPING)
+   ================================ */
+
+/* ================================
+   INCLUDES GRID – RESPONSIVE
+   ================================ */
+
+.includes-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Automatically chooses 1, 2, 3 columns depending on space */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem 2.2rem;
+}
+
+.includes-item {
+  text-align: center;
+}
+
+.includes-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.includes-icon-image {
+  display: block;
+  width: 140px;
+  height: 140px;
+  max-width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.includes-figure figcaption {
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* Last item: always full row and centred */
+.includes-item--full {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 260px;
+}
+
+
+
+/* ================================
+   BENEFITS GRID
+   ================================ */
+
+/* ================================
+   BENEFITS GRID
+   ================================ */
+
+/* ================================
+   BENEFITS GRID – RESPONSIVE
+   ================================ */
+
+.benefits-panel .panel-body {
+  padding-top: 2rem;
+}
+
+.benefits-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Same trick: auto 1–2 columns depending on width */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem 1.6rem;
+}
+
+.benefit-card {
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Last card spans the full row and is centred */
+.benefit-card--full {
+  grid-column: 1 / -1;
+  max-width: 420px;
+  justify-self: center;
+}
+
+.benefit-card--green {
+  background-color: #a3b49b;
+  color: #1f2a1f;
+}
+
+.benefit-card--pink {
+  background-color: #d5a6bd;
+  color: #2b2b2b;
+}
+
+.benefit-card--neutral {
+  background-color: #a3b49b;
+  color: #2b2b2b;
+}
+
+
+/* ================================
+   OUTRO
+   ================================ */
+
+.service-outro {
+  margin-top: 2.2rem;
+}
+
+.service-outro p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ================================
+   SERVICE NAVIGATION (MATCH OTHER PAGES)
+   ================================ */
+
+.service-nav {
+  margin-top: 2.6rem;
+}
+
+.service-nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-nav-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* Primary = Next (gradient) */
+.service-nav-btn--primary {
+  background: linear-gradient(135deg, #bfd9e3, #a7c7d8);
+  color: #28333a;
+}
+
+/* Secondary = Home / Previous (gradient) */
+.service-nav-btn--secondary {
+  background: linear-gradient(135deg, #d5a6bd, #c48dad);
+  color: #2b2b2b;
+}
+
+/* Disabled (e.g. Previous on first page) */
+.service-nav-btn--disabled {
+  background-color: #e0d6d2;
+  color: #8a8683;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Hover effects for active buttons only */
+.service-nav-btn--primary:hover,
+.service-nav-btn--secondary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ============================================================
+   MOBILE LAYOUT FIX — ONE ITEM PER ROW (INCLUDES + BENEFITS)
+   ============================================================ */
+@media (width: 650px) {
+
+  /* Turn each grid into a vertical stack */
+  .includes-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.6rem !important;
+    align-items: center !important;
+  }
+
+  .benefits-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    align-items: center !important;
+  }
+
+  /* Make all items behave consistently */
+  .includes-item,
+  .includes-item--full,
+  .benefit-card,
+  .benefit-card--full {
+    width: 100% !important;
+    max-width: 420px !important;   /* keeps cards nicely centred */
+    margin: 0 auto !important;
+  }
+
+  /* Bigger icons on mobile */
+  .includes-icon-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}
+
+/* =========================================
+   HOME HELP – FIX BENEFITS LAYOUT
+   ========================================= */
+
+/* 1) Stop the "full-width" modifier from spanning all columns */
+.benefit-card--full {
+  grid-column: auto;
+}
+
+/* 2) On wide screens, force a 4-column layout */
+@media (min-width: 1024px) {
+  .benefits-panel .benefits-grid {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+}
+
