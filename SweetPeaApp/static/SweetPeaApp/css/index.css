@@ -106,8 +106,8 @@ html, body {
 
 .logo {
   margin-top: 5%;
-  width: 150%;
-  max-width: 100%;
+  width: 60%;
+  max-width: 320px;
   height: auto;
 }
 
@@ -1173,52 +1173,47 @@ main.content-page {
 /* =========================================
    TESTIMONIALS – tablet & mobile layout
    ========================================= */
+/* === MOBILE RESPONSIVE === */
 @media screen and (max-width: 954px) {
 
-  /* 1. Landing page: hide right image & curve */
+  /* 1. Hide large background images & curves on mobile only */
   .right,
-  .curve,
-  .image-view,              /* hide Why-Sweet-Pea image on mobile */
+  .image-view,
   .about-us-right,
   .about-us-curve,
-  .testimonial-image-view,  /* hide testimonial image on mobile */
-  .testimonial-curve {
+  .testimonial-image-view,
+  .testimonial-curve,
+  .curve {
     display: none !important;
   }
 
+  /* 2. Stack the sweep sections (Landing & Why Choose Sweet Pea) */
   .sweep-section {
     grid-template-columns: 1fr;
     height: auto;
-    min-height: auto;
+    min-height: 70vh;
   }
 
   .left-content {
     margin-top: 3rem;
     transform: none;
     top: auto;
-    height: auto;          /* was 100vh – this caused that huge tall block */
+    height: auto; /* don’t force 100vh on phones */
   }
 
-  /* Let sections grow naturally */
+  /* 3. Card section / services / about / contact – let them grow naturally */
   .cardSection,
   .services-section,
   .about-us,
   .contact-form {
     height: auto !important;
     min-height: unset !important;
-  }
-
-  /* Ensure each section has spacing from others */
-  .cardSection,
-  .services-section,
-  .about-us,
-  .contact-form {
     margin-bottom: 0;
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
 
-  /* 2. Cards stacked (cardSection) */
+  /* 4. Cards stacked */
   .three-card {
     grid-template-columns: 1fr;
   }
@@ -1238,12 +1233,12 @@ main.content-page {
     font-size: 18pt;
   }
 
-  /* 3. Services section stacked */
+  /* 5. Services grid stacked */
   .services-grid {
     grid-template-columns: 1fr;
   }
 
-  /* These are for the separate service pages */
+  /* Separate service pages */
   .content-page {
     width: 95%;
     padding: 25px 20px;
@@ -1253,7 +1248,7 @@ main.content-page {
     font-size: 2rem;
   }
 
-  /* 5. About Us layout change */
+  /* 6. About us – single column, no image */
   .about-us {
     grid-template-columns: 1fr;
     height: auto;
@@ -1267,17 +1262,13 @@ main.content-page {
     transform: none;
   }
 
-  .about-us-text {
-    font-size: 16pt;
-  }
-
   .about-us-image {
     border-radius: 30px;
     margin-bottom: 3%;
     width: 80%;
   }
 
-  /* 6. Contact form fit and resize */
+  /* 7. Contact form tweaks */
   .contact-form {
     height: auto;
     padding: 2rem 1rem;
@@ -1303,7 +1294,7 @@ main.content-page {
     width: 100%;
   }
 
-  /* Footer icons-only on mobile */
+  /* 8. Footer icons only on mobile */
   .footer-links {
     flex-direction: column;
     justify-content: space-around;
