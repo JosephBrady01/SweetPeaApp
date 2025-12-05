@@ -1173,41 +1173,155 @@ main.content-page {
 /* =========================================
    TESTIMONIALS – tablet & mobile layout
    ========================================= */
-@media screen and (max-width: 954px), screen and (max-height: 1025px) {
+@media screen and (max-width: 954px) {
 
-  /* Stack Testimonials as a single column and let it grow naturally */
-  #Testimonials {
+  /* 1. Landing page: hide right image & curve */
+  .right,
+  .curve,
+  .image-view,              /* hide Why-Sweet-Pea image on mobile */
+  .about-us-right,
+  .about-us-curve,
+  .testimonial-image-view,  /* hide testimonial image on mobile */
+  .testimonial-curve {
+    display: none !important;
+  }
+
+  .sweep-section {
     grid-template-columns: 1fr;
     height: auto;
     min-height: auto;
   }
 
-  #Testimonials .left {
-    padding: 3rem 1.5rem 2.5rem;
-    align-items: flex-start;   /* left-align content */
-  }
-
-  /* Override the global .left-content rule just for testimonials */
-  #Testimonials .left-content {
-    margin-top: 0;
-    top: auto;
+  .left-content {
+    margin-top: 3rem;
     transform: none;
-    height: auto;              /* 🔑 stop the 100vh nonsense */
+    top: auto;
+    height: auto;          /* was 100vh – this caused that huge tall block */
   }
 
-  /* Hide the image + SVG curve on tablet/mobile */
-  #Testimonials .testimonial-image-view,
-  #Testimonials .testimonial-curve {
-    display: none !important;
+  /* Let sections grow naturally */
+  .cardSection,
+  .services-section,
+  .about-us,
+  .contact-form {
+    height: auto !important;
+    min-height: unset !important;
   }
 
-  /* Slightly tweak text sizing for this range if needed */
-  #Testimonials .testimonial-heading {
+  /* Ensure each section has spacing from others */
+  .cardSection,
+  .services-section,
+  .about-us,
+  .contact-form {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+
+  /* 2. Cards stacked (cardSection) */
+  .three-card {
+    grid-template-columns: 1fr;
+  }
+
+  .card-one,
+  .card-two,
+  .card-three {
+    margin: 2rem auto;
+    width: 90%;
+  }
+
+  .card-text {
+    font-size: 16pt;
+  }
+
+  .button-text {
+    font-size: 18pt;
+  }
+
+  /* 3. Services section stacked */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* These are for the separate service pages */
+  .content-page {
+    width: 95%;
+    padding: 25px 20px;
+  }
+
+  .content-page h1 {
     font-size: 2rem;
   }
 
-  #Testimonials .testimonial-item p {
+  /* 5. About Us layout change */
+  .about-us {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .about-us-content {
+    max-width: 90%;
+    padding: 2rem 0;
+    height: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .about-us-text {
+    font-size: 16pt;
+  }
+
+  .about-us-image {
+    border-radius: 30px;
+    margin-bottom: 3%;
+    width: 80%;
+  }
+
+  /* 6. Contact form fit and resize */
+  .contact-form {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .form-card-outer,
+  .form-class-inner {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .form-class-inner {
+    align-items: center;
+    margin-left: 2.5%;
+  }
+
+  .form-info {
+    font-size: 16pt;
+  }
+
+  button[type="submit"] {
     font-size: 1rem;
+    width: 100%;
+  }
+
+  /* Footer icons-only on mobile */
+  .footer-links {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    gap: 1.2rem;
+  }
+
+  .link-item {
+    font-size: 0;
+  }
+
+  .link-item span {
+    display: none;
+  }
+
+  .link-item i {
+    font-size: 3.5rem;
   }
 }
 
