@@ -1316,6 +1316,43 @@ main.content-page {
   }
 }
 
+/* =========================================
+   FIX FOR SHORT SCREENS (iPad style)
+   Hide big side images for Why Sweet Pea + Testimonials
+   ========================================= */
+@media screen and (max-height: 1025px) {
+
+  /* Hide the right-side art in those sweep sections */
+  #WhySweetPea .image-view,
+  #WhySweetPea .curve,
+  #Testimonials .testimonial-image-view,
+  #Testimonials .testimonial-curve {
+    display: none !important;
+  }
+
+  /* Make those sections single-column so the text fills the width */
+  #WhySweetPea,
+  #Testimonials {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+  }
+
+  #WhySweetPea .left,
+  #Testimonials .left {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+
+  #WhySweetPea .left-content,
+  #Testimonials .left-content {
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+
 
 
   /* Prevent accidental side-scroll */
