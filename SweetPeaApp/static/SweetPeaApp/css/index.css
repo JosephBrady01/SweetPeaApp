@@ -275,7 +275,7 @@ article.service-card:hover {
 
 /* Service Card Backgrounds */
 #card-home-help {
-    background-image: url('/static/SweetPeaApp/images/Home_help.jpeg');
+    background-image: url('/static/SweetPeaApp/images/home_help.jpeg');
     background-position: center bottom;
 }
 #card-companionship {
