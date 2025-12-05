@@ -126,13 +126,16 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# where collected static files will be placed on Render
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# where your app-level static (SweetPeaApp/static/...) live in the repo
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / "static",   # keep if you have a project-level static folder
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 
 # Default primary key field type
