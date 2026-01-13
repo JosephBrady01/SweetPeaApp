@@ -114,9 +114,20 @@ html, body {
 .landing-text {
   font-size: 30pt;
   font-family: "Playfair Display", serif; /* <-- CHANGE THIS */
-  margin-top: 25%;
+  margin-top: 10%;
+  margin-bottom: 5%;
   color: #2b2b2b;
 }
+
+.landing-blurb {
+  font-weight: normal;
+  font-size: 30pt;
+  font-family: "Playfair Display", serif; /* <-- CHANGE THIS */
+  margin-top: 10%;
+  margin-bottom: 5%;
+  color: #2b2b2b;
+}
+
 .contact-button {
   height: 50px;
   width: 70%;
@@ -134,6 +145,28 @@ html, body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
+
+.sub-text {
+  font-size: 15pt;
+  color: #2b2b2b;
+  margin-top: 1rem;
+}
+
+.sub-text .phone-link {
+  color: #3a6b4f;               /* soft green to match button */
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.sub-text .phone-link:hover,
+.sub-text .phone-link:focus {
+  color: #2f5a42;
+  text-decoration-color: #2f5a42;
+}
+
 
 /* Right Column (Landing Image) */
 .right {
@@ -324,13 +357,6 @@ h3.card-title {
     font-weight: 700; 
     color: #333;
     margin: 0 0 15px 0;
-}
-
-.card-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #8c60b9;
-    margin-bottom: 20px;
 }
 
 .see-more-btn {

@@ -29,10 +29,10 @@
     <section class="left">
       <article class="left-content">
         <img src="{% static 'SweetPeaApp/images/Logo.png'  %}" alt="Sweet Pea Home Services Logo" class="logo" />
-        <h1 class="landing-text">Live well, Your way, At Home.</h1>
+        <h2 class="landing-blurb">compassionate, reliable home help tailored to you or your loved one, delivered with dignity and care</h2>
         <a href="#Form"><button class="form-button">Get in Touch</button></a>
-        <a href="tel:07767 538280" class="link-item" title="Phone" rel="noopener noreferrer"><button
-            class="contact-button">Call us today! 07767 538280</button></a>
+            <p class="sub-text">Or call us on <a href="tel:07767 538280" class="phone-link" title="Phone" rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
+            <h1 class="landing-text">Live well, Your way, At Home.</h1>
       </article>
     </section>
 
@@ -67,7 +67,6 @@
         <div class="card-content">
           <h3 class="card-title">Home Help</h3>
           <p class="card-description">Personalised household support</p>
-          <p class="card-price">From £20/hour</p>
           <a href="{% url 'service_home_help' %}" class="see-more-btn">See More</a>
         </div>
       </article>
@@ -76,7 +75,6 @@
         <div class="card-content">
           <h3 class="card-title">Companionship</h3>
           <p class="card-description">Friendly presence & conversation</p>
-          <p class="card-price">From £20/hour</p>
           <a href="{% url 'service_companionship' %}" class="see-more-btn">See More</a>
         </div>
       </article>
@@ -85,7 +83,6 @@
         <div class="card-content">
           <h3 class="card-title">Respite Care</h3>
           <p class="card-description">Peace of mind for families</p>
-          <p class="card-price">From £20/hour</p>
           <a href="{% url 'service_respite_care' %}" class="see-more-btn">See More</a>
         </div>
       </article>
@@ -94,7 +91,6 @@
         <div class="card-content">
           <h3 class="card-title">Out & About</h3>
           <p class="card-description">Transport and accompaniment</p>
-          <p class="card-price">From £20/hour</p>
           <a href="{% url 'service_out_and_about' %}" class="see-more-btn">See More</a>
         </div>
       </article>
@@ -192,7 +188,7 @@
   <section class="contact-form" id="Form">
     <h1 class="card-header">Enquiry Form - Get in Touch With Us</h1>
     <h2 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation
-      consultation to help you choose the right support- and we’ll provide a clear quote with no hidden fees.</h2>
+      consultation to help you choose the right kind of help - and we’ll provide a clear quote with no hidden fees.</h2>
     <section class="form-card-outer">
       <section class="form-class-inner">
         <form action="https://api.web3forms.com/submit" method="POST" class="form ">

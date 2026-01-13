@@ -7,7 +7,7 @@ body {
    ================================ */
 
 .service-home-help {
-  background-color: #f5dcd4;
+  background-color: #E6F1EB;
   padding: 1.5rem 0 4rem;   /* 1.5rem at top, 4rem at bottom */
 }
 
@@ -35,7 +35,8 @@ body {
   max-width: 1040px;      /* was 900px */
   margin: 0 auto 2rem;
   padding: 0 1.5rem;
-  background-color: #f5dcd4;
+  background-color: #E6F1EB;
+  text-align: center;
 }
 
 
@@ -43,7 +44,7 @@ body {
 .hero-figure {
   position: relative;
   margin: 0;
-  background-color: #f5dcd4;
+  background-color: #E6F1EB;
   border-radius: 24px;
   overflow: hidden;         /* keep the image inside the rounded corners */
   aspect-ratio: 4 / 3;     /* nice wide crop; adjust if you want it taller */
@@ -59,19 +60,12 @@ body {
 
 
 
-/* Caption in TOP-LEFT instead of bottom-right */
-.hero-title {
-  position: absolute;
-  top: 1.4rem;
-  left: 1.6rem;
-  right: auto;
-  bottom: auto;
 
+.service-heading {
   font-family: "Comfortaa", system-ui, sans-serif;
   font-size: clamp(2.2rem, 3.6vw, 3rem);
   font-weight: 700;
   color: #2b2b2b;
-
   text-shadow: 0 3px 10px rgba(255, 255, 255, 0.85);
 }
 
@@ -188,46 +182,34 @@ body {
   padding-top: 2rem;
 }
 
-.benefits-grid {
+/* =========================================
+   HOME HELP – BENEFITS STACK (match others)
+   ========================================= */
+
+.benefits-panel .panel-body {
+  text-align: center;
+}
+
+.benefits-panel .benefits-stack {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-
-  /* Same trick: auto 1–2 columns depending on width */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 480px; /* same as other pages */
 }
 
-.benefit-card {
-  border-radius: 18px;
-  padding: 1.1rem 1.2rem;
-  line-height: 1.5;
-  font-size: 0.98rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-}
-
-/* Last card spans the full row and is centred */
-.benefit-card--full {
-  grid-column: 1 / -1;
-  max-width: 420px;
-  justify-self: center;
-}
-
-.benefit-card--green {
-  background-color: #a3b49b;
+.benefits-panel .benefit-item {
+  background-color: #a3b49b; /* keep your green */
   color: #1f2a1f;
+  border-radius: 18px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.benefit-card--pink {
-  background-color: #d5a6bd;
-  color: #2b2b2b;
-}
-
-.benefit-card--neutral {
-  background-color: #a3b49b;
-  color: #2b2b2b;
-}
 
 
 /* ================================

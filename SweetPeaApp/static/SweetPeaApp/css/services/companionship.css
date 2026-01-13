@@ -28,6 +28,7 @@ body {
   max-width: 960px;
   margin: 0 auto 2.2rem;
   padding: 0 1.5rem;
+  text-align: center;
 }
 
 .hero-figure {
@@ -46,18 +47,12 @@ body {
   object-fit: cover;
 }
 
-.hero-title-main {
-  position: absolute;
-  top: 1rem;
-  left: 1.3rem;
-  right: auto;
-  bottom: auto;
-
+.service-heading {
   font-family: "Comfortaa", system-ui, sans-serif;
-  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
   font-weight: 700;
-  color: #1f1b1a;
-  text-shadow: 0 3px 12px rgba(255, 255, 255, 0.9);
+  color: #2b2b2b;
+  text-shadow: 0 3px 10px rgba(255, 255, 255, 0.85);
 }
 
 
