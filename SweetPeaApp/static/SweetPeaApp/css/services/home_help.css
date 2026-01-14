@@ -7,7 +7,7 @@ body {
    ================================ */
 
 .service-home-help {
-  background-color: #E6F1EB;
+  background-color: #9CB6A6;
   padding: 1.5rem 0 4rem;   /* 1.5rem at top, 4rem at bottom */
 }
 
@@ -35,7 +35,7 @@ body {
   max-width: 1040px;      /* was 900px */
   margin: 0 auto 2rem;
   padding: 0 1.5rem;
-  background-color: #E6F1EB;
+  background-color: #9CB6A6;
   text-align: center;
 }
 
@@ -44,7 +44,7 @@ body {
 .hero-figure {
   position: relative;
   margin: 0;
-  background-color: #E6F1EB;
+  background-color: #9CB6A6;
   border-radius: 24px;
   overflow: hidden;         /* keep the image inside the rounded corners */
   aspect-ratio: 4 / 3;     /* nice wide crop; adjust if you want it taller */

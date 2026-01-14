@@ -147,7 +147,7 @@ html, body {
 }
 
 .sub-text {
-  font-size: 15pt;
+  font-size: 20pt;
   color: #2b2b2b;
   margin-top: 1rem;
 }
@@ -326,7 +326,7 @@ article.service-card:hover {
 
 /* Service Card Gradients */
 #card-home-help::before {
-    background: linear-gradient(to top, #F8D8C5 20%, rgba(248, 216, 197, 0) 70%);
+    background: linear-gradient(to top, #9CB6A6 20%, rgba(248, 216, 197, 0) 70%);
 }
 #card-companionship::before {
     background: linear-gradient(to top, #D5A6BD 20%, rgba(213, 166, 189, 0) 70%);
@@ -746,7 +746,7 @@ h3.card-title {
 }
 
 .form-card-outer {
-  background-color: #DDEDE0;
+  background-color: #9CB6A6;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 2rem;
