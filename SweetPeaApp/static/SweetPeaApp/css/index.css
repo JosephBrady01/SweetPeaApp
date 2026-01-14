@@ -1385,3 +1385,78 @@ main.content-page {
   body {
     overflow-x: hidden;
   }
+  
+  /* =========================================
+   LANDING – mobile: image as background,
+   white text, hide SVG only
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* Override earlier "hide everything" rules */
+  #Landing .right {
+    display: none !important;
+  }
+
+  #Landing .curve {
+    display: none !important;
+  }
+
+  /* Turn landing into a background-image section */
+  #Landing {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 70vh;
+    position: relative;
+  }
+
+  #Landing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/static/SweetPeaApp/images/landing_page.jpeg');
+    background-size: cover;
+    background-position: 70%;
+    z-index: 0;
+  }
+
+  /* Dark overlay like quote section */
+  #Landing::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+  }
+
+  /* Make left column transparent */
+  #Landing .left {
+    background: transparent;
+    width: 100%;
+    z-index: 2;
+  }
+
+  #Landing .left-content {
+    position: relative;
+    z-index: 2;
+    transform: none;
+    top: auto;
+    max-width: 92%;
+    margin-bottom: 12%;
+    text-align: center;
+  }
+
+  /* White text on image */
+  #Landing .landing-blurb,
+  #Landing .landing-text,
+  #Landing .sub-text {
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+
+  #Landing .sub-text .phone-link {
+    color: #ffffff;
+    text-decoration-color: #ffffff;
+    font-weight: 700;
+  }
+}
