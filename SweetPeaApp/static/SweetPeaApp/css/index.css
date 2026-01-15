@@ -1392,6 +1392,10 @@ main.content-page {
    ========================================= */
 @media (max-width: 768px) {
 
+  #Landing .logo {
+    content: url('/static/SweetPeaApp/images/Logo-white.png');
+  }
+
   /* Override earlier "hide everything" rules */
   #Landing .right {
     display: none !important;
