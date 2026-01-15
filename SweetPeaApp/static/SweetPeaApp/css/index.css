@@ -1390,7 +1390,7 @@ main.content-page {
    LANDING – mobile: image as background,
    white text, hide SVG only
    ========================================= */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 1025px) {
 
   #Landing .logo {
     content: url('/static/SweetPeaApp/images/Logo-white.png');
