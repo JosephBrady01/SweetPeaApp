@@ -1,0 +1,94 @@
+/* ================================
+   Admin login (matches portal style)
+   ================================ */
+
+.portal-card h1 {
+  margin: 0 0 1.1rem;
+  font-family: "Comfortaa", system-ui, sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* Form layout */
+.portal-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Inputs styled to match portal */
+.portal-card input[type="text"],
+.portal-card input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(43, 43, 43, 0.18);
+  background: rgba(239, 225, 225, 0.35); /* ties into portal bg */
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  color: #2b2b2b;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.portal-card input::placeholder {
+  color: rgba(43, 43, 43, 0.65);
+}
+
+.portal-card input:focus {
+  border-color: rgba(158, 158, 204, 0.9); /* portal purple */
+  box-shadow: 0 0 0 4px rgba(158, 158, 204, 0.18);
+  background: #ffffff;
+}
+
+/* Make the login button match portal buttons */
+.portal-card button[type="submit"] {
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  background-color: #BFD9E3;
+  color: #2b2b2b;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.portal-card button[type="submit"]:hover {
+  background-color: #9E9ECC;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.portal-card button[type="submit"]:focus-visible,
+.portal-card input:focus-visible {
+  outline: 2px solid #2b2b2b;
+  outline-offset: 3px;
+}
+
+/* Error messages */
+.portal-card .error {
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(213, 166, 189, 0.35); /* soft pink */
+  border: 1px solid rgba(213, 166, 189, 0.7);
+  color: #2b2b2b;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .portal-card {
+    padding: 1.4rem 1.3rem;
+  }
+
+  .portal-card h1 {
+    font-size: 1.45rem;
+  }
+}
