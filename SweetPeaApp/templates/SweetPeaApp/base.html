@@ -168,9 +168,8 @@
     {% for testimonial in testimonials %}
     <article class="left-content testimonial-article">
       <blockquote class="testimonial-item">
-        <h2>{{ testimonial.reviewer }}</h2>
+        <h2>{{ testimonial.reviewer }} - {{ testimonial.location }}</h2>
         <p>{{ testimonial.body }}</p>
-        <small>{{ testimonial.author.first_name }} {{ testimonial.author.last_name }}</small>
       </blockquote>
     </article>
     {% endfor %}
