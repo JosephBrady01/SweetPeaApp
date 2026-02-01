@@ -33,7 +33,14 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "unsafe-dev-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",") if not DEBUG else ["127.0.0.1", "localhost"]
+if DEBUG:
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+else:
+    raw_hosts = os.getenv("DJANGO_ALLOWED_HOSTS", "")
+    ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(",") if h.strip()]
+    if not ALLOWED_HOSTS:
+        ALLOWED_HOSTS = [".onrender.com"]
+
 
 
 # Application definition
