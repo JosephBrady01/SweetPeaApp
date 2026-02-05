@@ -18,5 +18,10 @@ urlpatterns = [
     path("services/companionship/", views.companionship_view, name="service_companionship"),
     path("services/out-and-about/", views.out_and_about_view, name="service_out_and_about"),
     path("services/respite-care/", views.respite_care_view, name="service_respite_care"),
+
+    # Resource Documents
+    path("portal/resources/", views.resources_list, name="resources_list"),
+    path("portal/resources/upload/", views.resource_upload, name="resource_upload"),
+    path("portal/resources/<int:pk>/download/", views.resource_download, name="resource_download"),
 ]
 

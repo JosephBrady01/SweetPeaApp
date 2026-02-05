@@ -44,13 +44,19 @@
       </p>
     </section>
 
-    <!-- Blog card -->
-    <section class="portal-card disabled" aria-labelledby="manage-blog-heading">
+    <!-- Resource card -->
+    <section class="portal-card" aria-labelledby="manage-testimonials-heading">
       <header>
-        <h3 id="manage-blog-heading">Manage Blog Posts</h3>
+        <h3 id="manage-testimonials-heading">Manage resources</h3>
       </header>
 
-      <p>Coming soon</p>
+       <p>{{ resource_count }} resources stored.</p>
+
+      <p>
+        <a href="{% url 'resources_list' %}" class="btn">
+          Open
+        </a>
+      </p>
     </section>
 
   </main>

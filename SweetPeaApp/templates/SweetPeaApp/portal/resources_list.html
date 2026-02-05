@@ -1,0 +1,19 @@
+{% load static %}
+<h1>Resources</h1>
+
+{% if user.is_authenticated %}
+  <p><a href="{% url 'resource_upload' %}">Upload a document</a></p>
+{% endif %}
+
+<ul>
+  {% for d in docs %}
+    <li>
+      <strong>{{ d.title }}</strong><br />
+      {% if d.description %}<p>{{ d.description }}</p>{% endif %}
+      <a href="{% url 'resource_download' d.pk %}">Download</a>
+      <small>Uploaded: {{ d.created_at }}</small>
+    </li>
+  {% empty %}
+    <li>No resources yet.</li>
+  {% endfor %}
+</ul>

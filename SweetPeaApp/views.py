@@ -7,6 +7,10 @@ from django.contrib import messages
 from .forms import UserRegisterForm, TestimonialForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.http import FileResponse, Http404
+from django.utils.text import slugify
+from .forms import ResourceDocumentForm
+from .models import ResourceDocument
 
 
 # Create your views here.
@@ -239,4 +243,44 @@ class PortalTestimonialDeleteView(StaffRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, "🗑️ Testimonial deleted successfully.")
         return super().delete(request, *args, **kwargs)
+    
+# ------------------------------
+# 📁 RESOURCE DOCUMENT MANAGEMENT
+# ------------------------------
+
+@login_required
+def resources_list(request):
+    docs = ResourceDocument.objects.filter(is_published=True)
+    return render(request, "SweetPeaApp/portal/resources_list.html", {"docs": docs})
+
+@login_required
+def resource_upload(request):
+    if request.method == "POST":
+        form = ResourceDocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            doc = form.save(commit=False)
+            doc.uploaded_by = request.user
+            doc.save()
+            return redirect("resources_list")
+    else:
+        form = ResourceDocumentForm()
+    return render(request, "SweetPeaApp/portal/resources_upload.html", {"form": form})
+
+# app/views.py (add)
+from django.shortcuts import get_object_or_404
+
+def resource_download(request, pk: int):
+    doc = get_object_or_404(ResourceDocument, pk=pk, is_published=True)
+
+    if not doc.file or not doc.file.storage.exists(doc.file.name):
+        raise Http404("File missing")
+
+    # FileResponse streams efficiently
+    response = FileResponse(doc.file.open("rb"), as_attachment=True)
+
+    # Optional: nicer filename
+    safe_title = slugify(doc.title) or "resource"
+    original_ext = doc.file.name.split(".")[-1].lower()
+    response["Content-Disposition"] = f'attachment; filename="{safe_title}.{original_ext}"'
+    return response
 

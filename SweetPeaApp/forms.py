@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Testimonials
+from .models import ResourceDocument
 
 
 
@@ -38,3 +39,10 @@ class TestimonialForm(forms.ModelForm):
                 "class": "form-control"
             }),
         }
+# --------------------------
+# Resource Form (Portal)
+# --------------------------
+class ResourceDocumentForm(forms.ModelForm):
+    class Meta:
+        model = ResourceDocument
+        fields = ["title", "description", "file", "is_published"]
