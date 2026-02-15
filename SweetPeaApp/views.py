@@ -162,10 +162,12 @@ def portal_dashboard(request):
     Shows quick stats and navigation cards.
     """
     testimonial_count = Testimonials.objects.count()
+    resources_count = ResourceDocument.objects.count()
     user = request.user
 
     return render(request, 'SweetPeaApp/portal/dashboard.html', {
         'testimonial_count': testimonial_count,
+        'resources_count': resources_count,
         'user': user,
     })
 
@@ -249,9 +251,11 @@ class PortalTestimonialDeleteView(StaffRequiredMixin, DeleteView):
 # ------------------------------
 
 @login_required
+@user_passes_test(staff_check)
 def resources_list(request):
-    docs = ResourceDocument.objects.filter(is_published=True)
+    docs = ResourceDocument.objects.all().order_by("-created_at")
     return render(request, "SweetPeaApp/portal/resources_list.html", {"docs": docs})
+
 
 @login_required
 def resource_upload(request):

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Manage Resources – Admin Portal</title>
@@ -33,31 +34,37 @@
     </header>
 
     {% if docs %}
-      <section class="testimonial-list" aria-label="Existing resources">
-        {% for d in docs %}
-          <article class="portal-card portal-card--fixed" aria-label="Resource">
-            <section class="portal-card-body">
-              <p><strong>{{ d.title }}</strong></p>
-              {% if d.description %}
-                <p>{{ d.description }}</p>
-              {% endif %}
-              <p class="portal-card-meta">
-                <small>Added: {{ d.created_at|date:"j M Y" }}</small>
-              </p>
-            </section>
+    <section class="testimonial-list" aria-label="Existing resources">
+      {% for d in docs %}
+      <article class="portal-card portal-card--fixed" aria-label="Resource">
+        <section class="portal-card-body">
+          <p><strong>{{ d.title }}</strong></p>
+          {% if d.description %}
+          <p>{{ d.description }}</p>
+          {% endif %}
+          <p class="portal-card-meta">
+            <small>Added: {{ d.created_at|date:"j M Y" }}</small>
+            {% if d.is_published %}
+            <strong>Published</strong>
+            {% else %}
+            <strong>Unpublished</strong>
+            {% endif %}
+          </p>
+        </section>
 
-            <footer class="portal-actions" aria-label="Actions for this resource">
-              <a href="{% url 'resource_download' d.pk %}" class="btn btn-action">Download</a>
-              <a href="{% url 'resource_edit' d.pk %}" class="btn btn-action">Edit</a>
-              <a href="{% url 'resource_delete' d.pk %}" class="btn btn-action btn-danger">Delete</a>
-            </footer>
-          </article>
-        {% endfor %}
-      </section>
+        <footer class="portal-actions" aria-label="Actions for this resource">
+          <a href="{% url 'resource_download' d.pk %}" class="btn btn-action">Download</a>
+          <a href="{% url 'resource_edit' d.pk %}" class="btn btn-action">Edit</a>
+          <a href="{% url 'resource_delete' d.pk %}" class="btn btn-action btn-danger">Delete</a>
+        </footer>
+      </article>
+      {% endfor %}
+    </section>
     {% else %}
-      <p>No resources available.</p>
+    <p>No resources available.</p>
     {% endif %}
   </main>
 
 </body>
+
 </html>
