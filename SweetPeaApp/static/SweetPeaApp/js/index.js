@@ -50,9 +50,9 @@ if (form) {
   form.addEventListener('submit', () => gaEvent('form_submit_attempt'));
 }
 
-// A) Turn on debug for the whole session
-gtag('config', 'G-3TVNTPGJME', { debug_mode: true });
+// Enable debug only on localhost
+if (window.location.hostname === "localhost") {
+  gtag('config', 'G-3TVNTPGJME', { debug_mode: true });
+}
 
-// B) Or send a single debug event
-gtag('event', 'debug_ping', { debug_mode: true, source: 'console' });
 
