@@ -21,6 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path("resources/", views.public_resources, name="public_resources"),
+    path("resources/<int:pk>/download/", views.public_resource_download, name="public_resource_download"),
     path('admin/', admin.site.urls),
 
     # Homepage

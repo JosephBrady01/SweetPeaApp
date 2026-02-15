@@ -29,10 +29,14 @@
     <section class="left">
       <article class="left-content">
         <img src="{% static 'SweetPeaApp/images/Logo.png'  %}" alt="Sweet Pea Home Services Logo" class="logo" />
-        <h2 class="landing-blurb">Compassionate, reliable home help tailored to you or your loved one, delivered with dignity and care</h2>
+        <h2 class="landing-blurb">Compassionate, reliable home help tailored to you or your loved one, delivered with
+          dignity and care</h2>
         <a href="#Form"><button class="form-button">Get in Touch</button></a>
-            <p class="sub-text">Or call us on <a href="tel:07767 538280" class="phone-link" title="Phone" rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
-            <h1 class="landing-text">Live well, Your way, At Home.</h1>
+        <p class="sub-text">Or call us on <a href="tel:07767 538280" class="phone-link" title="Phone"
+            rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
+        <h1 class="landing-text">Live well, Your way, At Home.</h1>
+        <a target="_blank" rel="noopener noreferrer" href="https://nacas.org.uk/"><img class="NACAS"
+            src="{% static 'SweetPeaApp/images/NACAS.jpeg'  %}" alt="NACAS logo"></a>
       </article>
     </section>
 
@@ -42,18 +46,24 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-<section class="sweep-section" id="WhySweetPea">
+  <section class="sweep-section" id="WhySweetPea">
     <section class="left">
       <article class="left-content why-us-article">
         <h1 class="why-us-heading">Why choose our family-run home help service in the Vale of Glamorgan?</h1>
-        <p class="why-us-content">At Sweet Pea Home Help, we provide compassionate, reliable, and professional home support for individuals and families across the Vale of Glamorgan. Whether you need help with daily tasks, companionship, shopping, or light household duties, our friendly local team is here to make life easier and more comfortable in your own home.</p>
-        <p class="why-us-content">We pride ourselves on delivering personalised home help services that promote independence, dignity, and peace of mind.</p>
-        <p class="why-us-content">Choosing Sweet Pea Home Help means choosing a trusted, community-based service that truly cares. We’re here when you need us — from Barry to Cowbridge, Penarth to Llantwit Major — offering flexible support tailored to your individual needs.</p>
+        <p class="why-us-content">At Sweet Pea Home Help, we provide compassionate, reliable, and professional home
+          support for individuals and families across the Vale of Glamorgan. Whether you need help with daily tasks,
+          companionship, shopping, or light household duties, our friendly local team is here to make life easier and
+          more comfortable in your own home.</p>
+        <p class="why-us-content">We pride ourselves on delivering personalised home help services that promote
+          independence, dignity, and peace of mind.</p>
+        <p class="why-us-content">Choosing Sweet Pea Home Help means choosing a trusted, community-based service that
+          truly cares. We’re here when you need us — from Barry to Cowbridge, Penarth to Llantwit Major — offering
+          flexible support tailored to your individual needs.</p>
       </article>
     </section>
-    
+
     <section class="image-view"></section>
-    
+
     <svg class="curve" viewBox="0 0 100 100" preserveAspectRatio="none">
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
@@ -140,9 +150,10 @@
     </p>
     <a href="#Form"><button class="form-button">Get in Touch</button></a>
   </section>
-<section class="quote-full-bleed" id="QuoteSection">
+  <section class="quote-full-bleed" id="QuoteSection">
     <div class="quote-text-container">
-      <p class="quote-text">We believe in caring with compassion – bringing comfort, dignity, and joy to everyday life.</p>
+      <p class="quote-text">We believe in caring with compassion – bringing comfort, dignity, and joy to everyday life.
+      </p>
     </div>
   </section>
   <section class="about-us" id="AboutUs">
@@ -162,28 +173,33 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-<section class="sweep-section" id="Testimonials">
-  <section class="left">
-    <h1 class="testimonial-heading">Testimonials</h1>
-    {% for testimonial in testimonials %}
-    <article class="left-content testimonial-article">
-      <blockquote class="testimonial-item">
-        <h2>{{ testimonial.reviewer }} - {{ testimonial.location }}</h2>
-        <p>{{ testimonial.body }}</p>
-      </blockquote>
-    </article>
-    {% endfor %}
+  <section class="sweep-section" id="Testimonials">
+    <section class="left">
+      <h1 class="testimonial-heading">Testimonials</h1>
+      {% for testimonial in testimonials %}
+      <article class="left-content testimonial-article">
+        <blockquote class="testimonial-item">
+          <h2>{{ testimonial.reviewer }} - {{ testimonial.location }}</h2>
+          <p>{{ testimonial.body }}</p>
+        </blockquote>
+      </article>
+      {% endfor %}
+    </section>
+
+    <!-- Right side background image -->
+    <section class="testimonial-image-view"></section>
+
+    <!-- SVG curve (mirrored opposite to About Us) -->
+    <svg class="testimonial-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M100,0 C40,50 40,50 100,100 L0,100 L0,0 Z" fill="#EFE1E1" />
+    </svg>
   </section>
 
-  <!-- Right side background image -->
-  <section class="testimonial-image-view"></section>
+  <section class="resources">
+    <h2 class="button-text">Please check out our handy resources</h2>
+    <a href="{% url 'public_resources' %}"><button class="resource-button">Resources Page</button></a>
 
-  <!-- SVG curve (mirrored opposite to About Us) -->
-  <svg class="testimonial-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path d="M100,0 C40,50 40,50 100,100 L0,100 L0,0 Z" fill="#EFE1E1" />
-  </svg>
-</section>
-
+  </section>
   <section class="contact-form" id="Form">
     <h1 class="card-header">Enquiry Form - Get in Touch With Us</h1>
     <h2 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation

@@ -21,7 +21,13 @@ urlpatterns = [
 
     # Resource Documents
     path("portal/resources/", views.resources_list, name="resources_list"),
-    path("portal/resources/upload/", views.resource_upload, name="resource_upload"),
     path("portal/resources/<int:pk>/download/", views.resource_download, name="resource_download"),
+    path("portal/resources/upload/", views.resource_upload, name="resource_upload"),
+    path("portal/resources/<int:pk>/edit/", views.PortalResourceUpdateView.as_view(), name="resource_edit"),
+    path("portal/resources/<int:pk>/delete/", views.PortalResourceDeleteView.as_view(), name="resource_delete"),
+    path("resources/", views.public_resources, name="public_resources"),
+    path("resources/<int:pk>/download/", views.public_resource_download, name="public_resource_download"),
+
+
 ]
 

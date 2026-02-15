@@ -167,6 +167,12 @@ html, body {
   text-decoration-color: #2f5a42;
 }
 
+.NACAS {
+  width: 200px;
+  height: auto;
+  border-radius: 50px;
+}
+
 
 /* Right Column (Landing Image) */
 .right {
@@ -723,6 +729,31 @@ h3.card-title {
   z-index: 0;
 }
 
+.resources {
+  background-color: #EFE1E1;
+  padding: 4rem 0;
+  text-align: center;
+  font-size: 30pt;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.resource-button {
+  padding: 0.8rem 1.5rem;
+  font-family: "lato", sans-serif;
+  font-size: 20pt;
+  margin-bottom: 1%;
+  margin-bottom: 2%;
+  background-color:#C08497;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
 /* === CONTACT FORM SECTION === */
 .contact-form {

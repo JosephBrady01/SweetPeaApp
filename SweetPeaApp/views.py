@@ -284,3 +284,50 @@ def resource_download(request, pk: int):
     response["Content-Disposition"] = f'attachment; filename="{safe_title}.{original_ext}"'
     return response
 
+class PortalResourceUpdateView(StaffRequiredMixin, UpdateView):
+    model = ResourceDocument
+    form_class = ResourceDocumentForm
+    template_name = "SweetPeaApp/portal/resources_upload.html"  # reuse your form template
+    success_url = reverse_lazy("resources_list")
+
+    def form_valid(self, form):
+        messages.success(self.request, "✏️ Resource updated successfully.")
+        return super().form_valid(form)
+
+
+class PortalResourceDeleteView(StaffRequiredMixin, DeleteView):
+    model = ResourceDocument
+    template_name = "SweetPeaApp/portal/resources_confirm_delete.html"
+    success_url = reverse_lazy("resources_list")
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "🗑️ Resource deleted successfully.")
+        return super().delete(request, *args, **kwargs)
+    
+from django.shortcuts import render, get_object_or_404
+from django.http import FileResponse, Http404
+from django.utils.text import slugify
+
+from .models import ResourceDocument
+
+
+def public_resources(request):
+    docs = ResourceDocument.objects.filter(is_published=True).order_by("-created_at")
+    return render(request, "SweetPeaApp/resources.html", {"docs": docs})
+
+
+def public_resource_download(request, pk: int):
+    doc = get_object_or_404(ResourceDocument, pk=pk, is_published=True)
+
+    if not doc.file:
+        raise Http404("No file attached")
+
+    response = FileResponse(doc.file.open("rb"), as_attachment=True)
+
+    # Optional: nice filename
+    safe_title = slugify(doc.title) or "resource"
+    ext = doc.file.name.split(".")[-1].lower()
+    response["Content-Disposition"] = f'attachment; filename="{safe_title}.{ext}"'
+    return response
+
+

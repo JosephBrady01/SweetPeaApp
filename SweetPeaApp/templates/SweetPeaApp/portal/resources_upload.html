@@ -1,7 +1,61 @@
-<h1>Upload resource</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Resource – Admin Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Upload</button>
-</form>
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+</head>
+
+<body class="portal-body">
+
+  <header class="portal-header">
+    <h1>Upload Resource</h1>
+    <nav>
+      <a href="{% url 'resources_list' %}">Back to Resources</a>
+      <span> | </span>
+      <a href="{% url 'portal_logout' %}">Logout</a>
+    </nav>
+  </header>
+
+  <main class="portal-wrapper--form">
+    <div class="portal-form-container">
+      <form class="portal-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+          <label>Title</label>
+          {{ form.title }}
+          {{ form.title.errors }}
+        </div>
+
+        <div class="form-row">
+          <label>Description</label>
+          {{ form.description }}
+          {{ form.description.errors }}
+        </div>
+
+        <div class="form-row">
+          <label>File</label>
+          {{ form.file }}
+          {{ form.file.errors }}
+        </div>
+
+        <div class="form-row">
+          <label>Published</label>
+          {{ form.is_published }}
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Save</button>
+          <a href="{% url 'resources_list' %}" class="btn">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>

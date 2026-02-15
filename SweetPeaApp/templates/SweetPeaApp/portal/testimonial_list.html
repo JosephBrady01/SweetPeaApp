@@ -1,20 +1,73 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Resources – Admin Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <section class="portal-wrapper">
-    <h1>Manage Testimonials</h1>
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal.css' %}">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/portal_testimonials.css' %}">
+</head>
 
-    <a href="{% url 'portal_testimonial_form.html' %}" class="btn">+ Add new testimonial</a>
+<body class="portal-body">
 
-    {% for t in testimonials %}
-      <article class="portal-card">
-        <p>{{ t.body }}</p>
-        <small>{{ t.reviewer }} – {{ t.location }}</small>
-        <div class="portal-actions">
-          <a href="{% url 'portal_testimonial_edit' t.pk %}">Edit</a>
-          <a href="{% url 'portal_testimonial_delete' t.pk %}">Delete</a>
-        </div>
-      </article>
-    {% empty %}
-      <p>No testimonials yet.</p>
-    {% endfor %}
-  </section>
+  <header class="portal-header">
+    <h1>Manage Resources</h1>
+    <nav>
+      <a href="{% url 'portal_dashboard' %}">Dashboard</a>
+      <span> | </span>
+      <a href="{% url 'portal_logout' %}">Logout</a>
+    </nav>
+  </header>
+
+  <main class="portal-wrapper">
+    <header class="portal-heading">
+      <h2>Resources</h2>
+      <p>Upload and manage downloadable home care documents.</p>
+
+      <p>
+        <a href="{% url 'resource_upload' %}" class="btn">
+          + Add new resource
+        </a>
+      </p>
+    </header>
+
+    {% if docs %}
+      <section class="testimonial-list">
+        {% for d in docs %}
+          <article class="portal-card">
+            <section class="portal-card-body">
+              <p><strong>{{ d.title }}</strong></p>
+              {% if d.description %}
+                <p>{{ d.description }}</p>
+              {% endif %}
+              <p class="portal-card-meta">
+                <small>Added {{ d.created_at|date:"j M Y" }}</small>
+              </p>
+            </section>
+
+            <footer class="portal-actions">
+              <a href="{% url 'resource_download' d.pk %}"
+                 class="btn btn-action">
+                Download
+              </a>
+              <a href="{% url 'resource_edit' d.pk %}"
+                 class="btn btn-action">
+                Edit
+              </a>
+              <a href="{% url 'resource_delete' d.pk %}"
+                 class="btn btn-action btn-danger">
+                Delete
+              </a>
+            </footer>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <p>No resources available.</p>
+    {% endif %}
+  </main>
+
+</body>
+</html>

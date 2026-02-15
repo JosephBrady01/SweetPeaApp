@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="{% static 'SweetPeaApp/js/index.js' %}" defer></script>
+  <title>{% block title %}Resources{% endblock %}</title>
+</head>
+<body>
+
+  <main class="container" style="max-width: 960px; margin: 0 auto; padding: 2rem 1.2rem;">
+    <header style="margin-bottom: 1.5rem;">
+      <h1 style="margin-bottom: .3rem;">Resources</h1>
+      <p style="margin-top: 0;">Helpful home care documents available to download.</p>
+    </header>
+
+    <section style="display: grid; gap: 1rem;">
+      {% for d in docs %}
+        <article style="background: #fff; border-radius: 16px; padding: 1.2rem 1.3rem; box-shadow: 0 6px 16px rgba(0,0,0,0.08);">
+          <h2 style="margin: 0 0 .4rem 0; font-size: 1.1rem;">{{ d.title }}</h2>
+
+          {% if d.description %}
+            <p style="margin: 0 0 .8rem 0;">{{ d.description }}</p>
+          {% endif %}
+
+          <small style="display:block; margin-bottom: .8rem; color:#666;">
+            Added: {{ d.created_at|date:"j M Y" }}
+          </small>
+
+          <a href="{% url 'public_resource_download' d.pk %}" class="btn">
+            Download
+          </a>
+        </article>
+      {% empty %}
+        <p>No resources are available right now.</p>
+      {% endfor %}
+    </section>
+  </main>
+
+</body>
