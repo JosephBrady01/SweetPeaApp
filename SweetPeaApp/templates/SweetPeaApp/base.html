@@ -1,16 +1,66 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TVNTPGJME"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+(function () {
+  const CONSENT_KEY = "cookie_consent"; // "accepted" | "rejected"
 
-  gtag('config', 'G-3TVNTPGJME');
+  function hasConsent() {
+    return localStorage.getItem(CONSENT_KEY) === "accepted";
+  }
+
+  function setConsent(value) {
+    localStorage.setItem(CONSENT_KEY, value);
+  }
+
+  function loadGA() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+
+    const s1 = document.createElement("script");
+    s1.async = true;
+    s1.src = "https://www.googletagmanager.com/gtag/js?id=G-3TVNTPGJME";
+    document.head.appendChild(s1);
+
+    const s2 = document.createElement("script");
+    s2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3TVNTPGJME');
+    `;
+    document.head.appendChild(s2);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("cookie-accept");
+    const rejectBtn = document.getElementById("cookie-reject");
+
+    const existing = localStorage.getItem(CONSENT_KEY);
+
+    if (!existing) {
+      banner.style.display = "block";
+    } else if (existing === "accepted") {
+      loadGA();
+    }
+
+    acceptBtn.addEventListener("click", function () {
+      setConsent("accepted");
+      banner.style.display = "none";
+      loadGA();
+    });
+
+    rejectBtn.addEventListener("click", function () {
+      setConsent("rejected");
+      banner.style.display = "none";
+    });
+  });
+})();
 </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'SweetPeaApp/css/index.css' %}">
@@ -18,7 +68,22 @@
   <script src="{% static 'SweetPeaApp/js/index.js' %}" defer></script>
   <title>{% block title %}Sweet Pea Home Services{% endblock %}</title>
 </head>
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie banner">
+  <div class="cookie-banner__content">
+    <p>
+      We use cookies to improve your experience. We’d like to use analytics cookies to understand how our website is used.
+      You can accept or reject analytics cookies.
+    </p>
+    <p>
+      Read our <a href="{% url 'cookies' %}">Cookie Policy</a> and <a href="{% url 'privacy' %}">Privacy Notice</a>.
+    </p>
 
+    <div class="cookie-banner__actions">
+      <button type="button" id="cookie-accept" class="cookie-btn cookie-btn--accept">Accept</button>
+      <button type="button" id="cookie-reject" class="cookie-btn cookie-btn--reject">Reject</button>
+    </div>
+  </div>
+</div>
 <body>
   <nav class="dropdown-nav">
     <button class="nav-toggle">☰ Menu</button>
@@ -29,6 +94,7 @@
       <li><a href="#AboutSweetPea">Our Core Values</a></li>
       <li><a href="#AboutUs">About Us</a></li>
       <li><a href="#Testimonials">Testimonials</a></li>
+      <li><a href="#Resources">Resources</a></li>
       <li><a href="#Form">Enquiry Form</a></li>
       <li><a href="#Footer">Contact us</a></li>
     </ul>
@@ -203,7 +269,7 @@
     </svg>
   </section>
 
-  <section class="resources">
+  <section class="resources" id="Resources">
     <h2 class="button-text">Further Guidance and Support</h2>
     <a href="{% url 'public_resources' %}"><button class="resource-button">Explore Here</button></a>
 
@@ -244,6 +310,27 @@
       <span>Phone</span>
     </a>
   </footer>
+    <!-- Privacy Notice (new row, left aligned) -->
+  <div class="footer-legal">
+    <a href="{% url 'privacy' %}" class="footer-legal-link">
+      Privacy Policy
+    </a>
+    <a href="{% url 'cookies' %}" class="footer-legal-link">
+      Cookies Policy
+    </a>
+  </div>
+
+  <!-- Company address (already required) -->
+  <div class="footer-company-info">
+    <p><strong>Sweet Pea Home Help Ltd</strong></p>
+    <p>Registered office:</p>
+    <p>
+      4 Cowbridge Road<br>
+      St Athan<br>
+      Vale of Glamorgan<br>
+      CF62 4JB
+    </p>
+  </div>
   {% block content %} {% endblock %}
 </body>
 

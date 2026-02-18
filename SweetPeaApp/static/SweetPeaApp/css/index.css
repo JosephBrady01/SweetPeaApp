@@ -16,6 +16,44 @@ html, body {
   background-color:#EFE1E1;
 }
 
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(40, 40, 40, 0.95);
+  color: #fff;
+  z-index: 9999;
+  display: none;
+}
+
+.cookie-banner__content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cookie-banner a { color: #fff; text-decoration: underline; }
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-btn--accept { background: #b78fb2; color: #fff; }
+.cookie-btn--reject { background: #ffffff; color: #333; }
+
+
 /* === DROPDOWN NAV === */
 .dropdown-nav {
   position: fixed;
@@ -903,6 +941,46 @@ button[type="submit"]:hover {
 .link-item:hover span::after {
   opacity: 0;
 }
+
+/* --- Footer Legal Section --- */
+
+.footer-legal-link {
+  display: inline-block;
+  font-family: "playfair display", serif;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.footer-legal-link:hover {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+/* --- Company Information Block --- */
+
+.footer-company-info {
+  width: 100%;
+  margin-top: 0.8rem;
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+.footer-company-info p {
+  margin: 0.2rem 0;
+}
+
+.footer-company-info strong {
+  font-weight: 600;
+}
+
 
 /* === SERVICE PAGE STYLES (Not in base.html) === */
 nav .back-link {

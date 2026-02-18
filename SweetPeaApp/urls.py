@@ -28,6 +28,10 @@ urlpatterns = [
     path("resources/", views.public_resources, name="public_resources"),
     path("resources/<int:pk>/download/", views.public_resource_download, name="public_resource_download"),
 
-
+    # Privacy Policy
+    path("privacy/", views.privacy, name="privacy"),
+    
+    # Cookies Policy
+    path("cookies/", views.cookies, name="cookies"),
 ]
 

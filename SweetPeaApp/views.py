@@ -11,6 +11,7 @@ from django.http import FileResponse, Http404
 from django.utils.text import slugify
 from .forms import ResourceDocumentForm
 from .models import ResourceDocument
+from django.shortcuts import render
 
 
 # Create your views here.
@@ -23,6 +24,12 @@ def home(request):
     """
     testimonials = Testimonials.objects.all()
     return render(request, 'SweetPeaApp/base.html', {'testimonials': testimonials})
+
+def privacy(request):
+    return render(request, "SweetPeaApp/privacy.html")
+
+def cookies(request):
+    return render(request, "SweetPeaApp/cookies.html")
 
 
 def register(request):

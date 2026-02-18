@@ -1,0 +1,108 @@
+body {
+    background: #f3e6e6; 
+}
+
+.legal-actions {
+  text-align: left;
+  margin-top: 2.5rem;
+}
+
+.legal-back-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  background: #b78fb2; /* soft Sweet Pea tone */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.legal-back-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  color: black;
+}
+
+/* ============================================================
+   LEGAL PAGES (Privacy Notice / Cookie Policy)
+   ============================================================ */
+
+.legal-page {
+  background: #f3e6e6;            /* soft blush like Sweet Pea */
+}
+
+.legal-page .container {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: 2.2rem 2.2rem;
+  box-sizing: border-box;
+}
+
+/* Headings */
+.legal-page h1 {
+  text-align: center;
+  margin: 0 0 0.8rem 0;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+}
+
+.legal-page h2 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.35rem;
+}
+
+.legal-page h3 {
+  margin-top: 1.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+/* Text */
+.legal-page p {
+  margin: 0.6rem 0 0.9rem 0;
+  line-height: 1.7;
+}
+
+/* Lists */
+.legal-page ul {
+  margin: 0.4rem 0 1rem 0;
+  padding-left: 1.3rem;
+}
+
+.legal-page li {
+  margin: 0.35rem 0;
+}
+
+/* Links */
+.legal-page a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-page a:hover {
+  text-decoration: none;
+}
+
+/* Optional: soften the "Last updated" line */
+.legal-page p strong {
+  font-weight: 700;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .legal-page {
+    padding: 2.6rem 1rem;
+  }
+
+  .legal-page .container {
+    padding: 1.4rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .legal-page h1 {
+    text-align: left;
+  }
+}

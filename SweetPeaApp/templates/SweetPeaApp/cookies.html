@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/cookies.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>{% block title %}Cookies Policy{% endblock %}</title>
+</head>
+<div class="legal-actions">
+  <a href="{% url 'home' %}" class="legal-back-btn">
+    ← Back to Home
+  </a>
+</div>
+<section class="legal-page">
+  <div class="container">
+
+    <h1>Cookie Policy</h1>
+    <p><strong>Last updated:</strong> February 2026</p>
+
+    <h2>What Are Cookies?</h2>
+    <p>
+      Cookies are small text files stored on your device when you visit a website.
+      They help websites function correctly and provide information about how the site is used.
+    </p>
+
+    <h2>How We Use Cookies</h2>
+    <p>
+      Sweet Pea Home Help Ltd uses cookies to:
+    </p>
+    <ul>
+      <li>Ensure the website functions properly</li>
+      <li>Remember your cookie preferences</li>
+      <li>Understand how visitors use our website (with your consent)</li>
+    </ul>
+
+    <h2>Types of Cookies We Use</h2>
+
+    <h3>1. Essential Cookies</h3>
+    <p>
+      These cookies are necessary for the website to operate correctly.
+      They do not require your consent.
+    </p>
+    <p>
+      We use an essential cookie (or local storage setting) to remember
+      your cookie preferences.
+    </p>
+
+    <h3>2. Analytics Cookies (Google Analytics)</h3>
+    <p>
+      With your permission, we use Google Analytics to collect anonymised
+      information about how visitors use our website.
+    </p>
+    <p>
+      This may include:
+    </p>
+    <ul>
+      <li>Pages visited</li>
+      <li>Time spent on pages</li>
+      <li>Device type and browser</li>
+      <li>General geographic region (not precise location)</li>
+    </ul>
+    <p>
+      This helps us improve our website and understand what information is most useful.
+    </p>
+    <p>
+      Analytics cookies are only set if you click “Accept” on our cookie banner.
+      If you click “Reject”, no analytics cookies will be used.
+    </p>
+    <p>
+      You can read Google’s privacy policy here:
+      <br>
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+        https://policies.google.com/privacy
+      </a>
+    </p>
+
+    <h2>Contact Form Processing</h2>
+    <p>
+      Our enquiry form is processed using Web3Forms.
+      While this does not set tracking cookies for marketing purposes,
+      form submissions are transmitted securely to our business email account.
+    </p>
+    <p>
+      You can view Web3Forms’ privacy policy here:
+      <br>
+      <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">
+        https://web3forms.com/privacy
+      </a>
+    </p>
+
+    <h2>Managing Your Cookie Preferences</h2>
+    <p>
+      When you first visit our website, you are asked whether you wish to accept
+      or reject analytics cookies.
+    </p>
+    <p>
+      You can change your preference at any time by clearing your browser cookies
+      or by using our cookie settings link (if available in the footer).
+    </p>
+
+    <h2>How Long Cookies Are Stored</h2>
+    <p>
+      Essential cookies remain for as long as necessary to remember your
+      preferences.
+    </p>
+    <p>
+      Google Analytics cookies are set according to Google’s standard
+      retention periods.
+    </p>
+
+    <h2>Contact Us</h2>
+    <p>
+      If you have any questions about this Cookie Policy, please contact:
+    </p>
+    <p>
+      <strong>Sweet Pea Home Help Ltd</strong><br>
+      Registered office:<br>
+      4 Cowbridge Road<br>
+      St Athan<br>
+      Vale of Glamorgan<br>
+      CF62 4JB<br><br>
+      Email:
+      <a href="mailto:sweetpeahomehelp@gmail.com">
+        sweetpeahomehelp@gmail.com
+      </a>
+    </p>
+
+  </div>
+</section>
+
+{% block content %} {% endblock %}
