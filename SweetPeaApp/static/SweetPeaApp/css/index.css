@@ -809,9 +809,22 @@ h3.card-title {
   font-weight: normal;
   font-size: 20pt;
   color: #333;
-  margin: 0 auto 2rem auto;
   padding: 0 1rem;
   padding-bottom: 7%;
+}
+
+.our-service-title {
+  font-family: "Playfair Display", serif;
+  font-size: 24pt;
+  margin-bottom: 1rem;
+}
+
+.our-service-text {
+  font-family: "Lato", sans-serif;
+  font-size: 13pt;
+  color: #333;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 1rem;
 }
 
 .form-card-outer {
