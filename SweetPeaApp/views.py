@@ -333,12 +333,16 @@ def public_resource_download(request, pk: int):
     if not doc.file:
         raise Http404("No file attached")
 
-    response = FileResponse(doc.file.open("rb"), as_attachment=True)
+    if not doc.file.storage.exists(doc.file.name):
+        raise Http404("File not found")
 
-    # Optional: nice filename
+    filename = os.path.basename(doc.file.name)
+    name, ext = os.path.splitext(filename)
+
     safe_title = slugify(doc.title) or "resource"
-    ext = doc.file.name.split(".")[-1].lower()
-    response["Content-Disposition"] = f'attachment; filename="{safe_title}.{ext}"'
+    download_name = f"{safe_title}{ext.lower()}"
+
+    response = FileResponse(doc.file.open("rb"), as_attachment=True, filename=download_name)
     return response
 
 
