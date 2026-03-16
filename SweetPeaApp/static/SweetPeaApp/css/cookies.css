@@ -1,5 +1,6 @@
 body {
-    background: #f3e6e6; 
+    background: #f3e6e6;
+    font-family: "Lato", sans-serif; 
 }
 
 .legal-actions {
@@ -44,6 +45,7 @@ body {
 .legal-page h1 {
   text-align: center;
   margin: 0 0 0.8rem 0;
+  font-family: "Playfair Display", serif;
   font-size: clamp(2rem, 3vw, 2.75rem);
 }
 

@@ -40,7 +40,8 @@ body {
   text-align: center;
   font-size: clamp(2rem, 3vw, 2.75rem);
   margin: 0 0 0.75rem 0;
-  font-family: PLayfair Display, serif;  }
+  font-family: "PLayfair Display", serif;  
+}
 
 .legal-page p {
   line-height: 1.7;
@@ -51,7 +52,8 @@ body {
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   font-size: 1.35rem;
-  font-family: PLayfair Display, serif;  }
+  font-family: "PLayfair Display", serif;  
+}
 
 .legal-page ul {
   padding-left: 1.25rem;
