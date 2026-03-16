@@ -164,6 +164,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/var/data/media"
+MEDIA_ROOT = Path(os.environ.get("RENDER_DISK_PATH", BASE_DIR / "media")) / "media"
 
 
