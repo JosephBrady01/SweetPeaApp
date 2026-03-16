@@ -1,3 +1,4 @@
+import os
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
@@ -336,13 +337,5 @@ def public_resource_download(request, pk: int):
     if not doc.file.storage.exists(doc.file.name):
         raise Http404("File not found")
 
-    filename = os.path.basename(doc.file.name)
-    name, ext = os.path.splitext(filename)
-
-    safe_title = slugify(doc.title) or "resource"
-    download_name = f"{safe_title}{ext.lower()}"
-
-    response = FileResponse(doc.file.open("rb"), as_attachment=True, filename=download_name)
-    return response
-
+    return FileResponse(doc.file.open("rb"), as_attachment=True)
 
