@@ -81,15 +81,15 @@ html, body {
   background-color: #DDEDE0;
   border-radius: 0.5rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  max-height: 0;           /* collapsed by default */
+  max-height: 0;          
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-10px); /* slight slide effect */
+  transform: translateY(-10px); 
   transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-nav.open .nav-list {
-  max-height: 500px;  /* large enough for menu */
+  max-height: 500px;  
   opacity: 1;
   transform: translateY(0);
 }
@@ -133,7 +133,7 @@ html, body {
 
 .left-content {
   position: relative;
-  z-index: 2; /* On top of SVG */
+  z-index: 2; 
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -144,14 +144,13 @@ html, body {
 
 .logo {
   margin-top: 5%;
-  width: 60%;
-  max-width: 320px;
+  width: 80%;
   height: auto;
 }
 
 .landing-text {
   font-size: 30pt;
-  font-family: "Playfair Display", serif; /* <-- CHANGE THIS */
+  font-family: "Playfair Display", serif; 
   margin-top: 10%;
   margin-bottom: 5%;
   color: #2b2b2b;
@@ -160,7 +159,7 @@ html, body {
 .landing-blurb {
   font-weight: normal;
   font-size: 30pt;
-  font-family: "Playfair Display", serif; /* <-- CHANGE THIS */
+  font-family: "Playfair Display", serif; 
   margin-top: 10%;
   margin-bottom: 5%;
   color: #2b2b2b;
@@ -170,7 +169,7 @@ html, body {
   height: 50px;
   width: 70%;
   font-family: "Lato", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive text size */
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
   margin-bottom: 2%;
   background-color: #BFD9E3;
   border-radius: 30px;
@@ -191,7 +190,7 @@ html, body {
 }
 
 .sub-text .phone-link {
-  color: #3a6b4f;               /* soft green to match button */
+  color: #3a6b4f;               
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
@@ -227,7 +226,7 @@ html, body {
 
 h1.why-us-heading {
   font-family: "Playfair Display", serif;
-  font-size: clamp(2.4rem, 3vw, 2.8rem);  /* bigger, scales with screen */
+  font-size: clamp(2.4rem, 3vw, 2.8rem);  
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 1.75rem;
@@ -235,7 +234,7 @@ h1.why-us-heading {
 
 .why-us-content {
   font-family: "Lato", sans-serif;
-  font-size: clamp(1.1rem, 1.4vw, 1.3rem); /* comfortable reading size */
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem); 
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -249,7 +248,7 @@ h1.why-us-heading {
   width: 100%;
   height: 100%;
   background-image: url('/static/SweetPeaApp/images/landing_page.jpeg');
-  background-size: cover; /* <-- Fill the section */
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -271,7 +270,7 @@ h1.why-us-heading {
   width: 100%;
   height: 100%;
   background-image: url('/static/SweetPeaApp/images/why_sweetPea.jpeg');
-  background-size: cover; /* <-- Fill the section */
+  background-size: cover; 
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -432,7 +431,7 @@ h3.card-title {
   margin-bottom: 0;
 }
 
-.card-container, /* This class isn't in base.html, but I'll leave it */
+.card-container, 
 .services-section,
 .contact-form {
   margin-bottom: 2.5rem;
@@ -496,6 +495,12 @@ h3.card-title {
   align-self: end;
 }
 
+.sweet-pea-image-logo {
+  width: 30%;
+  height: auto;
+  align-self: end;
+}
+
 .button-text {
   margin-top: 1%;
   margin-bottom: 3%;
@@ -531,65 +536,56 @@ h3.card-title {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-  /* Use flexbox to position the text container */
   display: flex;
-  align-items: center; /* Vertically center */
-  justify-content: flex-start; /* Push to the left */
+  align-items: center; 
+  justify-content: flex-start;
 }
 
 .quote-text-container {
-  /* This creates the space on the left */
   padding-left: 8%; 
-
-  /* This controls the line length nicely */
-  max-width: 45%; /* <-- CHANGED FROM 40% */
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  max-width: 45%;
+  box-sizing: border-box;
 }
 .quote-text {
   font-family: "Playfair Display", serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem); /* <-- CHANGED (Made smaller) */
+  font-size: clamp(1.8rem, 3vw, 2.5rem); 
   line-height: 1.4;
   font-weight: 500;
-  color: black; /* Soft white text */
-  /* Add shadow for readability against the image */
+  color: black;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
 
 /* --- Responsive Adjustments for Mobile --- */
 @media (max-width: 768px) {
-/* 4. Quote section mobile layout */
   .quote-full-bleed {
-    height: 70vh; /* Shorter on mobile */
+    height: 70vh; 
     display: flex;
-    align-items: flex-end; /* Move text container to the BOTTOM */
-    justify-content: center; /* Center it horizontally */
-    position: relative; /* Needed for the opacity overlay */
+    align-items: flex-end; 
+    justify-content: center; 
+    position: relative;
   }
 
   .quote-full-bleed::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* ✅ stronger dark overlay */
+    background-color: rgba(0, 0, 0, 0.4); 
     z-index: 1;
   }
 
   .quote-text-container {
-    padding: 0; /* Reset desktop padding */
-    max-width: 90%; /* Allow it to be wide */
+    padding: 0; 
+    max-width: 90%; 
     text-align: center;
-    position: relative; /* Keep it relative */
-    z-index: 2; /* Ensure text is on top of the overlay */
-    
-    /* This positions it over the floral shirt area */
+    position: relative; 
+    z-index: 2; 
     margin-bottom: 10%; 
   }
   
  .quote-text {
     font-size: 1.5rem;
     line-height: 1.3;
-    color: #ffffff; /* ✅ white text on darker image */
+    color: #ffffff; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   }
 }
@@ -608,7 +604,7 @@ h3.card-title {
 
 .about-us-content {
   position: relative;
-  z-index: 2; /* On top of SVG */
+  z-index: 2; 
   width: 100%;
   max-width: 60%;
   margin: 0 auto;
@@ -660,61 +656,51 @@ h3.card-title {
   pointer-events: none;
 }
 
-/* LEFT side (About Us) */
 .about-us-curve {
   left: 23%;
   transform: scaleX(-1);
 }
 
-/* RIGHT side (Testimonials) */
 .testimonial-curve {
-  left: 23%;           /* 👈 bring it in to align with About Us */
+  left: 23%;           
   transform: scaleX(1);
 }
-
 
 .about-us,
 #Testimonials.sweep-section {
   background-color: #EFE1E1;
 }
 
-
-
 #Testimonials .left {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically centers the content block */
-  align-items: center;     /* Horizontally centers the content */
-  padding: 4rem 2rem;      /* Adds breathing room */
-  height: 100%;            /* Ensures it fills the column */
-  position: relative;      /* <-- ADD THIS */
-  z-index: 2;              /* <-- ADD THIS */
+  justify-content: center; /
+  align-items: center;     
+  padding: 4rem 2rem;      
+  height: 100%;            
+  position: relative;     
+  z-index: 2;             
 }
 
-
-
-/* This styles the "Testimonials" heading */
 #Testimonials .testimonial-heading {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   color: #000000;
-  margin-bottom: 3rem; /* Space between title and first quote */
+  margin-bottom: 3rem; 
   text-align: center;
 }
 
-/* This overrides the bad styles from .left-content */
 #Testimonials .testimonial-article {
-  position: static; /* Fixes the overlapping issue */
+  position: static; 
   transform: none;
   top: auto;
   width: 90%;
-  max-width: 700px; /* Keeps lines readable */
-  margin: 0 0 2rem 0; /* Creates nice spacing between quotes */
+  max-width: 700px; 
+  margin: 0 0 2rem 0; 
 }
 
-/* This styles the quote itself */
 #Testimonials .testimonial-item {
-  border-left: 4px solid #9E9ECC; /* Adds the accent border */
+  border-left: 4px solid #9E9ECC; 
   padding-left: 1.5rem;
   text-align: left;
 }
@@ -742,7 +728,7 @@ h3.card-title {
   font-style: normal;
   color: #000000;
   font-weight: 700;
-  display: block; /* Ensures it appears on its own line */
+  display: block; 
 }
 
 /* Right column (image background) */
@@ -1083,8 +1069,6 @@ main.content-page {
 
 /* === MOBILE RESPONSIVE === */
 @media screen and (max-width: 954px), screen and (max-height: 1025px)  {
-
-  /* 1. Landing page: hide image and SVG */
   .right,
   .curve {
     display: none !important;
@@ -1100,12 +1084,10 @@ main.content-page {
     margin-top: 3rem;
     transform: none;
     top: auto;
-    height: auto;         /* ✅ let it grow with content */
-    max-width: 90%;       /* ✅ a bit of breathing room at the sides */
+    height: auto;        
+    max-width: 90%;       
   }
-
-
-  /* Let sections grow naturally */
+  
   .cardSection,
   .services-section,
   .about-us,
@@ -1114,7 +1096,6 @@ main.content-page {
     min-height: unset !important;
   }
 
-  /* Ensure each section has spacing from others */
   .cardSection,
   .services-section,
   .about-us,
@@ -1178,7 +1159,7 @@ main.content-page {
   }
 
   .about-us-text {
-    font-size: 70; /* This seems like a typo, maybe 16pt? */
+    font-size: 70; 
   }
 
   .about-us-image {
@@ -1236,8 +1217,6 @@ main.content-page {
 
 /* === WHY SWEET PEA – tablet & mobile layout (<= 954px) === */
 @media (max-width: 954px) {
-
-  /* Make it a single-column layout */
   #WhySweetPea {
     grid-template-columns: 1fr;
     height: auto;
@@ -1257,14 +1236,12 @@ main.content-page {
     text-align: left;
   }
 
-  /* Hide the image + curve for this section on tablet & mobile */
   #WhySweetPea .image-view,
   #WhySweetPea .right,
   #WhySweetPea .curve {
     display: none;
   }
 
-  /* Text sizing for this range */
   #WhySweetPea h1.why-us-heading {
     font-size: 1.9rem;
     line-height: 1.3;
@@ -1279,15 +1256,12 @@ main.content-page {
 
 /* === WHY SWEET PEA – mobile layout === */
 @media (max-width: 768px) {
-
-  /* Make the section a single column and let it grow with content */
   #WhySweetPea {
     grid-template-columns: 1fr;
     height: auto;
     min-height: auto;
   }
 
-  /* Text column padding & alignment */
   #WhySweetPea .left {
     padding: 3rem 1.5rem 2.5rem;
   }
@@ -1299,7 +1273,6 @@ main.content-page {
     text-align: left;
   }
 
-  /* Hide the “why us” image and curve on small screens */
   #WhySweetPea .image-view {
     display: none;
   }
@@ -1308,7 +1281,6 @@ main.content-page {
     display: none;
   }
 
-  /* Slightly smaller but still readable text on mobile */
   #WhySweetPea h1.why-us-heading {
     font-size: 1.8rem;
   }
@@ -1346,7 +1318,7 @@ main.content-page {
     margin-top: 3rem;
     transform: none;
     top: auto;
-    height: auto; /* don’t force 100vh on phones */
+    height: auto;
   }
 
   /* 3. Card section / services / about / contact – let them grow naturally */
@@ -1386,7 +1358,6 @@ main.content-page {
     grid-template-columns: 1fr;
   }
 
-  /* Separate service pages */
   .content-page {
     width: 95%;
     padding: 25px 20px;
@@ -1469,8 +1440,6 @@ main.content-page {
    Hide big side images for Why Sweet Pea + Testimonials
    ========================================= */
 @media screen and (max-height: 1025px) {
-
-  /* Hide the right-side art in those sweep sections */
   #WhySweetPea .image-view,
   #WhySweetPea .curve,
   #Testimonials .testimonial-image-view,
@@ -1478,7 +1447,6 @@ main.content-page {
     display: none !important;
   }
 
-  /* Make those sections single-column so the text fills the width */
   #WhySweetPea,
   #Testimonials {
     grid-template-columns: 1fr;
@@ -1498,12 +1466,7 @@ main.content-page {
     max-width: 100%;
     text-align: left;
   }
-}
 
-
-
-
-  /* Prevent accidental side-scroll */
   body {
     overflow-x: hidden;
   }
@@ -1518,7 +1481,6 @@ main.content-page {
     content: url('/static/SweetPeaApp/images/Logo-white.png');
   }
 
-  /* Override earlier "hide everything" rules */
   #Landing .right {
     display: none !important;
   }
@@ -1527,7 +1489,6 @@ main.content-page {
     display: none !important;
   }
 
-  /* Turn landing into a background-image section */
   #Landing {
     display: flex;
     align-items: flex-end;
@@ -1546,7 +1507,6 @@ main.content-page {
     z-index: 0;
   }
 
-  /* Dark overlay like quote section */
   #Landing::after {
     content: "";
     position: absolute;
@@ -1555,7 +1515,6 @@ main.content-page {
     z-index: 1;
   }
 
-  /* Make left column transparent */
   #Landing .left {
     background: transparent;
     width: 100%;
@@ -1572,7 +1531,6 @@ main.content-page {
     text-align: center;
   }
 
-  /* White text on image */
   #Landing .landing-blurb,
   #Landing .landing-text,
   #Landing .sub-text {
