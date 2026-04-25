@@ -61,30 +61,67 @@
 })();
 </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'SweetPeaApp/css/index.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="{% static 'SweetPeaApp/js/index.js' %}" defer></script>
-  <title>{% block title %}Sweet Pea Home Help{% endblock %}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'SweetPeaApp/css/index.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="{% static 'SweetPeaApp/js/index.js' %}" defer></script>
+<!-- Primary SEO meta tags -->
+<title>{% block title %}Sweet Pea Home Help{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}Friendly, family-run home help and companionship across the Vale of Glamorgan — Barry, Penarth, Cowbridge and Llantwit Major. Compassionate support to help you live well at home.{% endblock %}">
+<link rel="canonical" href="https://sweetpeahomehelp.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sweet Pea Home Help | Home Help & Companionship in the Vale of Glamorgan">
+<meta property="og:description" content="Friendly, family-run home help and companionship across the Vale of Glamorgan. Compassionate support to help you live well at home.">
+<meta property="og:url" content="https://sweetpeahomehelp.co.uk/">
+<meta property="og:image" content="https://sweetpeahomehelp.co.uk{% static 'SweetPeaApp/images/Logo.png' %}">
+<meta property="og:locale" content="en_GB">
+<!-- Schema.org LocalBusiness markup helps Google understand the service area and contact details -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sweet Pea Home Help",
+  "image": "https://sweetpeahomehelp.co.uk{% static 'SweetPeaApp/images/Logo.png' %}",
+  "url": "https://sweetpeahomehelp.co.uk/",
+  "telephone": "+44 7767 538280",
+  "email": "sweetpeahomehelp@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4 Cowbridge Road",
+    "addressLocality": "St Athan",
+    "addressRegion": "Vale of Glamorgan",
+    "postalCode": "CF62 4JB",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Barry" },
+    { "@type": "City", "name": "Penarth" },
+    { "@type": "City", "name": "Cowbridge" },
+    { "@type": "City", "name": "Llantwit Major" },
+    { "@type": "AdministrativeArea", "name": "Vale of Glamorgan" }
+  ],
+  "description": "Family-run home help and companionship service supporting older people and families across the Vale of Glamorgan."
+}
+</script>
 </head>
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie banner">
-  <div class="cookie-banner__content">
-    <p>
-      We use cookies to improve your experience. We’d like to use analytics cookies to understand how our website is used.
-      You can accept or reject analytics cookies.
-    </p>
-    <p>
-      Read our <a href="{% url 'cookies' %}">Cookie Policy</a> and <a href="{% url 'privacy' %}">Privacy Notice</a>.
-    </p>
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie banner">
+    <div class="cookie-banner__content">
+      <p>
+        We use cookies to improve your experience. We’d like to use analytics cookies to understand how our website is used.
+        You can accept or reject analytics cookies.
+      </p>
+      <p>
+        Read our <a href="{% url 'cookies' %}">Cookie Policy</a> and <a href="{% url 'privacy' %}">Privacy Notice</a>.
+      </p>
 
-    <div class="cookie-banner__actions">
-      <button type="button" id="cookie-accept" class="cookie-btn cookie-btn--accept">Accept</button>
-      <button type="button" id="cookie-reject" class="cookie-btn cookie-btn--reject">Reject</button>
+      <div class="cookie-banner__actions">
+        <button type="button" id="cookie-accept" class="cookie-btn cookie-btn--accept">Accept</button>
+        <button type="button" id="cookie-reject" class="cookie-btn cookie-btn--reject">Reject</button>
+      </div>
     </div>
   </div>
-</div>
-<body>
   <nav class="dropdown-nav">
     <button class="nav-toggle">☰ Menu</button>
     <ul class="nav-list">
@@ -103,26 +140,25 @@
     <section class="left">
       <article class="left-content">
         <img src="{% static 'SweetPeaApp/images/Logo.png' %}" alt="Sweet Pea Home Help Logo" class="logo" />
+        <h1 class="landing-blurb">Home help in the Vale of Glamorgan</h1>
         <h2 class="landing-blurb">Compassionate, reliable home support tailored to you or your loved one — delivered with warmth, dignity and respect.</h2>
-        <a href="#Form"><button class="form-button">Get in Touch</button></a>
-        <p class="sub-text">Or call us on <a href="tel:07767 538280" class="phone-link" title="Phone"
-            rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
-        <h1 class="landing-text">Live well, Your way, At Home.</h1>
-        <a target="_blank" rel="noopener noreferrer" href="https://nacas.org.uk/"><img class="NACAS"
-            src="{% static 'SweetPeaApp/images/NACAS.jpeg'  %}" alt="NACAS logo"></a>
+         <!-- This button needs a redesign as it is now an a tag-->
+        <a href="#Form" class="form-button" role="button">Get in Touch</a>
+        <p class="sub-text">Or call us on <a href="tel:+447767538280" class="phone-link" title="Phone" rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
+        <h2 class="landing-text">Live well, Your way, At Home.</h2>
+        <a target="_blank" rel="noopener noreferrer" href="https://nacas.org.uk/"><img class="NACAS" src="{% static 'SweetPeaApp/images/NACAS.jpeg'  %}" alt="NACAS logo"></a>
       </article>
     </section>
-
     <section class="right"></section>
-
     <svg class="curve" viewBox="0 0 100 100" preserveAspectRatio="none">
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
+
   <section class="sweep-section" id="WhySweetPea">
     <section class="left">
       <article class="left-content why-us-article">
-        <h1 class="why-us-heading">Why choose our family-run home help service in the Vale of Glamorgan?</h1>
+        <h2 class="why-us-heading">Why choose our family-run home help service in the Vale of Glamorgan?</h2>
         <p class="why-us-content">At Sweet Pea Home Help, we provide compassionate, reliable, and professional home
           support for individuals and families across the Vale of Glamorgan. Whether you need help with daily tasks,
           companionship, shopping, or light household duties, our friendly local team is here to make life easier and
@@ -141,52 +177,50 @@
       <path d="M0,0 C60,50 60,50 0,100 L100,100 L100,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-  {% load static %}
-  <section class="services-section" id="Services">
-    <h2>Services</h2>
-    <div class="services-grid">
 
+  <section class="services-section" id="Services">
+    <h2>Our home support services</h2>
+    <p class="services-intro">Flexible, personalised support across the Vale of Glamorgan — choose the help that fits your life.</p>
+    <div class="services-grid">
       <article class="service-card" id="card-home-help">
         <div class="card-content">
           <h3 class="card-title">Home support</h3>
           <p class="card-description">Helping with everyday tasks so life feels easier</p>
-          <a href="{% url 'service_home_help' %}" class="see-more-btn">See More</a>
+          <a href="{% url 'service_home_help' %}" class="see-more-btn" aria-label="Learn more about home support services">See More</a>
         </div>
       </article>
-
       <article class="service-card" id="card-companionship">
         <div class="card-content">
           <h3 class="card-title">Companionship</h3>
           <p class="card-description">Friendly presence & conversation</p>
-          <a href="{% url 'service_companionship' %}" class="see-more-btn">See More</a>
+          <a href="{% url 'service_companionship' %}" class="see-more-btn" aria-label="Learn more about companionship support services">See More</a>
         </div>
       </article>
-
       <article class="service-card" id="card-respite">
         <div class="card-content">
           <h3 class="card-title">Respite for family carers</h3>
           <p class="card-description">Trusted support while you take a well earned break</p>
-          <a href="{% url 'service_respite_care' %}" class="see-more-btn">See More</a>
+          <a href="{% url 'service_respite_care' %}" class="see-more-btn" aria-label="Learn more about respite care for family carers">See More</a>
         </div>
       </article>
-
       <article class="service-card" id="card-out-about">
         <div class="card-content">
           <h3 class="card-title">Community and outings</h3>
           <p class="card-description">Enjoying life beyond the front door</p>
-          <a href="{% url 'service_out_and_about' %}" class="see-more-btn">See More</a>
+          <a href="{% url 'service_out_and_about' %}" class="see-more-btn" aria-label="Learn more about community outings and getting out and about">See More</a>
         </div>
       </article>
 
     </div>
   </section>
+
   <section class="cardSection" id="AboutSweetPea">
-    <h1 class="card-header">
+    <h2 class="card-header">
       Supporting loved ones to live independent lives in their own home
-    </h1>
+    </h2>
     <section class="three-card">
       <article class="card-one">
-        <h2 class="card-header">A customer led approach</h2>
+        <h3 class="card-header">A customer led approach</h3>
         <p class="card-text">
           Each support package is tailored to the needs of the customer, so
           you’ll get the practical and physical support you need. Whether you
@@ -197,7 +231,7 @@
           alt="Picture of a single Sweet Pea" />
       </article>
       <article class="card-two">
-        <h2 class="card-header">Home is where the heart is</h2>
+        <h3 class="card-header">Home is where the heart is</h3>
         <p class="card-text">
           We understand that your home is your sanctuary, and we want to
           provide a service that keeps you as independent as possible whilst
@@ -207,7 +241,7 @@
           alt="Picture of a heart"/>
       </article>
       <article class="card-three">
-        <h2 class="card-header"> Affordable, personalised at home support</h2>
+        <h3 class="card-header"> Affordable, personalised at home support</h3>
         <p class="card-text">
           We offer a personalised approach that ensures you always get the
           right support for your needs and wishes and at a time that suits
@@ -219,7 +253,8 @@
       If this sounds like something you’d be interested in, please fill out
       the form and we’ll get back to you.
     </p>
-    <a href="#Form"><button class="form-button">Get in Touch</button></a>
+    <!-- Same here-->
+    <a href="#Form" class="form-button" role="button">Get in Touch</a>
   </section>
   <section class="quote-full-bleed" id="QuoteSection">
     <div class="quote-text-container">
@@ -227,17 +262,17 @@
       </p>
     </div>
   </section>
+
   <section class="about-us" id="AboutUs">
     <section class="about-us-content">
-      <h1 class="card-header">About Us</h1>
-      <img class="about-us-image" src="{% static 'SweetPeaApp/images/AboutUsPhoto.jpg' %}"
-        alt="A photo of Sarah & Andy" />
-      <pre
-        class="about-us-text">We are Andy and Sarah, a husband and wife team based in the Vale Of Glamorgan, who are dedicated to helping you be as independent as possible. We have three grown up girls, one of whom has a severe learning disability, and we know personally how hard it can be to find someone you trust to look after your loved ones.</pre>
-      <pre
-        class="about-us-text">We made the decision to set up Sweet Pea Home Help as we know first hand how difficult it can be to access the right support. Following the sad loss of Sarah’s mum in 2017 we struggled to obtain the extra support her Dad needed as we could not be there everyday.</pre>
-      <pre
-        class="about-us-text">And if you were wondering why we are called Sweet Pea, it was Sarah’s Mum’s favourite flower.</pre>
+      <h2 class="card-header">About Us</h2>
+      <img class="about-us-image" src="{% static 'SweetPeaApp/images/AboutUsPhoto.jpg' %}" alt="Sarah and Andy, founders of Sweet Pea Home Help, in the Vale of Glamorgan" />
+      <p
+        class="about-us-text">We are Andy and Sarah, a husband and wife team based in the Vale Of Glamorgan, who are dedicated to helping you be as independent as possible. We have three grown up girls, one of whom has a severe learning disability, and we know personally how hard it can be to find someone you trust to look after your loved ones.</p>
+      <p
+        class="about-us-text">We made the decision to set up Sweet Pea Home Help as we know first hand how difficult it can be to access the right support. Following the sad loss of Sarah’s mum in 2017 we struggled to obtain the extra support her Dad needed as we could not be there everyday.</p>
+      <p
+        class="about-us-text">And if you were wondering why we are called Sweet Pea, it was Sarah’s Mum’s favourite flower.</p>
     </section>
     <section class="about-us-right"></section>
     <svg class="about-us-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -246,29 +281,31 @@
   </section>
   <section class="sweep-section" id="Testimonials">
     <section class="left">
-      <h1 class="testimonial-heading">Testimonials</h1>
+      <h2 class="testimonial-heading">Testimonials</h2>
       {% for testimonial in testimonials %}
       <article class="left-content testimonial-article">
         <blockquote class="testimonial-item">
-          <h2>{{ testimonial.reviewer }} - {{ testimonial.location }}</h2>
+          <h3>{{ testimonial.reviewer }} - {{ testimonial.location }}</h3>
           <p>{{ testimonial.body }}</p>
         </blockquote>
+      </article>
+      {% empty %}
+      <!-- Fallback shown only if the testimonials queryset is empty -->
+      <article class="left-content testimonial-article">
+        <p>We're proud of the relationships we build with the families we support. Get in touch and we'll be happy to share references.</p>
       </article>
       {% endfor %}
     </section>
 
-    <!-- Right side background image -->
     <section class="testimonial-image-view"></section>
-
-    <!-- SVG curve (mirrored opposite to About Us) -->
     <svg class="testimonial-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
       <path d="M100,0 C40,50 40,50 100,100 L0,100 L0,0 Z" fill="#EFE1E1" />
     </svg>
   </section>
-
   <section class="resources" id="Resources">
     <h2 class="button-text">Guidance and Support for Families</h2>
-    <a href="{% url 'public_resources' %}"><button class="resource-button">Explore Our Family Guides</button></a>
+    <!-- Same redesign here -->
+    <a href="{% url 'public_resources' %}" class="resource-button" role="button">Explore Our Family Guides</a>
 
   </section>
   <section class="contact-form" id="Form">
@@ -276,20 +313,30 @@
       <p class="our-service-text">Sweet Pea Home Help provides companionship and practical home support to help older people and families live well and independently in their own homes.</p>
       <p class="our-service-text">We specialise in lifestyle support and meaningful company. We do not provide personal care (such as washing, dressing or toileting) or medical services. 
         If personal care is ever required, we are happy to guide families towards an appropriate regulated provider.</p>
-    <h1 class="card-header">Enquiry Form - Get in Touch With Us</h1>
-    <h2 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation
-      consultation to help you choose the right kind of help - and we’ll provide a clear quote with no hidden fees.</h2>
+    <h2 class="card-header">Enquiry Form - Get in Touch With Us</h2>
+    <h3 class="form-info">Don’t hesitate to get in touch to discuss what you need. We offer a free, no obligation
+      consultation to help you choose the right kind of help - and we’ll provide a clear quote with no hidden fees.</h3>
     <section class="form-card-outer">
       <section class="form-class-inner">
-        <form action="https://api.web3forms.com/submit" method="POST" class="form ">
-          <input type="hidden" name="access_key" value="5ce6e94e-f663-47cd-b000-82c69d23e143">
-          <input type="text" name="name" placeholder="Your Name" class="form-input" required>
-          <input type="email" name="email" placeholder="Your Email" class="form-input" required>
-          <input type="text" name="postcode" placeholder="Your Postcode" class="form-input" required>
-          <input type="number" name="phone" placeholder="Your Phone Number" class="form-input" required>
-          <textarea name="message" placeholder="Please Type Here" class="form-input" required></textarea>
-          <button type="submit"> Submit </button>
-        </form>
+<form action="https://api.web3forms.com/submit" method="POST" class="form" id="enquiry-form">
+  <input type="hidden"   name="access_key" value="5ce6e94e-f663-47cd-b000-82c69d23e143">
+  <input type="hidden"   name="subject"    value="New enquiry from Sweet Pea Home Help website">
+  <input type="hidden"   name="from_name"  value="Sweet Pea Home Help website">
+  <input type="checkbox" name="botcheck"   style="display: none;" tabindex="-1" autocomplete="off">
+  <input type="hidden"   name="redirect"   value="https://sweetpeahomehelp.co.uk/thank-you/">
+  <input type="text"     name="name"       placeholder="Your Name"           class="form-input" required minlength="2">
+  <input type="email"    name="email"      placeholder="Your Email"          class="form-input" required>
+  <input type="text"     name="postcode"   placeholder="Your Postcode"       class="form-input" required>
+  <input type="tel"      name="phone"      placeholder="Your Phone Number"   class="form-input" required pattern="[0-9\s\+\-\(\)]{7,}" inputmode="tel" autocomplete="tel">
+  <textarea name="message" placeholder="Please tell us a little about how we can help" class="form-input" required minlength="10"></textarea>
+  <button type="submit">Submit</button>
+  <!-- Fallback: if anything goes wrong, give them a direct route -->
+  <p class="form-fallback">
+    Having trouble? Email us directly at
+    <a href="mailto:sweetpeahomehelp@gmail.com">sweetpeahomehelp@gmail.com</a>
+    or call <a href="tel:+447767538280">07767 538280</a>.
+  </p>
+</form>
       </section>
     </section>
   </section>
@@ -306,7 +353,7 @@
       <i class="fa-solid fa-envelope"></i>
       <span>Email</span>
     </a>
-    <a href="tel:07767 538280" class="link-item" title="Phone" rel="noopener noreferrer">
+    <a href="tel:+447767538280" class="link-item" title="Phone" rel="noopener noreferrer">
       <i class="fa-solid fa-phone"></i>
       <span>Phone</span>
     </a>
@@ -320,7 +367,6 @@
       Cookies Policy
     </a>
   </div>
-
   <!-- Company address (already required) -->
   <div class="footer-company-info">
     <p><strong>Sweet Pea Home Help Ltd</strong></p>
@@ -334,7 +380,4 @@
   </div>
   {% block content %} {% endblock %}
 </body>
-
-</html>
-
 </html>
