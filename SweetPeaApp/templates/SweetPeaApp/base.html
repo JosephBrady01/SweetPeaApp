@@ -142,7 +142,6 @@
         <img src="{% static 'SweetPeaApp/images/Logo.png' %}" alt="Sweet Pea Home Help Logo" class="logo" />
         <h1 class="landing-blurb">Home help in the Vale of Glamorgan</h1>
         <h2 class="landing-blurb">Compassionate, reliable home support tailored to you or your loved one — delivered with warmth, dignity and respect.</h2>
-         <!-- This button needs a redesign as it is now an a tag-->
         <a href="#Form" class="form-button" role="button">Get in Touch</a>
         <p class="sub-text">Or call us on <a href="tel:+447767538280" class="phone-link" title="Phone" rel="noopener noreferrer">07767 538280</a> for a friendly chat</p>
         <h2 class="landing-text">Live well, Your way, At Home.</h2>
@@ -253,7 +252,6 @@
       If this sounds like something you’d be interested in, please fill out
       the form and we’ll get back to you.
     </p>
-    <!-- Same here-->
     <a href="#Form" class="form-button" role="button">Get in Touch</a>
   </section>
   <section class="quote-full-bleed" id="QuoteSection">
@@ -290,7 +288,6 @@
         </blockquote>
       </article>
       {% empty %}
-      <!-- Fallback shown only if the testimonials queryset is empty -->
       <article class="left-content testimonial-article">
         <p>We're proud of the relationships we build with the families we support. Get in touch and we'll be happy to share references.</p>
       </article>
@@ -304,7 +301,6 @@
   </section>
   <section class="resources" id="Resources">
     <h2 class="button-text">Guidance and Support for Families</h2>
-    <!-- Same redesign here -->
     <a href="{% url 'public_resources' %}" class="resource-button" role="button">Explore Our Family Guides</a>
 
   </section>
@@ -358,7 +354,6 @@
       <span>Phone</span>
     </a>
   </footer>
-    <!-- Privacy Notice (new row, left aligned) -->
   <div class="footer-legal">
     <a href="{% url 'privacy' %}" class="footer-legal-link">
       Privacy Policy
@@ -367,7 +362,6 @@
       Cookies Policy
     </a>
   </div>
-  <!-- Company address (already required) -->
   <div class="footer-company-info">
     <p><strong>Sweet Pea Home Help Ltd</strong></p>
     <p>Registered office:</p>
