@@ -283,7 +283,7 @@ h2.why-us-heading {
   top: 0;
   left: 23%;
   width: 50vw;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   pointer-events: none;
   transform: scaleX(-1);
