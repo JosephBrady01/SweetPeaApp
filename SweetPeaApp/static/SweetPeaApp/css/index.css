@@ -114,32 +114,33 @@ html, body {
 }
 
 /* === SWEEP SECTIONS (Landing & Why Choose Us) === */
+/* Use min-height so the section grows when content is taller than the viewport */
 .sweep-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
-/* Left Column */
+/* Left Column - flex layout vertically centres the content without clipping */
 .left {
   background-color: #EFE1E1;
   position: relative;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
 .left-content {
   position: relative;
-  z-index: 2; 
+  z-index: 2;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .logo {
