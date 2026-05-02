@@ -159,7 +159,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",   # keep if you have a project-level static folder
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 
