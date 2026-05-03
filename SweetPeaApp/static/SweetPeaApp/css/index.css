@@ -516,6 +516,14 @@ h3.card-title {
   font-size: 24pt;
 }
 
+  p.card-outro {
+    margin-top: 1%;
+    margin-bottom: 3%;
+    font-family: "lato", sans-serif;
+    font-size: 24pt;
+    font-style: italic;
+  }
+
 .form-button,
 .resource-button {
   text-decoration: none;       
